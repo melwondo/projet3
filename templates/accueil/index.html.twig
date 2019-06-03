@@ -7,6 +7,7 @@
 
 {% block content %}
 <img src="{{ asset('build/images/imageSousNav.jpg') }}" class="img-fluid" width="100%" alt="Votre partenaire info...">
+{# card #}
 <div class="container-fluid pt-5">
     <div class="row d-flex justify-content-center">
         <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
@@ -50,22 +51,173 @@
             <div class="card-header">Assistance</div>
             <div class="card-body">
                 <h4 class="card-title">Primary card title</h4>
-                <p class="card-text">Nous assurons un support téléphonique, une télémaintenance et une maintenance physique
-                 (inclus dans les contrats de maintenance et d’extension de garantie).</p>
+                <p class="card-text">Nous assurons un support téléphonique, une télémaintenance et une maintenance
+                    physique
+                    (inclus dans les contrats de maintenance et d’extension de garantie).</p>
             </div>
         </div>
         <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
             <div class="card-header">Maintenance</div>
             <div class="card-body">
                 <h4 class="card-title">Primary card title</h4>
-                <p class="card-text">Lors d’une nouvelle installation, nous proposons un contrat de maintenance et une extension
-                 de garantie jusqu’à 36 mois, afin de vous accompagner au quotidien et si nécessaire nous intervenons sur site à J+1 ouvré.
-                Nous avons également des forfaits d’intervention pour l’entretien et la réparation des parcs existants.</p>
+                <p class="card-text">Lors d’une nouvelle installation, nous proposons un contrat de maintenance et une
+                    extension
+                    de garantie jusqu’à 36 mois, afin de vous accompagner au quotidien et si nécessaire nous intervenons
+                    sur site à J+1 ouvré.
+                    Nous avons également des forfaits d’intervention pour l’entretien et la réparation des parcs
+                    existants.</p>
+            </div>
+        </div>
+        <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
+            <div class="card-header">Intervention</div>
+            <div class="card-body">
+                <h4 class="card-title">Primary card title</h4>
+                <p class="card-text">Intervention et assistance sur poste informatique. Diagnostic et résolution de
+                    dysfonctionnement de vos équipements informatiques</p>
             </div>
         </div>
     </div>
-
-
 </div>
 
+
+{# qui somme nous #}
+
+<div class="container pt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 d-flex justify-content-center">
+            <img src="{{ asset('build/images/QSnous.png') }}" class="img-fluid" width="50%">
+        </div>
+        <div class="col-7 align-self-center">
+            <h4>Qui sommes nous </h4>
+            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio qui
+                quia architecto
+                minima quas quae laudantium atque?</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+{# Ils nous font confiance #}
+<div class="container pt-5">
+    <div class="row d-flex justify-content-center">
+        <h4>Ils nous font confiance</h4>
+    </div>
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item  pt-3" data-ride="carousel">
+
+        <!--Controls-->
+        {# <div class="controls-top">
+            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                    class="fas fa-chevron-right"></i></a>
+        </div> #}
+        <!--/.Controls-->
+
+        <!--Indicators-->
+        {# <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+            <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol> #}
+        <!--/.Indicators-->
+
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+
+            <!--First slide-->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.First slide-->
+
+            <!--Second slide-->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Second slide-->
+
+            <!--Third slide-->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Third slide-->
+
+        </div>
+        <!--/.Carousel Wrapper-->
+    </div>
+</div>
 {% endblock %}
