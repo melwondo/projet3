@@ -35,3 +35,19 @@ footer p{
 .card:hover{
     transform: scale(1.05);
 }
+
+.parallax {
+    /* The image used */
+  
+    /* Full height */
+    background-image: url("../images/paraIndex.jpg");
+    height: 250px;
+    
+
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
