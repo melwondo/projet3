@@ -5,8 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ServiceRepository;
-use App\Entity\DetailService;
 use App\Repository\DetailServiceRepository;
+use PHPStan\Symfony\Service;
 
 class AccueilController extends AbstractController
 {
@@ -26,9 +26,9 @@ class AccueilController extends AbstractController
     /**
      * @Route("/accueil/{id}", name="accueil_service")
      */
-    public function detail(DetailService $service)
+    public function detail(DetailServiceRepository $detail_service, Service $service)
     {
-        $detail_service = $service->findBy(['id' => $service->getId()]);
+        $detail_service = $detail_service->findBy(['service' => $service->getId()]);
 
         return $this->render('services/details.html.twig', [
             'controller_name' => 'ServicesController',
