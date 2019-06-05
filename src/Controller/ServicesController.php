@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Service;
 use App\Entity\DetailService;
+use App\Repository\DetailServiceRepository;
+use App\Repository\ServiceRepository;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,14 +15,11 @@ class ServicesController extends AbstractController
     /**
      * @Route("/services", name="services")
      */
-    public function index()
+    public function index(ServiceRepository $service)
     {
-        $services = $this->getDoctrine()
-            ->getRepository(Service::class)
-            ->findBy(['visible'=>1]);
+        $services = $service->findBy(['visible'=>1]);
 
         return $this->render('services/index.html.twig', [
-            'controller_name' => 'ServicesController',
             'services' => $services
         ]);
     }
@@ -30,14 +29,12 @@ class ServicesController extends AbstractController
     /**
      * @Route("/services/{id}", name="service_detail")
      */
-    public function details(Service $service)
+    public function details(Service $service, DetailServiceRepository $detail_service)
     {
-        $detail_service = $this->getDoctrine()
-            ->getRepository(DetailService::class)
-            ->findBy(['service'=>$service->getId()]);
+
+        $detail_service = $detail_service ->findBy(['service'=>$service->getId()]);
 
         return $this->render('services/details.html.twig', [
-            'controller_name' => 'ServicesController',
             'details' => $detail_service,
             'service' => $service
         ]);
