@@ -1,0 +1,7 @@
+id	titre	subtitle	contenu	url_img	visible
+1	Conseil	NULL	Notre principale préoccupation est d’apporter les solutions adaptées à vos besoins et de vous orienter vers les bons choix, en optimisant les propositions de matériel à votre usage et votre activité.	conseil.png	1
+2	Vente	NULL	Accès InfoServices vous fournira très rapidement tout le matériel dont vous pouvez avoir besoin quelle que soit votre activité (en cas d’extrême urgence nous avons un stock permanent permettant une livraison dans la journée).	vente.png	1
+3	Installation	NULL	Nous faisons tout, lors de l’installation de votre nouveau matériel, pour vous permettre de travailler le plus normalement possible ; si nécessaire nous n’hésitons pas à travailler pendant vos horaires de fermetures. Nous vous accompagnons dans la migration de vos logiciels existants, le transfert de vos données et leurs sauvegardes.	installation.png	1
+4	Assistance	NULL	Nous assurons un support téléphonique, une télémaintenance et une maintenance physique (inclus dans les contrats de maintenance et d’extension de garantie).	assistance.png	1
+5	Maintenance	NULL	Nous assurons un support téléphonique, une télémaintenance et une maintenance physique (inclus dans les contrats de maintenance et d’extension de garantie).	maintenance.png	1
+6	Intervention	NULL	Nous proposons des forfaits d’intervention pour l’entretien et la réparation de vos parcs existants.	intervention.png	1
