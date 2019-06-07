@@ -55,4 +55,9 @@ footer p {
 .img-fluid {
     height: 100% !important;
 }
-
+div.card-body.img {
+    max-width: 5em;
+}
+.card-partenaires {
+    height: 20em !important;
+}
