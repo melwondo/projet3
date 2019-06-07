@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PartenairesController!{% endblock %}
+{% block title %}Nos Partenaires{% endblock %}
 
 {% block content %}
     {# nos partenaires #}
@@ -11,7 +11,7 @@
                 <img src="{{ asset('/images/QSnous.png') }}" class="img-fluid img-qsn" width="50%">
             </div>
             <div class="col-7 align-self-center">
-                <h4>Ils nous ont fait confiance...</h4>
+                <h1>Ils nous ont fait confiance...</h1>
                 <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
                     qui
                     quia architecto
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="parallax"></div>
-    {# nos partenaires #}
+
     <div class="container">
         <div class="row align-items-center">
             {% for partenaire in partenaires %}
@@ -35,4 +35,5 @@
             {% endfor %}
         </div>
     </div>
+    {# nos partenaires #}
 {% endblock %}
