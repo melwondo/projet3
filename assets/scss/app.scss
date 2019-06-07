@@ -1,5 +1,20 @@
 @import "vars";
-
+body {
+    font: 19px/26px DINNextLTPro-Regular,sans-serif;
+    font-weight: 400;
+}
+h1 {
+    font: 46px/52px DINNextLTPro-Heavy,sans-serif;
+    text-transform: uppercase;
+}
+h2 {
+    font-family: 26px/38px DINNextLTPro-Regular,sans-serif;
+    font-weight: 400;
+}
+b {
+    font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
+    font-weight: 400;
+}
 .logo {
     box-shadow: 2px 2px 10px #3f5573;
     border-radius: 1%;
@@ -53,4 +68,12 @@ footer p {
     margin: auto;
 
 }
-
+.img-qsn {
+    height: 100% !important;
+}
+div.card-body.img {
+    max-width: 5em;
+}
+.card-partenaires {
+    height: 20em !important;
+}

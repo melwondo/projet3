@@ -7,18 +7,22 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ServiceRepository;
 use App\Repository\DetailServiceRepository;
 use PHPStan\Symfony\Service;
+use App\Repository\PartenaireRepository;
 
 class AccueilController extends AbstractController
 {
     /**
-     * @Route("/accueil", name="accueil")
+     * @Route("/", name="accueil")
      */
-    public function index(ServiceRepository $service)
+    public function index(ServiceRepository $service, PartenaireRepository $partenaire)
     {
         $services = $service->findAll();
+        $partenaires = $partenaire->findAll();
+
 
         return $this->render('accueil/index.html.twig', [
             'services' => $services,
+            'partenaires' => $partenaires,
         ]);
     }
 
