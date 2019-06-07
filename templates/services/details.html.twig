@@ -2,12 +2,15 @@
 
 {% block title %}AccesInfoService - Nos Services {% endblock %}
 
-{% block body %}
+{% block content %}
     {# JUMBOTRON  #}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">{{ service.titre }}</h1>
             <p class="lead">Votre entreprise de services informatiques au Luxembourg</p>
+            <div class="align-self-end m-2">
+                <a class="btn btn-primary btn-sm" href="{{ path('services') }}" role="button">Tous nos services</a>
+            </div>
         </div>
     </div>
 
@@ -22,7 +25,7 @@
                         <p class="card-text">{{ detail.contenu }}</p>
                     </div>
                     <div class="align-self-end m-2">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
+                        <a class="btn btn-primary btn-sm" href="#" role="button">Nous contacter</a>
                     </div>
                 </div>
             {% endfor %}
@@ -45,6 +48,10 @@
             </div>
         </div>
     </div>
+
+
+    {# Parallax #}
+    <div class="parallax"></div>
 
 
 {% endblock %}
