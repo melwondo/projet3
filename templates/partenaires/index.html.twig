@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Partenaires{% endblock %}
+
+{% block content %}
+    {# nos partenaires #}
+
+    <div class="container pt-5 pb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-5 d-flex justify-content-center">
+                <img src="{{ asset('/images/QSnous.png') }}" class="img-fluid img-qsn" width="50%">
+            </div>
+            <div class="col-7 align-self-center">
+                <h1>Ils nous ont fait confiance...</h1>
+                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
+                    qui
+                    quia architecto
+                    minima quas quae laudantium atque?</p>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            {% for partenaire in partenaires %}
+                <div class="col">
+                    <div class="card border-primary mb-3 mt-5 mb-5" style="max-width: 20rem;">
+                        <div class="card-body d-flex card-partenaires">
+                            <img class="align-self-center" src="./images/{{ partenaire.urlLogo }}" alt="{{ partenaire.nom }}"
+                                 style="max-width: 17rem; max-height:100%;">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {# nos partenaires #}
+{% endblock %}
