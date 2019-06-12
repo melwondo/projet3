@@ -1,4 +1,6 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{# {% form_theme form2 'bootstrap_4_layout.html.twig' %} #}
 
 {% block title %}AccesInfoService - Nos Services {% endblock %}
 
@@ -26,7 +28,7 @@
             </div>
             <div class="align-self-end m-2">
                 <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
-                    role="button">Nous contacter</a>
+                    role="button">Nous contacter</a> {{loop.index}}
             </div>
         </div>
         {% endfor %}
@@ -34,12 +36,13 @@
 </div>
 
 
+{% for detail in details %}
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Demande de contact</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Demande de contact {{loop.index}} {{detail.titre}}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -47,38 +50,24 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     {{ form_start(form) }}
+                    {# {{ form_start(form2) }} #}
                     {{ form_widget(form) }}
+                    {# {{ form_widget(form2) }} #}
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
                 </div>
                 {{ form_end(form) }}
+                {# {{ form_end(form2) }} #}
             </div>
         </div>
     </div>
 </div>
-    {# {{ form_start(form) }}
-{{ form_widget(form) }}
-<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }} #}
-
-    {# 
-<div class="form-control">
-    <i class="fa fa-calendar"></i> {{ form_label(form.nom) }}
-    {{ form_widget(form.nom) }}
-    <div class="form-error">
-        {{ form_errors(form.nom) }}
-    </div>
-</div> #}
+{% endfor %}
     {# Parallax #}
-
-
-
-
-
-
-
-
+{# {{ form_start(form2) }}
+{{ form_widget(form2) }}
+{{ form_end(form2) }} #}
     <div class="parallax"></div>
 
     {# Text de présentation des services #}
