@@ -3,8 +3,13 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-    <img src="{{ asset('/images/imageSousNav.jpg') }}" class="img-fluid" width="100%" alt="Votre partenaire info...">
     {# card #}
+    <div class="toto">
+    <img src="{{ asset('/images/imageSousNav.jpg') }}" class="img-fluid" width="100%" alt="Votre partenaire info...">
+    <div class="centered text-center">
+        <h3>Votre partenaire informatique au Luxembourg</h3>
+    </div>
+</div>
 
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
@@ -33,6 +38,7 @@
     <div class="parallax"></div>
     {# qui somme nous #}
 
+
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-5 d-flex justify-content-center">
@@ -54,123 +60,89 @@
 
     {# Ils nous font confiance #}
     <div class="container pt-5 pb-5">
-        <div class="row d-flex justify-content-center">
-            <h1>Ils nous font confiance</h1>
+    <div class="row d-flex justify-content-center">
+        <h4>Ils nous font confiance</h4>
+    </div>
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item  pt-3" data-ride="carousel">
+        {# d-flex justify-content-around #}
+        <!--Controls-->
+        <div class="controls-top d-flex justify-content-around">
+            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+                    class="fas fa-chevron-circle-left fa-2x"></i></a>
+            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                    class="fas fa-chevron-circle-right fa-2x"></i></i></a>
         </div>
-        <!--Carousel Wrapper-->
-        <div id="multi-item-example" class="carousel slide carousel-multi-item  pt-3" data-ride="carousel">
-            {# d-flex justify-content-around #}
-            <!--Controls-->
-            <div class="controls-top d-flex justify-content-around">
-                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
-                            class="fas fa-chevron-circle-left fa-2x"></i></a>
-                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                            class="fas fa-chevron-circle-right fa-2x"></i></i></a>
+        <!--/.Controls-->
+
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+
+            <!--First slide-->
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://upload.wikimedia.org/wikipedia/fr/thumb/4/47/Nvidia_%28logo%29.svg/1280px-Nvidia_%28logo%29.svg.png"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1280px-Intel-logo.svg.png"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://upload.wikimedia.org/wikipedia/fr/thumb/5/53/Logo_Logitech.svg/1187px-Logo_Logitech.svg.png"
+                                alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--/.Controls-->
+            <!--/.First slide-->
 
-            <!--Indicators-->
-            {# <ol class="carousel-indicators">
-                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                <li data-target="#multi-item-example" data-slide-to="1"></li>
-                <li data-target="#multi-item-example" data-slide-to="2"></li>
-            </ol> #}
-            <!--/.Indicators-->
-
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-
-                <!--First slide-->
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                                     alt="Card image cap">
-                            </div>
+            <!--Second slide-->
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="http://www.enostech.com/wp-content/uploads/2019/02/asus-logo.jpg"
+                                alt="Card image cap">
                         </div>
+                    </div>
 
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                                     alt="Card image cap">
-                            </div>
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://cdn.freebiesupply.com/logos/large/2x/aoc-3-logo-png-transparent.png"
+                                alt="Card image cap">
                         </div>
+                    </div>
 
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-                                     alt="Card image cap">
-                            </div>
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            <img class="card-img-top"
+                                src="https://stationpc.be/wp-content/uploads/2017/06/Western_Digital_logo_logotype_emblem.png"
+                                alt="Card image cap">
                         </div>
                     </div>
                 </div>
-                <!--/.First slide-->
-
-                <!--Second slide-->
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--/.Second slide-->
-
-                <!--Third slide-->
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card mb-2">
-                                <img class="card-img-top"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
-                                     alt="Card image cap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--/.Third slide-->
             </div>
+            <!--/.Second slide-->
+
+            <!--Third slide-->
+            <!--/.Third slide-->
         </div>
     </div>
+</div>
     {# Fin Ils nous font confiance #}
 {% endblock %}
