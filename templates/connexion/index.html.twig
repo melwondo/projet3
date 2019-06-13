@@ -5,10 +5,24 @@
 {% block content %}
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
-            <h1>Bonjour !</h1>
+            <h2>Bonjour, renseignez vos informations<br>
+                pour accéder à votre espace :</h2>
         </div>
         <div class="row d-flex justify-content-center">
             <img src="{{ asset('/images/user.ico') }}" class="img-fluid img-qsn" width="50%">
+        </div>
+        <div class="row d-flex justify-content-center">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="liweluji@rockmailapp.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Mot de passe</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
         </div>
     </div>
 {% endblock %}
