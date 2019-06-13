@@ -70,7 +70,11 @@
                 <a href="#">Plan du site</a>
             </li>
             <li>
-                <a href="{{ path('connexion') }}">Connexion</a>
+                {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                {% endif %}
             </li>
         </div>
     </div>
