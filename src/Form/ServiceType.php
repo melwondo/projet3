@@ -6,6 +6,7 @@ use App\Entity\Service;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ServiceType extends AbstractType
 {
@@ -15,7 +16,7 @@ class ServiceType extends AbstractType
             ->add('titre')
             ->add('subtitle')
             ->add('contenu')
-            ->add('url_img')
+            ->add('url_img', FileType::class, ['label' => 'Images (jpg, png)'])
             ->add('visible')
         ;
     }
