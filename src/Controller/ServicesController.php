@@ -40,16 +40,16 @@ class ServicesController extends AbstractController
         $detail_service = $detail_service ->findBy(['service'=>$service->getId()]);
        
         $client = new Client();
-        $form = $this->createForm(ContactType::class, $client);
+        $form2 = $this->createForm(ContactType::class, $client);
+        $form2->handleRequest($request);
+
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
-        // $message = new Message();
-        // $form2 = $this->createForm(MessageType::class, $message);
-        // $form2->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $form2->isSubmitted() && $form2->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($client);
+            $entityManager->persist($message, $client);
             $entityManager->flush();
             // return $this->redirectToRoute('service_detail');
         }
@@ -58,7 +58,8 @@ class ServicesController extends AbstractController
             'details' => $detail_service,
             'service' => $service,
             'form' => $form->createView(),
-            // 'form2' => $form2->createView()
+            'form2' => $form2->createView(),
         ]);
+         // 'form2' => $form2->createView(),
     }
 }
