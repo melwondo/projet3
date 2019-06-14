@@ -1,38 +1,69 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 
 {% block title %}AccesInfoService - Nos Services {% endblock %}
 
 {% block content %}
-    {# JUMBOTRON  #}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">{{ service.titre }}</h1>
-            <p class="lead">Votre entreprise de services informatiques au Luxembourg</p>
+{# JUMBOTRON  #}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">{{ service.titre }}</h1>
+        <p class="lead">Votre entreprise de services informatiques au Luxembourg</p>
+        <div class="align-self-end m-2">
+            <a class="btn btn-primary btn-sm" href="{{ path('services') }}" role="button">Tous nos services</a>
+        </div>
+    </div>
+</div>
+
+{# Présentation des DETAILS du sérvice#}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        {% for detail in details %}
+        <div class="card border-primary m-2" style="max-width: 20rem;">
+            <div class="card-header"><img src="#" alt="logo-service"></div>
+            <div class="card-body">
+                <h4 class="card-title">{{ detail.titre }}</h4>
+                <p class="card-text">{{ detail.contenu }}</p>
+            </div>
             <div class="align-self-end m-2">
-                <a class="btn btn-primary btn-sm" href="{{ path('services') }}" role="button">Tous nos services</a>
+                <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                    role="button">Nous contacter</a> {{loop.index}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% for detail in details %}
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Demande de contact {{detail.titre}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+                </div>
+                {{ form_end(form) }}
+                
             </div>
         </div>
     </div>
-
-    {# Présentation des DETAILS du sérvice#}
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            {% for detail in details %}
-                <div class="card border-primary m-2" style="max-width: 20rem;">
-                    <div class="card-header"><img src="#" alt="logo-service"></div>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ detail.titre }}</h4>
-                        <p class="card-text">{{ detail.contenu }}</p>
-                    </div>
-                    <div class="align-self-end m-2">
-                        <a class="btn btn-primary btn-sm" href="#" role="button">Nous contacter</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
+</div>
+{% endfor %}
     {# Parallax #}
+
     <div class="parallax"></div>
 
     {# Text de présentation des services #}
@@ -40,7 +71,11 @@
         <div class="row justify-content-center">
             <div class="col-7">
                 <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo placeat? Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos reiciendis repellat voluptates!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo
+                    placeat?
+                    Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos
+                    reiciendis
+                    repellat voluptates!</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
             </div>
             <div class="col-3">
@@ -54,4 +89,4 @@
     <div class="parallax"></div>
 
 
-{% endblock %}
+    {% endblock %}

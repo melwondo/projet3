@@ -16,7 +16,9 @@
         <div class="row justify-content-center">
         {% for service in services %}
             <div class="card border-primary m-2" style="max-width: 20rem;">
-                <div class="card-header"><img class="logoService" src="images/{{ service.UrlImg }}" alt="logo service"></div>
+                <div class="card-header">
+                    <img class="logoService" src="./images/Service/{{ service.UrlImg }}" alt="logo service">
+                </div>
                 <div class="card-body">
                     <h4 class="card-title">{{ service.titre }}</h4>
                     <p class="card-text">{{ service.contenu }}</p>

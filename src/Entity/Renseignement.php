@@ -2,14 +2,12 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RenseignementRepository")
  */
-class Client
+class Renseignement
 {
     /**
      * @ORM\Id()
@@ -46,7 +44,7 @@ class Client
     /**
      * @ORM\Column(type="integer")
      */
-    private $CP;
+    private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,24 +52,14 @@ class Client
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $entreprise;
-
-    /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $pro;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="client")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $messages;
-
-    public function __construct()
-    {
-        $this->messages = new ArrayCollection();
-    }
+    private $entreprise;
 
     public function getId(): ?int
     {
@@ -138,14 +126,14 @@ class Client
         return $this;
     }
 
-    public function getCP(): ?int
+    public function getCp(): ?int
     {
-        return $this->CP;
+        return $this->cp;
     }
 
-    public function setCP(int $CP): self
+    public function setCp(int $cp): self
     {
-        $this->CP = $CP;
+        $this->cp = $cp;
 
         return $this;
     }
@@ -162,6 +150,18 @@ class Client
         return $this;
     }
 
+    public function getPro(): ?bool
+    {
+        return $this->pro;
+    }
+
+    public function setPro(?bool $pro): self
+    {
+        $this->pro = $pro;
+
+        return $this;
+    }
+
     public function getEntreprise(): ?string
     {
         return $this->entreprise;
@@ -170,49 +170,6 @@ class Client
     public function setEntreprise(?string $entreprise): self
     {
         $this->entreprise = $entreprise;
-
-        return $this;
-    }
-
-    public function getPro(): ?bool
-    {
-        return $this->pro;
-    }
-
-    public function setPro(bool $pro): self
-    {
-        $this->pro = $pro;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Message[]
-     */
-    public function getMessages(): Collection
-    {
-        return $this->messages;
-    }
-
-    public function addMessage(Message $message): self
-    {
-        if (!$this->messages->contains($message)) {
-            $this->messages[] = $message;
-            $message->setClient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): self
-    {
-        if ($this->messages->contains($message)) {
-            $this->messages->removeElement($message);
-            // set the owning side to null (unless already changed)
-            if ($message->getClient() === $this) {
-                $message->setClient(null);
-            }
-        }
 
         return $this;
     }

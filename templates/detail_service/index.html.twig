@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DetailService index{% endblock %}
+
+{% block content %}
+    <h1>DetailService index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Subtitle</th>
+                <th>Contenu</th>
+                <th>Url_img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for detail_service in detail_services %}
+            <tr>
+                <td>{{ detail_service.id }}</td>
+                <td>{{ detail_service.titre }}</td>
+                <td>{{ detail_service.subtitle }}</td>
+                <td>{{ detail_service.contenu }}</td>
+                <td>{{ detail_service.urlImg }}</td>
+                <td>
+                    <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">show</a>
+                    <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('detail_service_new') }}">Create new</a>
+{% endblock %}
