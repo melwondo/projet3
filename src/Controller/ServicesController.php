@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Client;
-use App\Entity\Message;
+
 use App\Entity\Service;
 use App\Form\ContactType;
 use App\Form\MessageType;
 use App\Entity\DetailService;
-use Doctrine\ORM\Mapping\Entity;
+use App\Entity\Renseignement;
+use App\Form\RenseignementType;
 use App\Repository\ServiceRepository;
 use App\Repository\DetailServiceRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,17 +39,14 @@ class ServicesController extends AbstractController
 
         $detail_service = $detail_service ->findBy(['service'=>$service->getId()]);
        
-        $client = new Client();
-        $form2 = $this->createForm(ContactType::class, $client);
-        $form2->handleRequest($request);
-
-        $message = new Message();
-        $form = $this->createForm(MessageType::class, $message);
+        $client = new Renseignement();
+        $form = $this->createForm(RenseignementType::class, $client);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && $form2->isSubmitted() && $form2->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($message, $client);
+            $entityManager->persist($client);
             $entityManager->flush();
             // return $this->redirectToRoute('service_detail');
         }
@@ -58,8 +55,7 @@ class ServicesController extends AbstractController
             'details' => $detail_service,
             'service' => $service,
             'form' => $form->createView(),
-            'form2' => $form2->createView(),
         ]);
-         // 'form2' => $form2->createView(),
+         
     }
 }
