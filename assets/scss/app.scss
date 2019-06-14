@@ -67,6 +67,46 @@ footer p {
     margin: auto;
 
 }
+.logoServiceBackoffice {
+    width: 30%;
+}
+/* backoffice menu */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+#sidebar.active {
+    margin-left: -250px;
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.iconBackoffice{
+    width: 3em;
+    margin: 0 0 1em 1em;
+}
 .formConnexion{
     width: 30%;
 }
@@ -88,7 +128,6 @@ div.card-body.img {
     top: 50%;
     left: 50%;
     font-size: 30px;
-    -webkit-text-stroke: 0.3px;
     -webkit-text-stroke-color: rgb(5, 5, 5);
     transform: translate(-50%, -50%);
     color: rgb(250, 250, 250);
