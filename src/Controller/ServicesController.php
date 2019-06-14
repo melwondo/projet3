@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Service;
 use App\Form\ContactType;
 use App\Form\MessageType;
@@ -56,6 +55,5 @@ class ServicesController extends AbstractController
             'service' => $service,
             'form' => $form->createView(),
         ]);
-         
     }
 }
