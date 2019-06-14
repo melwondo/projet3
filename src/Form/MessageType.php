@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Message;
+use App\Entity\Client;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class MessageType extends AbstractType
 {
@@ -15,7 +17,9 @@ class MessageType extends AbstractType
             ->add('date')
             ->add('sujet')
             ->add('contenu')
-            ->add('client')
+            ->add('client', CollectionType::class, array(
+                'entry_type' => ClientType::class
+            ));
         ;
     }
 
