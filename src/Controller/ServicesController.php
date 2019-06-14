@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Service;
-use App\Form\ContactType;
-use App\Form\MessageType;
 use App\Entity\DetailService;
 use App\Entity\Renseignement;
 use App\Form\RenseignementType;
