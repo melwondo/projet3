@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% form_theme registrationForm 'bootstrap_4_layout.html.twig' %}
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+    <div class="container pt-5 pb-5">
+        <div class="row d-flex justify-content-center">
+            <h2>Bonjour, renseignez vos informations<br>
+                pour ajouter un nouvel utilisateur :</h2>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <img src="{{ asset('/images/user.ico') }}" class="img-fluid img-qsn" width="50%">
+        </div>
+        <div class="row d-flex justify-content-center">
+            {{ form_start(registrationForm, {'attr': {'class': 'formConnexion'}}) }}
+            {{ form_row(registrationForm.email, {'label': 'Votre email :'}) }}
+            {{ form_row(registrationForm.plainPassword, {'label': 'Votre mot de passe :'}) }}
+
+            <button class="btn">Valider</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
