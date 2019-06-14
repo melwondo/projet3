@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Client;
+use App\Entity\ContactSimple;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Client|null find($id, $lockMode = null, $lockVersion = null)
- * @method Client|null findOneBy(array $criteria, array $orderBy = null)
- * @method Client[]    findAll()
- * @method Client[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ContactSimple|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ContactSimple|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ContactSimple[]    findAll()
+ * @method ContactSimple[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClientRepository extends ServiceEntityRepository
+class ContactSimpleRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Client::class);
+        parent::__construct($registry, ContactSimple::class);
     }
 
     // /**
-    //  * @return Client[] Returns an array of Client objects
+    //  * @return ContactSimple[] Returns an array of ContactSimple objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ClientRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Client
+    public function findOneBySomeField($value): ?ContactSimple
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')
