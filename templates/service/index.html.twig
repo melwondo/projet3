@@ -36,8 +36,14 @@
                                     <td>{{ service.urlImg }}</td>
                                     <td>{{ service.visible ? 'Yes' : 'No' }}</td>
                                     <td>
-                                        <a href="{{ path('service_show', {'id': service.id}) }}">show</a>
-                                        <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
+                                        <a href="{{ path('service_show', {'id': service.id}) }}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Regarder le service" class="iconBackoffice" src="{{ asset('images/Icons/eye-solid.svg') }}"
+                                                 alt="Regarder le service">
+                                        </a>
+                                        <a href="{{ path('service_edit', {'id': service.id}) }}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Modifier le service" class="iconBackoffice" src="{{ asset('images/Icons/pen-square-solid.svg') }}"
+                                                 alt="Modifier le service">
+                                        </a>
                                     </td>
                                 </tr>
                             {% else %}
@@ -48,7 +54,7 @@
                             </tbody>
                         </table>
                         <a href="{{ path('service_new') }}">
-                            <img class="iconBackoffice" src="/images/Icons/plus-circle-solid.svg"
+                            <img data-toggle="tooltip" data-placement="top" title="Ajouter un service" class="iconBackoffice" src="{{ asset('images/Icons/plus-circle-solid.svg') }}"
                                  alt="Ajouter un service">
                         </a>
                     </div>
