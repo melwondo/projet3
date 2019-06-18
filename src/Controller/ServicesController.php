@@ -45,6 +45,7 @@ class ServicesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($client);
             $entityManager->flush();
+            
             // return $this->redirectToRoute('service_detail');
         }
 

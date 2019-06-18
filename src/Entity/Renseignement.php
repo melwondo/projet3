@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RenseignementRepository")
@@ -28,11 +32,17 @@ class Renseignement
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="faux")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/",
+     *     match=false,
+     *     message="faux"
+     * )
      */
     private $tel;
 
@@ -43,6 +53,7 @@ class Renseignement
 
     /**
      * @ORM\Column(type="integer")
+     * * @Assert\Length(min = 4, minMessage="Trop court")
      */
     private $cp;
 
@@ -60,6 +71,11 @@ class Renseignement
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $message;
 
     public function getId(): ?int
     {
@@ -173,4 +189,18 @@ class Renseignement
 
         return $this;
     }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+
 }

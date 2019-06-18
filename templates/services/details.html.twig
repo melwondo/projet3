@@ -41,7 +41,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
+            <div class="modal-header text-center ">
                 <h4 class="modal-title w-100 font-weight-bold">Demande de contact {{detail.titre}}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -50,43 +50,91 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     {{ form_start(form) }}
-                    {{ form_widget(form) }}
+                    {{ form_row(form.nom) }}
+                    {{ form_errors(form.nom) }}
+                    {{ form_row(form.prenom) }}
+                    {{ form_errors(form.prenom) }}
+                    {{ form_row(form.email) }}
+                    {{ form_errors(form.email) }}
+                    {{ form_row(form.tel) }}
+                    {{ form_errors(form.tel) }}
+                    {{ form_row(form.rue) }}
+                    {{ form_errors(form.rue) }}
+                    {{ form_row(form.cp)}}
+                    {{ form_errors(form.cp) }}
+                    {{ form_row(form.ville) }}
+                    {{ form_errors(form.ville) }}
+                    {{ form_row(form.pro) }}
+                    {{ form_row(form.entreprise) }}
+                    {{ form_row(form.message) }}
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+                    {# <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button> #}
+                    <button type="submit" class="btn btn-primary">
+                        Envoyer
+                    </button>
                 </div>
                 {{ form_end(form) }}
-                
             </div>
         </div>
     </div>
 </div>
 {% endfor %}
-    {# Parallax #}
+{# Parallax #}
 
-    <div class="parallax"></div>
+<div class="parallax"></div>
 
-    {# Text de présentation des services #}
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            <div class="col-7">
-                <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo
-                    placeat?
-                    Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos
-                    reiciendis
-                    repellat voluptates!</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
-            </div>
-            <div class="col-3">
-                <img src="https://via.placeholder.com/250" alt="">
-            </div>
+{# Text de présentation des services #}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo
+                placeat?
+                Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos
+                reiciendis
+                repellat voluptates!</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
+        </div>
+        <div class="col-3">
+            <img src="https://via.placeholder.com/250" alt="">
         </div>
     </div>
+</div>
+{# 
+ $(this).append('<span class="invalid-feedback d-block"><span class="d-block"><span class="form-error-icon badge badge-danger text-uppercase">Erreur</span> <span class="form-error-message">Trop court</span></span></span>'); #}
+{# Parallax #}
+<div class="parallax"></div>
 
 
-    {# Parallax #}
-    <div class="parallax"></div>
+{% endblock %}
+
+{% block jquery %}
+<script>
+    $("#renseignement_cp").blur(function () {
+
+        if ($("#renseignement_cp").val().length < 4) {
+            $("#renseignement_cp").addClass('is-invalid');
+        } else {
+            $("#renseignement_cp").removeClass('is-invalid');
+        }
+
+    });
 
 
-    {% endblock %}
+
+    $(document).ready(function () {
+        $('#renseignement_pro').click(function () {
+            $("label[for='renseignement_entreprise']").toggle();
+            $('#renseignement_entreprise').toggle();
+            // $('#renseignement_entreprise').css('display', 'block');  
+        });
+        // $('#renseignement_pro').click(function () {
+        //     $("label[for='renseignement_entreprise']").toggle();
+        // });
+
+
+    });
+</script>
+
+{% endblock %}
