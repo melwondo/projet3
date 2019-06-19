@@ -51,26 +51,17 @@
                 <div class="md-form mb-5">
                     {{ form_start(form) }}
                     {{ form_row(form.nom) }}
-                    {{ form_errors(form.nom) }}
                     {{ form_row(form.prenom) }}
-                    {{ form_errors(form.prenom) }}
                     {{ form_row(form.email) }}
-                    {{ form_errors(form.email) }}
                     {{ form_row(form.tel) }}
-                    {{ form_errors(form.tel) }}
                     {{ form_row(form.rue) }}
-                    {{ form_errors(form.rue) }}
                     {{ form_row(form.cp)}}
-                    {{ form_errors(form.cp) }}
                     {{ form_row(form.ville) }}
-                    {{ form_errors(form.ville) }}
                     {{ form_row(form.pro) }}
                     {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Rentrez le nom de votre entreprise'} }) }}
-                    
                     {{ form_row(form.message) }}
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    {# <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button> #}
                     <button type="submit" class="btn btn-primary">
                         Envoyer
                     </button>
@@ -102,8 +93,6 @@
         </div>
     </div>
 </div>
-{# 
- $(this).append('<span class="invalid-feedback d-block"><span class="d-block"><span class="form-error-icon badge badge-danger text-uppercase">Erreur</span> <span class="form-error-message">Trop court</span></span></span>'); #}
 {# Parallax #}
 <div class="parallax"></div>
 
@@ -112,7 +101,6 @@
 
 {% block jquery %}
 <script>
-
     $("#renseignement_nom").blur(function () {
 
         if ($("#renseignement_nom").val().length < 2) {
