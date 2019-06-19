@@ -32,17 +32,11 @@ class Renseignement
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(message="faux")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Regex(
-     *     pattern="/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/",
-     *     match=false,
-     *     message="faux"
-     * )
      */
     private $tel;
 
@@ -53,7 +47,7 @@ class Renseignement
 
     /**
      * @ORM\Column(type="integer")
-     * * @Assert\Length(min = 4, minMessage="Trop court")
+     * * @Assert\Length(min = 4)
      */
     private $cp;
 
@@ -201,6 +195,4 @@ class Renseignement
 
         return $this;
     }
-
-
 }

@@ -65,7 +65,8 @@
                     {{ form_row(form.ville) }}
                     {{ form_errors(form.ville) }}
                     {{ form_row(form.pro) }}
-                    {{ form_row(form.entreprise) }}
+                    {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Rentrez le nom de votre entreprise'} }) }}
+                    
                     {{ form_row(form.message) }}
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
@@ -111,6 +112,57 @@
 
 {% block jquery %}
 <script>
+
+    $("#renseignement_nom").blur(function () {
+
+        if ($("#renseignement_nom").val().length < 2) {
+            $("#renseignement_nom").addClass('is-invalid');
+        } else {
+            $("#renseignement_nom").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_prenom").blur(function () {
+
+        if ($("#renseignement_prenom").val().length < 2) {
+            $("#renseignement_prenom").addClass('is-invalid');
+        } else {
+            $("#renseignement_prenom").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_email").blur(function () {
+
+        if ($("#renseignement_email").val().length < 5) {
+            $("#renseignement_email").addClass('is-invalid');
+        } else {
+            $("#renseignement_email").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_tel").blur(function () {
+
+        if ($("#renseignement_tel").val().length < 11) {
+            $("#renseignement_tel").addClass('is-invalid');
+        } else {
+            $("#renseignement_tel").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_rue").blur(function () {
+
+        if ($("#renseignement_rue").val().length < 10) {
+            $("#renseignement_rue").addClass('is-invalid');
+        } else {
+            $("#renseignement_rue").removeClass('is-invalid');
+        }
+
+    });
+    
     $("#renseignement_cp").blur(function () {
 
         if ($("#renseignement_cp").val().length < 4) {
@@ -121,19 +173,30 @@
 
     });
 
+    $("#renseignement_ville").blur(function () {
 
+        if ($("#renseignement_ville").val().length < 3) {
+            $("#renseignement_ville").addClass('is-invalid');
+        } else {
+            $("#renseignement_ville").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_message").blur(function () {
+
+        if ($("#renseignement_message").val().length < 10) {
+            $("#renseignement_message").addClass('is-invalid');
+        } else {
+            $("#renseignement_message").removeClass('is-invalid');
+        }
+
+    });
 
     $(document).ready(function () {
         $('#renseignement_pro').click(function () {
-            $("label[for='renseignement_entreprise']").toggle();
             $('#renseignement_entreprise').toggle();
-            // $('#renseignement_entreprise').css('display', 'block');  
         });
-        // $('#renseignement_pro').click(function () {
-        //     $("label[for='renseignement_entreprise']").toggle();
-        // });
-
-
     });
 </script>
 

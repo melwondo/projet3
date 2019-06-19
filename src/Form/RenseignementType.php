@@ -21,9 +21,10 @@ class RenseignementType extends AbstractType
             ->add('cp')
             ->add('ville')
             ->add('pro')
-            ->add('entreprise', null,[
+            ->add('entreprise', null, [
                 'attr' => array('style' => 'display:none'),
-                // 'label' => false,
+                'label' => false,
+                
             ])
             ->add('message')
         ;
