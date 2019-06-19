@@ -13,5 +13,5 @@ require('../scss/app.scss');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
-var $ = require('jquery');
-global.$ = global.jQuery = $
+//var $ = require('jquery');
+//global.$ = global.jQuery = $

@@ -30,6 +30,7 @@
 {{ render(controller(
     'App\\Controller\\MenuController::index'
 )) }}
+{% block body %}{% endblock %}
 {% block content %}{% endblock %}
 <footer class="container-fluid">
     <div class="row bg-primary pt-5 d-flex justify-content-center">
@@ -74,7 +75,7 @@
         </div>
     </div>
 </footer>
-{% block body %}{% endblock %}
+
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}

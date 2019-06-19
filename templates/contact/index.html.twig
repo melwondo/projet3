@@ -1,8 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Hello MohController!
 
-{% block content %}
+{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code><a
+                            href="{{ 'C:/Users/LaCosaNostra/Desktop/strasbourg-0219-php-accesinfoservices/src/Controller/MohController.php'|file_link(0) }}">src/Controller/MohController.php</a></code>
+            </li>
+            <li>Your template at <code><a
+                            href="{{ 'C:/Users/LaCosaNostra/Desktop/strasbourg-0219-php-accesinfoservices/templates/moh/index.html.twig'|file_link(0) }}">templates/moh/index.html.twig</a></code>
+            </li>
+        </ul>
+    </div>
     <img src="{{ asset('images/imgContact.jpg') }}" width="100%" height="500px" alt="contactez nous...">
 
     {# qui sommes nous #}
@@ -28,156 +57,139 @@
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous</h2>
         <!--Section description-->
         <div class="col-md-12">
+            {{ form_start(form) }}
             <div class="row">
                 <!--Grid column1-->
                 <div class="col-md-4 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                        <i class='fas fa-user-alt d-flex justify-content-center' style='font-size:36px'></i>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class="">Nom</label>
-                                </div>
+                    <i class='fas fa-user-alt d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.nom) }}
+                                {{ form_label(form.nom) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class="">Prenom</label>
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.prenom) }}
+                                {{ form_label(form.prenom) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
-                                    <label for="email" class="">Email</label>
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.email) }}
+                                {{ form_label(form.email) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="form-group custom-control custom-checkbox mt-5">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck"
-                                           name="example1">
-                                    <label class="custom-control-label" data-toggle="collapse"
-                                           data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-                                           for="customCheck">Je suis un professionnel</label>
-                                </div>
-                                <!--Grid row-->
-                                <div class="row collapse" id="collapseOne" aria-expanded="false">
-                                    <!--Grid column-->
-                                    <div class="col-md-12">
-                                        <div class="md-form mb-0">
-                                            <input type="text" id="name" name="name" class="form-control">
-                                            <label for="name" class="">Nom de la société</label>
-                                        </div>
-                                    </div>
-                                    <!--Grid column-->
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.entreprise) }}
+                                {{ form_label(form.entreprise) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                    </form>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
                 </div>
                 <!--Grid column1-->
 
                 <!--Grid column2-->
                 <div class="col-md-4 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                        <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="adresse" class="form-control">
-                                    <label for="adresse" class="">Adresse</label>
-                                </div>
+                    <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.rue) }}
+                                {{ form_label(form.rue) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class="">Code Postal</label>
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.cp) }}
+                                {{ form_label(form.cp) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class="">Ville</label>
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.ville) }}
+                                {{ form_label(form.ville) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                    </form>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
                 </div>
                 <!--Grid column2-->
 
                 <!--Grid column3-->
                 <div class="col-md-4 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-                        <i class='fas fa-envelope d-flex justify-content-center' style='font-size:36px'></i>
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class="">Sujet</label>
-                                </div>
+                    <i class='fas fa-envelope d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.sujet) }}
+                                {{ form_label(form.sujet) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-md-12">
-                                <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2"
-                                              class="form-control md-textarea"></textarea>
-                                    <label for="message">Ton message</label>
-                                </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                {{ form_widget(form.meassage) }}
+                                {{ form_label(form.meassage) }}
                             </div>
-                            <!--Grid column-->
                         </div>
-                        <!--Grid row-->
-                    </form>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
                 </div>
                 <!--Grid column3-->
                 <div class="text-center mx-auto">
-                    <a class="btn-lg btn-primary"
-                       onclick="document.getElementById('contact-form').submit();">Envoyer</a>
+                    <button type="submit" class="btn-lg btn-primary">
+                        ENVOYER
+                    </button>
                 </div>
 
             </div>
+            {{ form_end(form) }}
         </div>
     </div>
     <!--Section: Contact-->
