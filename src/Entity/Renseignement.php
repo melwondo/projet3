@@ -71,6 +71,11 @@ class Renseignement
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMessage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -192,6 +197,18 @@ class Renseignement
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDateMessage(): ?\DateTimeInterface
+    {
+        return $this->dateMessage;
+    }
+
+    public function setDateMessage(\DateTimeInterface $dateMessage): self
+    {
+        $this->dateMessage = $dateMessage;
 
         return $this;
     }
