@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Service;
 use Nette\Utils\DateTime;
 use App\Entity\DetailService;
@@ -55,8 +54,6 @@ class ServicesController extends AbstractController
 
             $entityManager->persist($client);
             $entityManager->flush();
-            
-            
         }
         // $client->setDateMessage(new DateTime(new DateTimeZone('Europe/Paris')));
         return $this->render('services/details.html.twig', [
