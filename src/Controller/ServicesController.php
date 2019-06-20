@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Service;
+use Nette\Utils\DateTime;
 use App\Entity\DetailService;
 use App\Entity\Renseignement;
 use App\Form\RenseignementType;
@@ -14,6 +15,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ServicesController extends AbstractController
 {
+
+    public function __construct()
+    {
+        date_default_timezone_set("Europe/Paris");
+    }
+
     /**
      * @Route("/services", name="services")
      */
@@ -43,11 +50,12 @@ class ServicesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $client->setDateMessage(new DateTime());
+
             $entityManager->persist($client);
             $entityManager->flush();
-            // return $this->redirectToRoute('service_detail');
         }
-
+        // $client->setDateMessage(new DateTime(new DateTimeZone('Europe/Paris')));
         return $this->render('services/details.html.twig', [
             'details' => $detail_service,
             'service' => $service,

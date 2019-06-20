@@ -6,6 +6,7 @@ use App\Entity\Renseignement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class RenseignementType extends AbstractType
 {
@@ -20,7 +21,12 @@ class RenseignementType extends AbstractType
             ->add('cp')
             ->add('ville')
             ->add('pro')
-            ->add('entreprise')
+            ->add('entreprise', null, [
+                'attr' => array('style' => 'display:none'),
+                'label' => false,
+                
+            ])
+            ->add('message')
         ;
     }
 
