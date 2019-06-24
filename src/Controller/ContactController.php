@@ -27,6 +27,12 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $eM = $this->getDoctrine()->getManager();
+
+            $this->addFlash(
+                'notice',
+                'Votre message a bien été envoyé !'
+            );
+
             $eM->persist($contact);
             $eM->flush();
 
