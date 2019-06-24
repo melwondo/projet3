@@ -217,10 +217,13 @@
         </div>
     </div>
 {% endblock %}
-{% block jquery %}
+{% block javascripts %}
     <script>
-        $("#contact_nom").blur(function () {
 
+        let el = $("#contact_nom");
+        console.log('etets');
+        el.blur(function () {
+console.log(el.val());
             if ($("#contact_nom").val().length < 2) {
                 $("#contact_nom").addClass('is-invalid');
             } else {
@@ -282,12 +285,21 @@
             }
         });
 
+        $("#contact_sujet").blur(function () {
+
+            if ($("#contact_sujet").val().length < 10) {
+                $("#contact_sujet").addClass('is-invalid');
+            } else {
+                $("#contact_sujet").removeClass('is-invalid');
+            }
+        });
+
         $("#contact_message").blur(function () {
 
-            if ($("#contact_message").val().length < 10) {
-                $("#contact_message").addClass('is-invalid');
+            if ($("#contact_meassage").val().length < 10) {
+                $("#contact_meassage").addClass('is-invalid');
             } else {
-                $("#contact_message").removeClass('is-invalid');
+                $("#contact_meassage").removeClass('is-invalid');
             }
         });
 
