@@ -4,7 +4,10 @@
 
 {% block title %}AccesInfoService - Nos Services {% endblock %}
 
+
+
 {% block content %}
+
 {# JUMBOTRON  #}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -15,6 +18,17 @@
         </div>
     </div>
 </div>
+
+{% for message in app.flashes('notice') %}
+<div class="flash-notice alert alert-success text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+</div>
+{% endfor %}
+
+
 
 {# Présentation des DETAILS du sérvice#}
 <div class="container mt-5 mb-5">
@@ -28,12 +42,13 @@
             </div>
             <div class="align-self-end m-2">
                 <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
-                    role="button">Nous contacter</a> {{loop.index}}
+                    role="button">Nous contacter</a>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+
 
 
 {% for detail in details %}
@@ -150,7 +165,7 @@
         }
 
     });
-    
+
     $("#renseignement_cp").blur(function () {
 
         if ($("#renseignement_cp").val().length < 4) {
