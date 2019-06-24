@@ -3,20 +3,16 @@
 {% block title %}Service index{% endblock %}
 
 {% block content %}
-    <div class="wrapper">
-        {% include('backoffice/menuBackoffice.html.twig') %}
-        <div id="content">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span>Toggle Sidebar</span>
-            </button>
-            <div class="container-fluid">
-                <div class="row justify-content-center mt-5 mb-5">
-                    <div class="col-10">
-                        <h1>Service index</h1>
-                        <table class="table">
-                            <thead>
-                            <tr>
+<div class="wrapper">
+    {% include('backoffice/menuBackoffice.html.twig') %}
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-10">
+                    <h1>Service index</h1>
+                    <table class="table">
+                        <thead>
+                            <tr class ="table-primary">
                                 <th>Id</th>
                                 <th>Titre</th>
                                 <th>Subtitle</th>
@@ -25,47 +21,50 @@
                                 <th>Visible</th>
                                 <th>actions</th>
                             </tr>
-                            </thead>
-                            <tbody>
+                        </thead>
+                        <tbody>
                             {% for service in services %}
-                                <tr>
-                                    <td>{{ service.id }}</td>
-                                    <td>{{ service.titre }}</td>
-                                    <td>{{ service.subtitle }}</td>
-                                    <td>{{ service.contenu }}</td>
-                                    <td>{{ service.urlImg }}</td>
-                                    <td>{{ service.visible ? 'Yes' : 'No' }}</td>
-                                    <td>
-                                        <a href="{{ path('service_show', {'id': service.id}) }}">show</a>
-                                        <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ service.id }}</td>
+                                <td>{{ service.titre }}</td>
+                                <td>{{ service.subtitle }}</td>
+                                <td>{{ service.contenu }}</td>
+                                <td>{{ service.urlImg }}</td>
+                                <td>{{ service.visible ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    <a href="{{ path('service_show', {'id': service.id}) }}">show</a>
+                                    <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
+                                </td>
+                            </tr>
                             {% else %}
-                                <tr>
-                                    <td colspan="7">no records found</td>
-                                </tr>
+                            <tr>
+                                <td colspan="7">no records found</td>
+                            </tr>
                             {% endfor %}
-                            </tbody>
-                        </table>
-                        <a href="{{ path('service_new') }}">
-                            <img class="iconBackoffice" src="/images/Icons/plus-circle-solid.svg"
-                                 alt="Ajouter un service">
-                        </a>
-                    </div>
+                        </tbody>
+                    </table>
+                    <a href="{{ path('service_new') }}">
+                        <img class="iconBackoffice" src="/images/Icons/plus-circle-solid.svg" alt="Ajouter un service">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 {% block javascripts %}
-    <script type=“text/javascript” src=“http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js“></script>
-    <script>
-        $(document).ready(function () {
 
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
+<script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
 
-        });
-    </script>
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
 {% endblock %}

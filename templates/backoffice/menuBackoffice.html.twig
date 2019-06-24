@@ -1,20 +1,32 @@
  <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Menu Gestion</h3>
-        </div>
-        <ul class="list-unstyled components">
-            <li class="active">
-                <a href="{{ path('service_index') }}">Gestion des services</a>
-            </li>
-            <li>
-                <a href="#">Gestion des sous-services</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu">Gestion des partenaires</a>
-            </li>
-            <li>
-                <a href="#">Vos Messages</a>
-            </li>
-        </ul>
-    </nav>
+ {# <nav id="sidebar">
+     <div class="sidebar-header">
+         <h3>Menu Gestion</h3>
+     </div>
+     <ul class="list-unstyled components">
+         <li class="active">
+             <a href="{{ path('service_index') }}">Gestion des services</a>
+         </li>
+         <li>
+             <a href="#">Gestion des sous-services</a>
+         </li>
+         <li>
+             <a href="#pageSubmenu">Gestion des partenaires</a>
+         </li>
+         <li>
+             <a href="#">Vos Messages</a>
+         </li>
+     </ul>
+ </nav> #}
+ <div id="mySidebar" class="sidebar">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+     <a href="{{ path('service_index') }}">Gestion des services</a>
+     <a href="#">Gestion des sous-services</a>
+     <a href="#pageSubmenu">Gestion des partenaires</a>
+     <a href="#">Vos Messages</a>
+ </div>
+
+ <div id="main">
+     <button class="openbtn btn btn-primary" onclick="openNav()">&#9776; Menu</button>
+
+ </div>
