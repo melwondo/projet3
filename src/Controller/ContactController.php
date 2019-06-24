@@ -29,6 +29,8 @@ class ContactController extends AbstractController
             $eM = $this->getDoctrine()->getManager();
             $eM->persist($contact);
             $eM->flush();
+
+            return $this->redirect($request->getUri());
         }
 
         return $this->render('contact/index.html.twig', [
