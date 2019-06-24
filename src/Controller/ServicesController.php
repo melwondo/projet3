@@ -52,10 +52,17 @@ class ServicesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $client->setDateMessage(new DateTime());
 
+            $this->addFlash(
+                'notice',
+                'Votre message a bien été envoyé !'
+            );
+
             $entityManager->persist($client);
             $entityManager->flush();
+
+            return $this->redirect($request->getUri());
         }
-        // $client->setDateMessage(new DateTime(new DateTimeZone('Europe/Paris')));
+
         return $this->render('services/details.html.twig', [
             'details' => $detail_service,
             'service' => $service,

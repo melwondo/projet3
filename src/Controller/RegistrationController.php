@@ -16,7 +16,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 /**
  * Require ROLE_ADMIN for *every* controller method in this class.
  *
- * @IsGranted("ROLE_ADMIN")
+ * 
  **/
 class RegistrationController extends AbstractController
 {
