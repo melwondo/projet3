@@ -52,7 +52,7 @@
                         </div>
                         <!--Grid column-->
                     </div>
-                    <!--Grid row-->
+
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-12">
@@ -75,7 +75,7 @@
                         </div>
                         <!--Grid column-->
                     </div>
-                    <!--Grid row-->
+
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-12">
@@ -84,7 +84,6 @@
                                 {{ form_label(form.entreprise) }}
                             </div>
                         </div>
-                        <!--Grid column-->
                         <!--Grid column-->
                     </div>
                     <!--Grid row-->
@@ -299,9 +298,15 @@
 
         $(document).ready(function () {
             $('#contact_pro').click(function () {
-                $('#contact_entreprise').toggle();
-                $('label#contact_entreprise').toggle();
+                if( $(this).is(':checked') ){
+                    $("#contact_entreprise").css("display","block");
+                    $("label[for='contact_entreprise']").css("display","block");
+                } else {
+                    $("#contact_entreprise").css("display","none");
+                    $("label[for='contact_entreprise']").css("display","none");
+                }
             });
+
         });
 
         $("#contact_entreprise").blur(function () {
