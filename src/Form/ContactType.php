@@ -18,7 +18,10 @@ class ContactType extends AbstractType
             ->add('sujet')
             ->add('meassage')
             ->add('pro')
-            ->add('entreprise')
+            ->add('entreprise', null, [
+                'label_attr'=> array('style'=>'visibility:hidden'),
+                'attr'=> array('style'=>'visibility:visibility')
+            ])
             ->add('rue')
             ->add('cp')
             ->add('ville')
