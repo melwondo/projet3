@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RenseignementRepository")
@@ -43,6 +47,7 @@ class Renseignement
 
     /**
      * @ORM\Column(type="integer")
+     * * @Assert\Length(min = 4)
      */
     private $cp;
 
@@ -60,6 +65,16 @@ class Renseignement
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $message;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMessage;
 
     public function getId(): ?int
     {
@@ -170,6 +185,30 @@ class Renseignement
     public function setEntreprise(?string $entreprise): self
     {
         $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDateMessage(): ?\DateTimeInterface
+    {
+        return $this->dateMessage;
+    }
+
+    public function setDateMessage(\DateTimeInterface $dateMessage): self
+    {
+        $this->dateMessage = $dateMessage;
 
         return $this;
     }

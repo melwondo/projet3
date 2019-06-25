@@ -2,13 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Renseignement;
+use App\Entity\ContactSimple;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-class RenseignementType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,24 +15,20 @@ class RenseignementType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-            ->add('tel')
+            ->add('sujet')
+            ->add('meassage')
+            ->add('pro')
+            ->add('entreprise')
             ->add('rue')
             ->add('cp')
             ->add('ville')
-            ->add('pro')
-            ->add('entreprise', null, [
-                'attr' => array('style' => 'display:none'),
-                'label' => false,
-                
-            ])
-            ->add('message')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Renseignement::class,
+            'data_class' => ContactSimple::class,
         ]);
     }
 }
