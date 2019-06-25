@@ -50,6 +50,18 @@ class ContactSimple
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
+/**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $rue;
+/**
+     * @ORM\Column(type="integer")
+     */
+    private $cp;
+/**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
 
     public function getId(): ?int
     {
@@ -137,6 +149,39 @@ class ContactSimple
     {
         $this->entreprise = $entreprise;
 
+        return $this;
+    }
+
+    public function getRue(): ?string
+    {
+        return $this->rue;
+    }
+
+    public function setRue(string $rue): self
+    {
+        $this->rue = $rue;
+        return $this;
+    }
+
+    public function getCp(): ?int
+    {
+        return $this->cp;
+    }
+
+    public function setCp(int $cp): self
+    {
+        $this->cp = $cp;
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
         return $this;
     }
 }

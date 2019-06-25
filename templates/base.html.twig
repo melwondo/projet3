@@ -31,6 +31,7 @@
 {{ render(controller(
     'App\\Controller\\MenuController::index'
 )) }}
+{% block body %}{% endblock %}
 {% block content %}{% endblock %}
 <footer class="container-fluid">
     <div class="row bg-primary pt-5 d-flex justify-content-center">
@@ -75,7 +76,7 @@
         </div>
     </div>
 </footer>
-{% block body %}{% endblock %}
+
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
@@ -88,6 +89,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+
 {% block jquery %}{% endblock %}
 </body>
 </html>
