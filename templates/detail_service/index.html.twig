@@ -3,11 +3,14 @@
 {% block title %}DetailService index{% endblock %}
 
 {% block content %}
-    <h1>DetailService index</h1>
-
+<div class="wrapper">
+{% include('backoffice/menuBackoffice.html.twig') %}
+<div class="container">
+    <h1 class="pt-5 pb-5">Gestion des sous-services</h1>
+     
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-primary">
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Subtitle</th>
@@ -25,8 +28,8 @@
                 <td>{{ detail_service.contenu }}</td>
                 <td>{{ detail_service.urlImg }}</td>
                 <td>
-                    <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">show</a>
-                    <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">edit</a>
+                    <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">Voir</a>
+                    <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -36,6 +39,10 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('detail_service_new') }}">Create new</a>
+    <a href="{{ path('detail_service_new') }}">
+      <img class="iconBackoffice pt-5" src="/images/Icons/plus-circle-solid.svg" alt="Ajouter un service">
+       </a>
+   
+    </div>
+    </div>
 {% endblock %}
