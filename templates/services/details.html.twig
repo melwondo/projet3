@@ -4,7 +4,10 @@
 
 {% block title %}AccesInfoService - Nos Services {% endblock %}
 
+
+
 {% block content %}
+
 {# JUMBOTRON  #}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -15,6 +18,17 @@
         </div>
     </div>
 </div>
+
+{% for message in app.flashes('notice') %}
+<div class="flash-notice alert alert-success text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+</div>
+{% endfor %}
+
+
 
 {# Présentation des DETAILS du sérvice#}
 <div class="container mt-5 mb-5">
@@ -28,7 +42,7 @@
             </div>
             <div class="align-self-end m-2">
                 <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
-                    role="button">Nous contacter</a> {{loop.index}}
+                    role="button">Nous contacter</a>
             </div>
         </div>
         {% endfor %}
@@ -36,12 +50,13 @@
 </div>
 
 
+
 {% for detail in details %}
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
+            <div class="modal-header text-center ">
                 <h4 class="modal-title w-100 font-weight-bold">Demande de contact {{detail.titre}}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -50,43 +65,142 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     {{ form_start(form) }}
-                    {{ form_widget(form) }}
+                    {{ form_row(form.nom) }}
+                    {{ form_row(form.prenom) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.tel) }}
+                    {{ form_row(form.rue) }}
+                    {{ form_row(form.cp)}}
+                    {{ form_row(form.ville) }}
+                    {{ form_row(form.pro) }}
+                    {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Rentrez le nom de votre entreprise'} }) }}
+                    {{ form_row(form.message) }}
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+                    <button type="submit" class="btn btn-primary">
+                        Envoyer
+                    </button>
                 </div>
                 {{ form_end(form) }}
-                
             </div>
         </div>
     </div>
 </div>
 {% endfor %}
-    {# Parallax #}
+{# Parallax #}
 
-    <div class="parallax"></div>
+<div class="parallax"></div>
 
-    {# Text de présentation des services #}
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            <div class="col-7">
-                <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo
-                    placeat?
-                    Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos
-                    reiciendis
-                    repellat voluptates!</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
-            </div>
-            <div class="col-3">
-                <img src="https://via.placeholder.com/250" alt="">
-            </div>
+{# Text de présentation des services #}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo
+                placeat?
+                Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos
+                reiciendis
+                repellat voluptates!</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Nous contacter</a>
+        </div>
+        <div class="col-3">
+            <img src="https://via.placeholder.com/250" alt="">
         </div>
     </div>
+</div>
+{# Parallax #}
+<div class="parallax"></div>
 
 
-    {# Parallax #}
-    <div class="parallax"></div>
+{% endblock %}
 
+{% block jquery %}
+<script>
+    $("#renseignement_nom").blur(function () {
 
-    {% endblock %}
+        if ($("#renseignement_nom").val().length < 2) {
+            $("#renseignement_nom").addClass('is-invalid');
+        } else {
+            $("#renseignement_nom").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_prenom").blur(function () {
+
+        if ($("#renseignement_prenom").val().length < 2) {
+            $("#renseignement_prenom").addClass('is-invalid');
+        } else {
+            $("#renseignement_prenom").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_email").blur(function () {
+
+        if ($("#renseignement_email").val().length < 5) {
+            $("#renseignement_email").addClass('is-invalid');
+        } else {
+            $("#renseignement_email").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_tel").blur(function () {
+
+        if ($("#renseignement_tel").val().length < 10) {
+            $("#renseignement_tel").addClass('is-invalid');
+        } else {
+            $("#renseignement_tel").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_rue").blur(function () {
+
+        if ($("#renseignement_rue").val().length < 10) {
+            $("#renseignement_rue").addClass('is-invalid');
+        } else {
+            $("#renseignement_rue").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_cp").blur(function () {
+
+        if ($("#renseignement_cp").val().length < 4) {
+            $("#renseignement_cp").addClass('is-invalid');
+        } else {
+            $("#renseignement_cp").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_ville").blur(function () {
+
+        if ($("#renseignement_ville").val().length < 3) {
+            $("#renseignement_ville").addClass('is-invalid');
+        } else {
+            $("#renseignement_ville").removeClass('is-invalid');
+        }
+
+    });
+
+    $("#renseignement_message").blur(function () {
+
+        if ($("#renseignement_message").val().length < 10) {
+            $("#renseignement_message").addClass('is-invalid');
+        } else {
+            $("#renseignement_message").removeClass('is-invalid');
+        }
+
+    });
+
+    $(document).ready(function () {
+        $('#renseignement_pro').click(function () {
+            $('#renseignement_entreprise').toggle();
+        });
+    });
+</script>
+
+{% endblock %}
