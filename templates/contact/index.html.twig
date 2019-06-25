@@ -1,0 +1,324 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice alert alert-success text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+        </div>
+    {% endfor %}
+    <img src="{{ asset('images/imgContact.jpg') }}" width="100%" height="100%" alt="contactez nous...">
+
+    {# qui sommes nous #}
+    <div class="container pt-5 pb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5 mb-md-0">
+                <img src="{{ asset('/images/QSnous.png') }}" class="rounded mx-auto d-block" width="75%">
+            </div>
+            <div class="col-md-7 text-center mb-md-0">
+                <h4>Qui etes vous ?</h4>
+                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
+                    qui quia architecto minima quas quae laudantium atque?</p>
+            </div>
+        </div>
+    </div>
+    {# fin qui sommes nous #}
+
+    <div class="parallax"></div>
+
+    <!--Section: Contact v.2-->
+    <div class="container pt-3 pb-5">
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous</h2>
+        <!--Section description-->
+        <div class="col-md-12">
+            {{ form_start(form) }}
+            <div class="row">
+                <!--Grid column1-->
+                <div class="col-md-4 mb-md-0 mb-5">
+                    <i class='fas fa-user-alt d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.nom) }}
+                                {{ form_label(form.nom) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.prenom) }}
+                                {{ form_label(form.prenom) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.email) }}
+                                {{ form_label(form.email) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+
+                                {{ form_widget(form.entreprise) }}
+                                {{ form_label(form.entreprise) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!--Grid column1-->
+                <!--Grid column2-->
+                <div class="col-md-4 mb-md-0 mb-5">
+                    <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.rue) }}
+                                {{ form_label(form.rue) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.cp) }}
+                                {{ form_label(form.cp) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.ville) }}
+                                {{ form_label(form.ville) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!--Grid column2-->
+                <!--Grid column3-->
+                <div class="col-md-4 mb-md-0 mb-5">
+                    <i class='fas fa-envelope d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.sujet) }}
+                                {{ form_label(form.sujet) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                {{ form_widget(form.meassage) }}
+                                {{ form_label(form.meassage) }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!--Grid column3-->
+
+                <div class="text-center mx-auto">
+                    <button type="submit" class="btn-lg btn-primary">
+                        ENVOYER
+                    </button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <!--Section: Contact-->
+    <div class="parallax"></div>
+
+
+    <div class="container pt-3 pb-2">
+        <div class="row">
+            <div class="col-md-6 mb-3 mt-3">
+                <iframe width="100%" height="350" marginwidth="0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2585.6581137922417!2d6.124425915700914!3d49.6041963793675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479548d6c4138577%3A0x658dc00aace47498!2s29+Rue+Michel+Rodange%2C+2430+Luxembourg!5e0!3m2!1sfr!2sfr!4v1560503009747!5m2!1sfr!2sfr"></iframe>
+            </div>
+            <div class="text-center col-md-6 mb-3 mt-3">
+                <div>
+                    <h2>Acces InfoServices</h2>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Adresse</h4>
+                        <address>
+                            29, rue Michel Rodange<br>
+                            3550 Dudelange<br>
+                            Luxembourg<br>
+                        </address>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4>Contact</h4>
+                        <div>
+                            <strong>info@accesinfoservices.lu</strong><br>
+                            <br>
+                            <strong>Yves</strong><br>
+                            +352 661 630 430<br>
+                            +33 6 24 14 15 96<br>
+                            <strong>Jason</strong><br>
+                            +352 661 630 431<br>
+                            +33 6 77 72 41 49<br>
+                            <strong>Phone Service Center à Esch</strong><br>
+                            +352 24 55 98 55<br>
+                            <strong>Acces InfoServices à Esch</strong><br>
+                            +352 24 55 98 56<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block jquery %}
+    <script>
+        $("#contact_nom").blur(function () {
+
+            if ($("#contact_nom").val().length < 2) {
+                $("#contact_nom").addClass('is-invalid');
+            } else {
+                $("#contact_nom").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_prenom").blur(function () {
+
+            if ($("#contact_prenom").val().length < 2) {
+                $("#contact_prenom").addClass('is-invalid');
+            } else {
+                $("#contact_prenom").removeClass('is-invalid');
+            }
+        });
+
+       $("#contact_email").blur(function () {
+
+            if ($("#contact_email").val().length < 5) {
+                $("#contact_email").addClass('is-invalid');
+            } else {
+                $("#contact_email").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_tel").blur(function () {
+
+            if ($("#contact_tel").val().length < 10) {
+                $("#contact_tel").addClass('is-invalid');
+            } else {
+                $("#contact_tel").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_rue").blur(function () {
+
+            if ($("#contact_rue").val().length < 10) {
+                $("#contact_rue").addClass('is-invalid');
+            } else {
+                $("#contact_rue").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_cp").blur(function () {
+
+            if ($("#contact_cp").val().length < 4) {
+                $("#contact_cp").addClass('is-invalid');
+            } else {
+                $("#contact_cp").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_ville").blur(function () {
+
+            if ($("#contact_ville").val().length < 3) {
+                $("#contact_ville").addClass('is-invalid');
+            } else {
+                $("#contact_ville").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_sujet").blur(function () {
+
+            if ($("#contact_sujet").val().length < 10) {
+                $("#contact_sujet").addClass('is-invalid');
+            } else {
+                $("#contact_sujet").removeClass('is-invalid');
+            }
+        });
+
+        $("#contact_meassage").blur(function () {
+
+            if ($("#contact_meassage").val().length < 10) {
+                $("#contact_meassage").addClass('is-invalid');
+            } else {
+                $("#contact_meassage").removeClass('is-invalid');
+            }
+        });
+
+        $(document).ready(function () {
+            $('#contact_pro').click(function () {
+                if( $(this).is(':checked') ){
+                    $("#contact_entreprise").css("display","block");
+                    $("label[for='contact_entreprise']").css("display","block");
+                } else {
+                    $("#contact_entreprise").css("display","none");
+                    $("label[for='contact_entreprise']").css("display","none");
+                }
+            });
+
+        });
+
+        $("#contact_entreprise").blur(function () {
+
+            if ($("#contact_entreprise").val().length < 10) {
+                $("#contact_entreprise").addClass('is-invalid');
+            } else {
+                $("#contact_entreprise").removeClass('is-invalid');
+            }
+        });
+    </script>
+
+{% endblock %}

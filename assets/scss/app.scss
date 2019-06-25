@@ -1,20 +1,20 @@
 @import "vars";
-body {
-    font: 19px/26px DINNextLTPro-Regular,sans-serif;
-    font-weight: 400;
-}
-h1 {
-    font: 46px/52px DINNextLTPro-Heavy,sans-serif;
-    text-transform: uppercase;
-}
-h2 {
-    font-family: 26px/38px DINNextLTPro-Regular,sans-serif;
-    font-weight: 400;
-}
-b {
-    font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
-    font-weight: 400;
-}
+// body {
+//     font: 19px/26px DINNextLTPro-Regular,sans-serif;
+//     font-weight: 400;
+// }
+// h1 {
+//     font: 46px/52px DINNextLTPro-Heavy,sans-serif;
+//     text-transform: uppercase;
+// }
+// h2 {
+//     font-family: 26px/38px DINNextLTPro-Regular,sans-serif;
+//     font-weight: 400;
+// }
+// b {
+//     font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
+//     font-weight: 400;
+// }
 .logo {
     box-shadow: 2px 2px 10px #3f5573;
     border-radius: 1%;
@@ -97,17 +97,7 @@ footer p {
         margin-left: 0;
     }
 }
-a[data-toggle="collapse"] {
-    position: relative;
-}
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
 .iconBackoffice{
     width: 3em;
     margin: 0 0 1em 1em;
@@ -150,3 +140,73 @@ div.card-body.img {
       width: 180%;
     }
   }
+
+
+.is-invalid{
+  border: 1px solid red;
+}
+
+   /* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    display: inline-block;
+  }
+  
+  .openbtn:hover {
+    background-color: #329bf1;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  } 

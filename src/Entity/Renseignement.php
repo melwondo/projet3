@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\RenseignementRepository")
  */
-class Client
+class Renseignement
 {
     /**
      * @ORM\Id()
@@ -45,8 +47,9 @@ class Client
 
     /**
      * @ORM\Column(type="integer")
+     * * @Assert\Length(min = 4)
      */
-    private $CP;
+    private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,24 +57,24 @@ class Client
     private $ville;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $pro;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="text")
      */
-    private $pro;
+    private $message;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="client")
+     * @ORM\Column(type="datetime")
      */
-    private $messages;
-
-    public function __construct()
-    {
-        $this->messages = new ArrayCollection();
-    }
+    private $dateMessage;
 
     public function getId(): ?int
     {
@@ -138,14 +141,14 @@ class Client
         return $this;
     }
 
-    public function getCP(): ?int
+    public function getCp(): ?int
     {
-        return $this->CP;
+        return $this->cp;
     }
 
-    public function setCP(int $CP): self
+    public function setCp(int $cp): self
     {
-        $this->CP = $CP;
+        $this->cp = $cp;
 
         return $this;
     }
@@ -162,6 +165,18 @@ class Client
         return $this;
     }
 
+    public function getPro(): ?bool
+    {
+        return $this->pro;
+    }
+
+    public function setPro(?bool $pro): self
+    {
+        $this->pro = $pro;
+
+        return $this;
+    }
+
     public function getEntreprise(): ?string
     {
         return $this->entreprise;
@@ -174,45 +189,26 @@ class Client
         return $this;
     }
 
-    public function getPro(): ?bool
+    public function getMessage(): ?string
     {
-        return $this->pro;
+        return $this->message;
     }
 
-    public function setPro(bool $pro): self
+    public function setMessage(string $message): self
     {
-        $this->pro = $pro;
+        $this->message = $message;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Message[]
-     */
-    public function getMessages(): Collection
+    public function getDateMessage(): ?\DateTimeInterface
     {
-        return $this->messages;
+        return $this->dateMessage;
     }
 
-    public function addMessage(Message $message): self
+    public function setDateMessage(\DateTimeInterface $dateMessage): self
     {
-        if (!$this->messages->contains($message)) {
-            $this->messages[] = $message;
-            $message->setClient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): self
-    {
-        if ($this->messages->contains($message)) {
-            $this->messages->removeElement($message);
-            // set the owning side to null (unless already changed)
-            if ($message->getClient() === $this) {
-                $message->setClient(null);
-            }
-        }
+        $this->dateMessage = $dateMessage;
 
         return $this;
     }

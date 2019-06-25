@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row justify-content-center mt-5 mb-5">
             <div class="col-9">
-                <h1>Service</h1>
+                <h1>Gestion du service {{ service.titre }}</h1>
                 <table class="table">
                     <tbody>
                     <tr>
@@ -43,9 +43,9 @@
                     </tbody>
                 </table>
 
-                <a href="{{ path('service_index') }}">back to list</a>
-
-                <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
+                <a href="{{ path('service_index') }}">Revenir à la liste</a>
+                
+                <a href="{{ path('service_edit', {'id': service.id}) }}" class="ml-3">Editer</a>
 
                 {{ include('service/_delete_form.html.twig') }}
             </div>
