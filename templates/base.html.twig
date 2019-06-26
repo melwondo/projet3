@@ -31,8 +31,9 @@
 {{ render(controller(
     'App\\Controller\\MenuController::index'
 )) }}
-{% block body %}{% endblock %}
+<div class="content">
 {% block content %}{% endblock %}
+</div>
 <footer class="container-fluid">
     <div class="row bg-primary pt-5 d-flex justify-content-center">
         <div class="col-3">

@@ -15,9 +15,21 @@
 //     font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
 //     font-weight: 400;
 // }
-.logo {
-    box-shadow: 2px 2px 10px #3f5573;
-    border-radius: 1%;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.sticky+ .content {
+  padding-top: 80px;
+
+}
+
+#navbarPosition{
+  overflow: hidden;
+  z-index: 20;
 }
 
 .navbar {
