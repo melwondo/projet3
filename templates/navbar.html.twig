@@ -9,10 +9,11 @@
 
     <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarColor01">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
+            <li class="nav-item {% if route == 'accueil' %} active {% endif %}">
+                <a class="nav-link" href="{{path('accueil')}}">Accueil</a>
             </li>
-            <li class="nav-item dropdown show">
+
+            <li class="nav-item dropdown  {% if route == 'service_detail' or route == 'services' %} active {% endif %}">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="true" aria-expanded="false">Nos services</a>
                 <div class="dropdown-menu" x-placement="bottom-start"
@@ -26,10 +27,12 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item">
+
+            <li class="nav-item {% if route == 'partenaires' %} active {% endif %}">
                 <a class="nav-link" href="{{ path('partenaires') }}">Partenaires</a>
             </li>
-            <li class="nav-item">
+
+            <li class="nav-item {% if route == 'contact' %} active {% endif %}">
                 <a class="nav-link" href="{{ path("contact") }}">Nous contacter</a>
             </li>
         </ul>

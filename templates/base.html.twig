@@ -29,8 +29,9 @@
 </div>
 
 {{ render(controller(
-    'App\\Controller\\MenuController::index'
-)) }}
+    'App\\Controller\\MenuController::index', {'route': app.request.attributes.get('_route') }
+))}}
+
 <div class="content">
 {% block content %}{% endblock %}
 </div>
