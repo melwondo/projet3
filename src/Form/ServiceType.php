@@ -16,7 +16,8 @@ class ServiceType extends AbstractType
             ->add('titre')
             ->add('subtitle')
             ->add('contenu')
-            ->add('url_img', FileType::class, ['label' => 'Images (jpg, png)'])
+            ->add('url_img', FileType::class, ['label' => 'Images (jpg, png)',
+            'data_class' => null])
             ->add('visible')
         ;
     }
