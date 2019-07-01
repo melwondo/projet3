@@ -1,4 +1,18 @@
- <div id="mySidebar" class="sidebar">
+ <ul class="nav nav-pills">
+  <li class="nav-item dropdown show pt-5 ml-2">
+    <a class="nav-link dropdown-toggle btn-lg btn-primary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Menu</a>
+    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35.5px, 0px);">
+      <a class="dropdown-item" href="{{ path('service_index') }}">Gestion des services</a>
+      <a class="dropdown-item" href="{{ path('detail_service_index') }}">Gestion des sous-services</a>
+      <a class="dropdown-item" href="{{ path('partenaire_index') }}">Gestion des partenaires</a>
+      <a class="dropdown-item" href="#">Vos Messages</a>
+    </div>
+  </li>
+  
+</ul>
+ 
+ 
+ {# <div id="mySidebar" class="sidebar">
      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
      <a href="{{ path('service_index') }}">Gestion des services</a>
      <a href="{{ path('detail_service_index') }}">Gestion des sous-services</a>
@@ -24,5 +38,5 @@
         document.getElementById("mySidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
     }
-</script>
-{% endblock %}
+</script> #}
+{# {% endblock %} #}
