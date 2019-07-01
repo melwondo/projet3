@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\FileUploader;
 
 /**
  * @Route("/detail/service")
@@ -29,13 +30,19 @@ class DetailServiceController extends AbstractController
     /**
      * @Route("/new", name="detail_service_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $detailService = new DetailService();
         $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['url_img']->getData();
+            if ($imageFile) {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $detailService->setUrlImg($imageFileName);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($detailService);
             $entityManager->flush();
@@ -64,11 +71,10 @@ class DetailServiceController extends AbstractController
      */
     public function edit(Request $request, DetailService $detailService): Response
     {
-        $form = $this->createForm(DetailServiceType::class, $detailService );
+        $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('detail_service_index', [

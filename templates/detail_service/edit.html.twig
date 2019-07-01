@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit DetailService{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Modifier un sous service{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Edit DetailService</h1>
+    <h1>Modifier le sous service : {{detail_service.titre }}</h1>
 
     {{ include('detail_service/_form.html.twig', {'button_label': 'Update'}) }}
 
