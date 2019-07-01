@@ -6,7 +6,7 @@
 parameters:
     locale: 'fr'
     Service_Images_Directory: '%kernel.project_dir%/public/images/Service'
-    Sous_Service_Image_Directory: '%kernel.project_dir%/public/images/Sous-service'
+    Sous_Service_Images_Directory: '%kernel.project_dir%/public/images/Sous-service'
 
 services:
     # default configuration for services in *this* file
@@ -30,4 +30,5 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Service\FileUploader:
         arguments:
-            $targetDirectory: '%Sous_Service_Image_Directory%'
+            $targetDirectorySousService: '%Sous_Service_Images_Directory%'
+            $targetDirectoryService: '%Service_Images_Directory%'
