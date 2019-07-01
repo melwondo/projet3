@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Service\FileUploader;
 
 /**
@@ -39,7 +40,7 @@ class DetailServiceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
             $imageFile = $form['url_img']->getData();
-            if ($imageFile) {
+            if (!empty($imageFile)) {
                 $imageFileName = $fileUploader->upload($imageFile);
                 $detailService->setUrlImg($imageFileName);
             }
@@ -69,12 +70,18 @@ class DetailServiceController extends AbstractController
     /**
      * @Route("/{id}/edit", name="detail_service_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, DetailService $detailService): Response
+    public function edit(Request $request, DetailService $detailService, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['url_img']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->upload($imageFile);
+                $detailService->setUrlImg($imageFileName);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('detail_service_index', [
