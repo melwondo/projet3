@@ -9,7 +9,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-10">
-                        <h1>Service index</h1>
+                        <h1>
+                            Service index &nbsp;-&nbsp;
+                            <span class="btn-light">
+                            <a href="{{ path('service_new') }}">
+                                <img data-toggle="tooltip" data-placement="top" title="Ajouter un service"
+                                     class="iconBackofficeAdd"
+                                     src="{{ asset('images/Icons/plus-square-regular.svg') }}"
+                                     alt="Ajouter un service">
+                            </a>
+                                </span>
+                        </h1>
                         <table class="table mt-7">
                             <thead>
                             <tr>
@@ -31,15 +41,26 @@
                                     <td>{{ service.contenu }}</td>
                                     <td>{{ service.urlImg }}</td>
                                     <td>{{ service.visible ? 'Yes' : 'No' }}</td>
-                                    <td>
-                                        <a href="{{ path('service_show', {'id': service.id}) }}">
-                                            <img data-toggle="tooltip" data-placement="top" title="Regarder le service" class="iconBackoffice" src="{{ asset('images/Icons/eye-solid.svg') }}"
-                                                 alt="Regarder le service">
-                                        </a>
-                                        <a href="{{ path('service_edit', {'id': service.id}) }}">
-                                            <img data-toggle="tooltip" data-placement="top" title="Modifier le service" class="iconBackoffice" src="{{ asset('images/Icons/pen-square-solid.svg') }}"
-                                                 alt="Modifier le service">
-                                        </a>
+                                    <td class="btn-group">
+                                        <div class="btn-light">
+                                            <a href="{{ path('service_show', {'id': service.id}) }}">
+                                                <img data-toggle="tooltip" data-placement="top"
+                                                     title="Regarder le service"
+                                                     class="iconBackoffice align-middle"
+                                                     src="{{ asset('images/Icons/glasses-solid.svg') }}"
+                                                     alt="Regarder le service">
+                                            </a>
+                                        </div>
+                                        <div class="btn-light">
+                                            <a href="{{ path('service_edit', {'id': service.id}) }}">
+                                                <img data-toggle="tooltip" data-placement="top"
+                                                     title="Modifier le service"
+                                                     class="iconBackoffice"
+                                                     src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                                     alt="Modifier le service">
+                                            </a>
+                                        </div>
+                                        {{ include('service/_delete_form.html.twig') }}
                                     </td>
                                 </tr>
                             {% else %}
@@ -49,14 +70,10 @@
                             {% endfor %}
                             </tbody>
                         </table>
-                        <a href="{{ path('service_new') }}">
-                            <img data-toggle="tooltip" data-placement="top" title="Ajouter un service" class="iconBackoffice" src="{{ asset('images/Icons/plus-circle-solid.svg') }}"
-                                 alt="Ajouter un service">
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 {% endblock %}
