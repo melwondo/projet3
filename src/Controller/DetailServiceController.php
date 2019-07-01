@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\DetailService;
+use App\Entity\Service;
 use App\Form\DetailServiceType;
 use App\Repository\DetailServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,10 +64,11 @@ class DetailServiceController extends AbstractController
      */
     public function edit(Request $request, DetailService $detailService): Response
     {
-        $form = $this->createForm(DetailServiceType::class, $detailService);
+        $form = $this->createForm(DetailServiceType::class, $detailService );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('detail_service_index', [

@@ -3,6 +3,7 @@
 {% block title %}Edit DetailService{% endblock %}
 
 {% block content %}
+<div class="container">
     <h1>Edit DetailService</h1>
 
     {{ include('detail_service/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +11,5 @@
     <a href="{{ path('detail_service_index') }}">back to list</a>
 
     {{ include('detail_service/_delete_form.html.twig') }}
+</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}DetailService{% endblock %}
+{% block title %}AccessInfoService - Backoffice - Les sous services{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -19,6 +19,10 @@
             <tr>
                 <th>Subtitle</th>
                 <td>{{ detail_service.subtitle }}</td>
+            </tr>
+            <tr>
+                <th>Lié au service</th>
+                <td>{{ detail_service.service.titre}}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
