@@ -106,5 +106,4 @@ class DetailService
 
         return $this;
     }
-
 }

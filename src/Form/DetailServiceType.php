@@ -12,13 +12,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DetailServiceType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder,array $option)
+    public function buildForm(FormBuilderInterface $builder, array $option)
     {
         $builder
             ->add('titre')
             ->add('subtitle')
             ->add('contenu')
-            ->add('url_img', FileType::class ,[
+            ->add('url_img', FileType::class, [
                 'label' => 'Image (jpg png)',
                 'mapped' => true,
                 'required' => true,

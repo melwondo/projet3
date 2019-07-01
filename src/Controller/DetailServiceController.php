@@ -64,11 +64,10 @@ class DetailServiceController extends AbstractController
      */
     public function edit(Request $request, DetailService $detailService): Response
     {
-        $form = $this->createForm(DetailServiceType::class, $detailService );
+        $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('detail_service_index', [
