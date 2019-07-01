@@ -23,7 +23,7 @@ class DetailServiceType extends AbstractType
                 'label' => 'Image (jpg png)',
                 'required' => true,
                 'data_class' => null,
-        ])
+            ])
             ->add('service', EntityType::class, [
                 'class' => Service::class,
                 'multiple' => false,
