@@ -7,14 +7,34 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
-    private $targetDirectory;
+    private $targetDirectorySousService;
+    private $targetDirectoryService;
 
-    public function __construct($targetDirectory)
+    public function __construct($targetDirectorySousService, $targetDirectoryService)
     {
-        $this->targetDirectory = $targetDirectory;
+        $this->targetDirectorySousService = $targetDirectorySousService;
+        $this->targetDirectoryService = $targetDirectoryService;
     }
 
-    public function upload(UploadedFile $file)
+    public function uploadImgSousService(UploadedFile $file)
+    {
+        $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $safeFilename = transliterator_transliterate(
+            'Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()',
+            $originalFilename
+        );  
+        $fileName = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
+
+        try {
+            $file->move($this->getTargetDirectorySousService(), $fileName);
+        } catch (FileException $e) {
+            // ... handle exception if something happens during file upload
+        }
+
+        return $fileName;
+    }
+
+    public function uploadImgService(UploadedFile $file)
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $safeFilename = transliterator_transliterate(
@@ -24,7 +44,7 @@ class FileUploader
         $fileName = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
 
         try {
-            $file->move($this->getTargetDirectory(), $fileName);
+            $file->move($this->getTargetDirectoryService(), $fileName);
         } catch (FileException $e) {
             // ... handle exception if something happens during file upload
         }
@@ -32,8 +52,13 @@ class FileUploader
         return $fileName;
     }
 
-    public function getTargetDirectory()
+    public function getTargetDirectorySousService()
     {
-        return $this->targetDirectory;
+        return $this->targetDirectorySousService;
+    }
+
+    public function getTargetDirectoryService()
+    {
+        return $this->targetDirectoryService;
     }
 }

@@ -39,9 +39,9 @@ class DetailServiceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
-            $imageFile = $form['url_img']->getData();
+            $imageFile = $form['UrlImg']->getData();
             if (!empty($imageFile)) {
-                $imageFileName = $fileUploader->upload($imageFile);
+                $imageFileName = $fileUploader->uploadImgSousService($imageFile);
                 $detailService->setUrlImg($imageFileName);
             }
             $entityManager = $this->getDoctrine()->getManager();
@@ -77,9 +77,9 @@ class DetailServiceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $imageFile */
-            $imageFile = $form['url_img']->getData();
+            $imageFile = $form['UrlImg']->getData();
             if (!empty($imageFile)) {
-                $imageFileName = $fileUploader->upload($imageFile);
+                $imageFileName = $fileUploader->uploadImgSousService($imageFile);
                 $detailService->setUrlImg($imageFileName);
             }
             $this->getDoctrine()->getManager()->flush();

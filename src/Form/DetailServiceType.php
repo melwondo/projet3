@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\DetailService;
 use App\Entity\Service;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -18,11 +19,11 @@ class DetailServiceType extends AbstractType
             ->add('titre')
             ->add('subtitle')
             ->add('contenu')
-            ->add('url_img', FileType::class, [
+            ->add('UrlImg', FileType::class, [
                 'label' => 'Image (jpg png)',
-                'mapped' => true,
                 'required' => true,
-                'data_class' => null])
+                'data_class' => null,
+        ])
             ->add('service', EntityType::class, [
                 'class' => Service::class,
                 'multiple' => false,
