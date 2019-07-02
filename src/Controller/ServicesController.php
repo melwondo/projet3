@@ -29,7 +29,7 @@ class ServicesController extends AbstractController
         $services = $service->findBy(['visible'=>1]);
 
         return $this->render('services/index.html.twig', [
-            'services' => $services
+            'services' => $services,
         ]);
     }
 

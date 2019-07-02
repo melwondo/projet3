@@ -15,14 +15,26 @@
 //     font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
 //     font-weight: 400;
 // }
-.logo {
-    box-shadow: 2px 2px 10px #3f5573;
-    border-radius: 1%;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.sticky+ .content {
+  padding-top: 80px;
+
+}
+
+#navbarPosition{
+  z-index: 20;
 }
 
 .navbar {
     box-shadow: 2px 2px 10px #3f5573;
 }
+
 
 footer a:hover {
     color: white;
@@ -59,6 +71,7 @@ footer p {
     background-size: cover;
 
 }
+
 
 .logoService {
     display: block;
@@ -110,6 +123,7 @@ footer p {
     width: 12em;
     margin: 0 0 1em 0;
 }
+
 div.card-body.img {
     max-width: 5em;
 }
