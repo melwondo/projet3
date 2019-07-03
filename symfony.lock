@@ -126,6 +126,12 @@
     "justinrainbow/json-schema": {
         "version": "5.2.8"
     },
+    "markbaker/complex": {
+        "version": "1.4.7"
+    },
+    "markbaker/matrix": {
+        "version": "1.1.4"
+    },
     "monolog/monolog": {
         "version": "1.24.0"
     },
@@ -167,6 +173,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
+    },
+    "phpoffice/phpspreadsheet": {
+        "version": "1.8.1"
     },
     "phpro/grumphp": {
         "version": "v0.15.2"
