@@ -33,7 +33,7 @@
     <!--Section: Contact v.2-->
     <div class="container pt-3 pb-5">
         <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Contactez nous</h2>
+        <h2 class="h1-responsive font-weight-bold text-center my-4 pb-4">Contactez nous</h2>
         <!--Section description-->
         <div class="col-md-12">
             {{ form_start(form) }}
@@ -45,7 +45,7 @@
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-12">
-                            <div class="md-form mb-0">
+                            <div class="md-form  mt-3 pt-5">
                                 {{ form_widget(form.nom) }}
                                 {{ form_label(form.nom) }}
                             </div>
@@ -75,10 +75,18 @@
                         </div>
                         <!--Grid column-->
                     </div>
+
+                    <!--Grid row-->
+                </div>
+                <!--Grid column1-->
+                <!--Grid column2-->
+                <div class="col-md-4 mb-md-0 mb-5">
+                    <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
+                    <!--Grid row-->
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-12 mt-4">
-                            <div class="md-form mt-3 mb-0">
+                            <div class="md-form mt-3 mb-0 text-center">
                                 <div class="custom-control custom-switch">
                                     {{ form_widget(form.pro, {
                                         'attr':{'class': 'custom-control-input'}
@@ -88,25 +96,18 @@
                                     }) }}
                                 </div>
                             </div>
-                        </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
-                        <div class="col-md-12">
-                            <div class="md-form mb-0">
-                                {{ form_widget(form.entreprise) }}
-                                {{ form_label(form.entreprise) }}
+                            <div class="row">
+                                <!--Grid column-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        {{ form_widget(form.entreprise) }}
+                                        {{ form_label(form.entreprise) }}
+                                    </div>
+                                </div>
+                                <!--Grid column-->
                             </div>
                         </div>
-                        <!--Grid column-->
-                    </div>
-                    <!--Grid row-->
-                </div>
-                <!--Grid column1-->
-                <!--Grid column2-->
-                <div class="col-md-4 mb-md-0 mb-5">
-                    <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
-                    <!--Grid row-->
-                    <div class="row">
+
                         <!--Grid column-->
                         <div class="col-md-12">
                             <div class="md-form mb-0">
@@ -123,7 +124,7 @@
                             <div class="md-form mb-0">
                                 <table>
                                     <tr>
-                                        <th>L- </th>
+                                        <th>L-</th>
                                         <th class="w-100">{{ form_widget(form.cp) }}</th>
                                     </tr>
                                 </table>
@@ -154,7 +155,7 @@
                     <div class="row">
                         <!--Grid column-->
                         <div class="col-md-12">
-                            <div class="md-form mb-0">
+                            <div class="md-form mt-3 pt-5">
                                 {{ form_widget(form.sujet) }}
                                 {{ form_label(form.sujet) }}
                             </div>
