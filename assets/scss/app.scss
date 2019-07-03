@@ -54,12 +54,14 @@ footer p {
     color: $footerColorP;
 }
 
+/*cards partenaire*/
 .card {
-    transition: transform .2s;
+  transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(0%);
 }
 
 .card:hover {
-    transform: scale(1.05);
+  -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
 }
 
 .parallax {
