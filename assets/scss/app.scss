@@ -32,7 +32,8 @@
 }
 
 .navbar {
-    box-shadow: 2px 2px 10px #3f5573;
+  box-shadow: 2px 2px 10px #3f5573;
+  margin-bottom: 2em;
 }
 
 
@@ -110,10 +111,22 @@ footer p {
         margin-left: 0;
     }
 }
-
 .iconBackoffice{
     width: 3em;
-    margin: 0 0 1em 1em;
+    /*margin: 0 0 1em 0.5em;*/
+}
+.iconBackofficeAdd{
+  width:1.3em;
+}
+.iconBackofficeDelete{
+  width: 2.5em;
+}
+.btn-light {
+  border-radius: 100% !important;
+  padding: 7px !important;
+}
+.table th, .table td {
+  vertical-align: middle;
 }
 .formConnexion{
     width: 30%;
