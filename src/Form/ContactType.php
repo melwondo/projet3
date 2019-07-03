@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ContactSimple;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,9 @@ class ContactType extends AbstractType
             ->add('email')
             ->add('sujet')
             ->add('meassage')
-            ->add('pro')
+            ->add('pro', null, [
+                'label_attr'=> array('class'=> 'custom-control-label'),
+                ])
             ->add('entreprise')
             ->add('rue')
             ->add('cp')

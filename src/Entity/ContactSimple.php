@@ -50,18 +50,21 @@ class ContactSimple
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
-/**
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $rue;
-/**
+    /**
      * @ORM\Column(type="integer")
      */
     private $cp;
-/**
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $ville;
+
+    private $dateMessage;
+
 
     public function getId(): ?int
     {
@@ -182,6 +185,18 @@ class ContactSimple
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
+        return $this;
+    }
+
+    public function getDateMessage(): ?\DateTimeInterface
+    {
+        return $this->dateMessage;
+    }
+
+    public function setDateMessage(\DateTimeInterface $dateMessage): self
+    {
+        $this->dateMessage = $dateMessage;
+
         return $this;
     }
 }
