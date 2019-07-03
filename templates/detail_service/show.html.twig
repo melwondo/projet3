@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}DetailService{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Les sous services{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -21,12 +21,22 @@
                 <td>{{ detail_service.subtitle }}</td>
             </tr>
             <tr>
+                <th>Lié au service</th>
+                <td>{{ detail_service.service.titre}}</td>
+            </tr>
+            <tr>
                 <th>Contenu</th>
                 <td>{{ detail_service.contenu }}</td>
             </tr>
             <tr>
-                <th>Url_img</th>
+                <th>Image</th>
                 <td>{{ detail_service.urlImg }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <img class="logoServiceBackoffice" src="/images/Sous-service/{{ detail_service.UrlImg }}">
+                </td>
             </tr>
         </tbody>
     </table>

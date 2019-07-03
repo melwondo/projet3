@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\DetailService;
+use App\Entity\Service;
 use App\Form\DetailServiceType;
 use App\Repository\DetailServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\FileUploader;
 
 /**
  * @Route("/detail/service")
@@ -28,13 +31,19 @@ class DetailServiceController extends AbstractController
     /**
      * @Route("/new", name="detail_service_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $detailService = new DetailService();
         $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['UrlImg']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgSousService($imageFile);
+                $detailService->setUrlImg($imageFileName);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($detailService);
             $entityManager->flush();
@@ -61,12 +70,18 @@ class DetailServiceController extends AbstractController
     /**
      * @Route("/{id}/edit", name="detail_service_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, DetailService $detailService): Response
+    public function edit(Request $request, DetailService $detailService, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(DetailServiceType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['UrlImg']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgSousService($imageFile);
+                $detailService->setUrlImg($imageFileName);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('detail_service_index', [

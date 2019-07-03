@@ -11,7 +11,7 @@ class MenuController extends AbstractController
     /**
      * @Route("/menu", name="menu")
      */
-    public function index()
+    public function index($route = "")
     {
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
@@ -20,6 +20,7 @@ class MenuController extends AbstractController
 
         return $this->render('navbar.html.twig', [
             'services' => $services,
+            'route'=> $route
         ]);
     }
 }
