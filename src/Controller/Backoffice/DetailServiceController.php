@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Backoffice;
 
 use App\Entity\DetailService;
 use App\Entity\Service;
@@ -23,7 +23,7 @@ class DetailServiceController extends AbstractController
      */
     public function index(DetailServiceRepository $detailServiceRepository): Response
     {
-        return $this->render('detail_service/index.html.twig', [
+        return $this->render('Backoffice/detail_service/index.html.twig', [
             'detail_services' => $detailServiceRepository->findAll(),
         ]);
     }
@@ -51,7 +51,7 @@ class DetailServiceController extends AbstractController
             return $this->redirectToRoute('detail_service_index');
         }
 
-        return $this->render('detail_service/new.html.twig', [
+        return $this->render('Backoffice/detail_service/new.html.twig', [
             'detail_service' => $detailService,
             'form' => $form->createView(),
         ]);
@@ -62,7 +62,7 @@ class DetailServiceController extends AbstractController
      */
     public function show(DetailService $detailService): Response
     {
-        return $this->render('detail_service/show.html.twig', [
+        return $this->render('Backoffice/detail_service/show.html.twig', [
             'detail_service' => $detailService,
         ]);
     }
@@ -89,7 +89,7 @@ class DetailServiceController extends AbstractController
             ]);
         }
 
-        return $this->render('detail_service/edit.html.twig', [
+        return $this->render('Backoffice/detail_service/edit.html.twig', [
             'detail_service' => $detailService,
             'form' => $form->createView(),
         ]);

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Ajouter un sous service{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+    {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Ajouter un sous service</h1>
+
+            {{ include('Backoffice/detail_service/_form.html.twig') }}
+
+            <a href="{{ path('detail_service_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

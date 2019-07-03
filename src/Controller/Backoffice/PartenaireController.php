@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Backoffice;
 
 use App\Entity\Partenaire;
 use App\Form\PartenaireType;
@@ -23,7 +23,7 @@ class PartenaireController extends AbstractController
      */
     public function index(PartenaireRepository $partenaireRepository): Response
     {
-        return $this->render('partenaire/index.html.twig', [
+        return $this->render('Backoffice/partenaire/index.html.twig', [
             'partenaires' => $partenaireRepository->findAll(),
         ]);
     }
@@ -52,7 +52,7 @@ class PartenaireController extends AbstractController
             return $this->redirectToRoute('partenaire_index');
         }
 
-        return $this->render('partenaire/new.html.twig', [
+        return $this->render('Backoffice/partenaire/new.html.twig', [
             'partenaire' => $partenaire,
             'form' => $form->createView(),
         ]);
@@ -63,7 +63,7 @@ class PartenaireController extends AbstractController
      */
     public function show(Partenaire $partenaire): Response
     {
-        return $this->render('partenaire/show.html.twig', [
+        return $this->render('Backoffice/partenaire/show.html.twig', [
             'partenaire' => $partenaire,
         ]);
     }
@@ -90,7 +90,7 @@ class PartenaireController extends AbstractController
             ]);
         }
 
-        return $this->render('partenaire/edit.html.twig', [
+        return $this->render('Backoffice/partenaire/edit.html.twig', [
             'partenaire' => $partenaire,
             'form' => $form->createView(),
         ]);
