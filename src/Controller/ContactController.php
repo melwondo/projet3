@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\ContactSimple;
+use App\Entity\Service;
 use App\Form\ContactType;
+use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,19 +17,17 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      * @param Request $request
      * @return Response
+     * @throws \Exception
      */
     public function index(Request $request)
     {
-
         $contact = new ContactSimple();
-
-
-
-        $form=$this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $eM = $this->getDoctrine()->getManager();
+            $contact->setDateMessage(new DateTime());
 
             $this->addFlash(
                 'notice',
