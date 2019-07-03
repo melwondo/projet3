@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactSimpleRepository")
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ContactSimple
 {
     /**
-     * @ORM\Id()
+     * @ORM\Id()s
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
@@ -57,7 +58,8 @@ class ContactSimple
     private $rue;
 
     /**
-     * @ORM\Column(type="integer", length=4)
+     * @ORM\Column(type="integer")
+     * @Assert\Length(min=4, max=4)
      */
     private $cp;
 
