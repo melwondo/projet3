@@ -29,7 +29,7 @@ class ServicesController extends AbstractController
      * @param ServiceRepository $service
      * @return Response
      */
-    public function index(Request $request,ServiceRepository $service, DetailServiceRepository $sousService)
+    public function index(Request $request, ServiceRepository $service, DetailServiceRepository $sousService)
     {
         $services = $service->findBy(['visible'=>1]);
         $sousServices = $sousService->findBy(['visible'=>1]);
