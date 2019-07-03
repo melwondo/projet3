@@ -14,21 +14,29 @@
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
             {% for service in services %}
-                <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
-                    <div class="card-header text-primary">
-                        <h4>{{ service.titre }}</h4>
-                    </div>
+                <div class="card border-primary m-2" style="max-width: 20rem;">
                     <div class="card-header">
                         <img class="logoService" src="./images/Service/{{ service.UrlImg }}" alt="logo service">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">{{ service.subtitle }}</h4>
+                        <h4 class="card-title">{{ service.titre }}</h4>
                         <p class="card-text">{{ service.contenu }}</p>
                     </div>
                     <div class="align-self-end m-2">
-                        <a class="btn btn-primary btn-sm text-white"
-                           href="{{ path('service_detail', {'id': service.id}) }}"
-                           role="button">En savoir plus</a>
+                        {% set match = 0 %}
+                        {% for sousService in sousServices %}
+                            {% if sousService.service.id == service.id %}
+                                {% set match = match + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if match > 0 %}
+                            <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
+                        {% else %}
+                            <div class="align-self-end m-2">
+                                <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                                   role="button">Nous contacter</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -36,6 +44,43 @@
     </div>
 
     {# fin card #}
+
+    {#Modal formulaire#}
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center ">
+                    <h4 class="modal-title w-100 font-weight-bold">Nous contacter</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        {{ form_start(form) }}
+                        {{ form_row(form.nom) }}
+                        {{ form_row(form.prenom) }}
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.tel) }}
+                        {{ form_row(form.rue) }}
+                        {{ form_row(form.cp)}}
+                        {{ form_row(form.ville) }}
+                        {{ form_row(form.pro) }}
+                        {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Rentrez le nom de votre entreprise'} }) }}
+                        {{ form_row(form.message) }}
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">
+                            Envoyer
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {#Fin modal formulaire#}
 
 
     <div class="parallax"></div>
@@ -61,14 +106,14 @@
 
 
 
-    {# Ils nous font confiance #}
+    {# Ils nous font confiance
     <div class="container pt-5 pb-5">
     <div class="row d-flex justify-content-center">
         <h4>Ils nous font confiance</h4>
     </div>
     <!--Carousel Wrapper-->
     <div id="multi-item-example" class="carousel slide carousel-multi-item  pt-3" data-ride="carousel">
-        {# d-flex justify-content-around #}
+        {# d-flex justify-content-around
         <!--Controls-->
         <div class="controls-top d-flex justify-content-around">
             <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
@@ -146,6 +191,96 @@
             <!--/.Third slide-->
         </div>
     </div>
-</div>
+</div>#}
     {# Fin Ils nous font confiance #}
+{% endblock %}
+{% block jquery %}
+    <script>
+        $("#renseignement_nom").blur(function () {
+
+            if ($("#renseignement_nom").val().length < 2) {
+                $("#renseignement_nom").addClass('is-invalid');
+            } else {
+                $("#renseignement_nom").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_prenom").blur(function () {
+
+            if ($("#renseignement_prenom").val().length < 2) {
+                $("#renseignement_prenom").addClass('is-invalid');
+            } else {
+                $("#renseignement_prenom").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_email").blur(function () {
+
+            if ($("#renseignement_email").val().length < 5) {
+                $("#renseignement_email").addClass('is-invalid');
+            } else {
+                $("#renseignement_email").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_tel").blur(function () {
+
+            if ($("#renseignement_tel").val().length < 10) {
+                $("#renseignement_tel").addClass('is-invalid');
+            } else {
+                $("#renseignement_tel").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_rue").blur(function () {
+
+            if ($("#renseignement_rue").val().length < 10) {
+                $("#renseignement_rue").addClass('is-invalid');
+            } else {
+                $("#renseignement_rue").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_cp").blur(function () {
+
+            if ($("#renseignement_cp").val().length < 4) {
+                $("#renseignement_cp").addClass('is-invalid');
+            } else {
+                $("#renseignement_cp").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_ville").blur(function () {
+
+            if ($("#renseignement_ville").val().length < 3) {
+                $("#renseignement_ville").addClass('is-invalid');
+            } else {
+                $("#renseignement_ville").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_message").blur(function () {
+
+            if ($("#renseignement_message").val().length < 10) {
+                $("#renseignement_message").addClass('is-invalid');
+            } else {
+                $("#renseignement_message").removeClass('is-invalid');
+            }
+
+        });
+
+        $(document).ready(function () {
+            $('#renseignement_pro').click(function () {
+                $('#renseignement_entreprise').toggle();
+            });
+        });
+    </script>
+
 {% endblock %}
