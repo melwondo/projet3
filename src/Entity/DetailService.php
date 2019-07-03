@@ -42,6 +42,11 @@ class DetailService
      */
     private $service;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $visible;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class DetailService
     public function setService(?Service $service): self
     {
         $this->service = $service;
+
+        return $this;
+    }
+
+    public function getVisible(): ?bool
+    {
+        return $this->visible;
+    }
+
+    public function setVisible(bool $visible): self
+    {
+        $this->visible = $visible;
 
         return $this;
     }

@@ -14,6 +14,12 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Service\FileUploader;
 
 /**
+ * Require ROLE_ADMIN for *every* controller method in this class.
+ *
+ *
+ **/
+
+/**
  * @Route("/detail/service")
  */
 class DetailServiceController extends AbstractController

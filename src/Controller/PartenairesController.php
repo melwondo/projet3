@@ -13,7 +13,7 @@ class PartenairesController extends AbstractController
      */
     public function index(PartenaireRepository $partenaires)
     {
-        $partenaires = $partenaires->findAll();
+        $partenaires = $partenaires->findBy(['visible'=>1]);
         return $this->render('partenaires/index.html.twig', [
             'partenaires' => $partenaires,
         ]);

@@ -50,7 +50,7 @@ class ServicesController extends AbstractController
     public function details(Request $request, Service $service, DetailServiceRepository $detail_service)
     {
 
-        $detail_service = $detail_service ->findBy(['service'=>$service->getId()]);
+        $detail_service = $detail_service ->findBy(['service'=>$service->getId(), 'visible'=> 1]);
        
         $client = new Renseignement();
         $form = $this->createForm(RenseignementType::class, $client);

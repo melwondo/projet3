@@ -17,6 +17,7 @@
                 <th>Lié au service :</th>
                 <th>Contenu</th>
                 <th>Url_img</th>
+                <th>Visible</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
                 <td>{{ detail_service.service.titre }}</td>
                 <td>{{ detail_service.contenu }}</td>
                 <td>{{ detail_service.urlImg }}</td>
+                <td>{{ detail_service.visible ? 'Oui' : 'Non' }}</td>
                 <td>
                     <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">Voir</a>
                     <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">Editer</a>
