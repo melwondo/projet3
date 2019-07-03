@@ -55,12 +55,56 @@ footer p {
 }
 
 .card {
-    transition: transform .2s;
+  transition: transform .2s;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
+
+
+/*cards partenaire*/
+
+.card-partenaires {
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 18em !important;
+  max-width: 15em !important;
+  transition: filter .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+}
+
+.card-partenaires:hover {
+  -webkit-filter: grayscale(0%);
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
+}
+
+.card-partenaires a::after{
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* fin cards partenaire*/
+
 
 .parallax {
 
@@ -70,9 +114,7 @@ footer p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
 
 .logoService {
     display: block;
@@ -139,9 +181,6 @@ footer p {
 
 div.card-body.img {
     max-width: 5em;
-}
-.card-partenaires {
-    height: 20em !important;
 }
 
 
