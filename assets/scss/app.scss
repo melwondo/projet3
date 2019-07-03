@@ -54,14 +54,14 @@ footer p {
     color: $footerColorP;
 }
 
-
 .card {
-
+  transition: transform .2s;
 }
 
 .card:hover {
-
+  transform: scale(1.05);
 }
+
 
 /*cards partenaire*/
 .card-partenaires {
@@ -101,6 +101,7 @@ footer p {
   }
 }
 /* fin cards partenaire*/
+
 
 .parallax {
 
