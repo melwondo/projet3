@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Ajouter un partenaire{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Ajouter un partenaire</h1>
+
+            {{ include('Backoffice/partenaire/_form.html.twig') }}
+
+            <a href="{{ path('partenaire_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}
+

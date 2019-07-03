@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Backoffice;
 
 use App\Entity\Service;
 use App\Form\ServiceType;
@@ -25,7 +25,7 @@ class ServiceController extends AbstractController
      */
     public function index(ServiceRepository $serviceRepository): Response
     {
-        return $this->render('service/index.html.twig', [
+        return $this->render('Backoffice/service/index.html.twig', [
             'services' => $serviceRepository->findAll(),
         ]);
     }
@@ -69,7 +69,7 @@ class ServiceController extends AbstractController
             return $this->redirectToRoute('service_index');
         }
 
-        return $this->render('service/new.html.twig', [
+        return $this->render('Backoffice/service/new.html.twig', [
             'service' => $service,
             'form' => $form->createView(),
         ]);
@@ -82,7 +82,7 @@ class ServiceController extends AbstractController
      */
     public function show(Service $service): Response
     {
-        return $this->render('service/show.html.twig', [
+        return $this->render('Backoffice/service/show.html.twig', [
             'service' => $service,
         ]);
     }
@@ -106,7 +106,7 @@ class ServiceController extends AbstractController
             ]);
         }
 
-        return $this->render('service/edit.html.twig', [
+        return $this->render('Backoffice/service/edit.html.twig', [
             'service' => $service,
             'form' => $form->createView(),
         ]);

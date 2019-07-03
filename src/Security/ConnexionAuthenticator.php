@@ -88,7 +88,7 @@ class ConnexionAuthenticator extends AbstractFormLoginAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
-        return new RedirectResponse($this->urlGenerator->generate('backoffice'));
+        return new RedirectResponse($this->urlGenerator->generate('service_index'));
     }
 
     protected function getLoginUrl()
