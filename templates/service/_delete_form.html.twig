@@ -1,5 +1,10 @@
 <form method="post" action="{{ path('service_delete', {'id': service.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ service.id) }}">
-    <button type="button" class="btn btn-outline-danger">Supprimer</button>
+    <button type="submit" class="btn-light">
+        <img data-toggle="tooltip" data-placement="top" title="Supprimer le service"
+             class="iconBackofficeDelete"
+             src="{{ asset('images/Icons/trash-alt-regular.svg') }}"
+             alt="Supprimer le service">
+    </button>
 </form>
