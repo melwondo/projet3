@@ -15,6 +15,8 @@
 //     font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
 //     font-weight: 400;
 // }
+
+/*Navbar*/
 .sticky {
   position: fixed;
   top: 0;
@@ -36,6 +38,64 @@
   margin-bottom: 2em;
 }
 
+.navbar {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.navbar * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.navbar li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1.5em;
+  padding: 0;
+}
+.navbar a {
+  padding: 0.4em 0;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+.navbar a:before {
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  border-top: 3px solid dodgerblue;
+  border-bottom: 3px solid dodgerblue;
+}
+.navbar a:hover,
+.navbar .current a {
+  color: #ffffff;
+}
+.navbar a:hover:before,
+.navbar .current a:before {
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+}
+.dropdown-item{
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: black !important;
+}
+/*fin NavBar*/
 
 footer a:hover {
     color: white;
