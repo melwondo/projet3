@@ -35,7 +35,9 @@
     <div class="row justify-content-center">
         {% for detail in details %}
         <div class="card border-primary m-2" style="max-width: 20rem;">
-            <div class="card-header"><img src="#" alt="logo-service"></div>
+            <div class="card-header">
+                <img class="logoService" src="../images/Sous-service/{{ detail.UrlImg }}" alt="logo-service">
+            </div>
             <div class="card-body">
                 <h4 class="card-title">{{ detail.titre }}</h4>
                 <p class="card-text">{{ detail.contenu }}</p>

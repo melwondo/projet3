@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partenaire index{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    {% include('menuBackoffice.html.twig') %}
+    <div class="container">
+        <h1 class="pt-5 pb-5">Partenaire index</h1>
+
+        <table class="table">
+            <thead>
+                <tr class="table-primary">
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>UrlLogo</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partenaire in partenaires %}
+                <tr>
+                    <td>{{ partenaire.id }}</td>
+                    <td>{{ partenaire.nom }}</td>
+                    <td>{{ partenaire.urlLogo }}</td>
+                    <td>
+                        <a href="{{ path('partenaire_show', {'id': partenaire.id}) }}">Voir</a>
+                        <a href="{{ path('partenaire_edit', {'id': partenaire.id}) }}">Editer</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">Pas de partenaire trouvés</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('partenaire_new') }}">
+            <img class="iconBackoffice pt-5" src="/images/Icons/plus-circle-solid.svg" alt="Ajouter un partenaire">
+        </a>
+
+    </div>
+</div>
+{% endblock %}

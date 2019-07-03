@@ -15,14 +15,27 @@
 //     font-family: 19px/26px  DINNextLTPro-Bold,sans-serif;
 //     font-weight: 400;
 // }
-.logo {
-    box-shadow: 2px 2px 10px #3f5573;
-    border-radius: 1%;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.sticky+ .content {
+  padding-top: 80px;
+
+}
+
+#navbarPosition{
+  z-index: 20;
 }
 
 .navbar {
-    box-shadow: 2px 2px 10px #3f5573;
+  box-shadow: 2px 2px 10px #3f5573;
+  margin-bottom: 2em;
 }
+
 
 footer a:hover {
     color: white;
@@ -60,6 +73,7 @@ footer p {
 
 }
 
+
 .logoService {
     display: block;
     height: 100px;
@@ -80,6 +94,11 @@ footer p {
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
+    transition: all 0.3s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
 #sidebar.active {
     margin-left: -250px;
@@ -92,10 +111,22 @@ footer p {
         margin-left: 0;
     }
 }
-
 .iconBackoffice{
     width: 3em;
-    margin: 0 0 1em 1em;
+    /*margin: 0 0 1em 0.5em;*/
+}
+.iconBackofficeAdd{
+  width:1.3em;
+}
+.iconBackofficeDelete{
+  width: 2.5em;
+}
+.btn-light {
+  border-radius: 100% !important;
+  padding: 7px !important;
+}
+.table th, .table td {
+  vertical-align: middle;
 }
 .formConnexion{
     width: 30%;
@@ -105,6 +136,7 @@ footer p {
     width: 12em;
     margin: 0 0 1em 0;
 }
+
 div.card-body.img {
     max-width: 5em;
 }
@@ -204,4 +236,4 @@ div.card-body.img {
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
-  } 
+  }
