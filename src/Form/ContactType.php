@@ -17,7 +17,7 @@ class ContactType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('sujet')
-            ->add('meassage')
+            ->add('message')
             ->add('pro', null, [
                 'label_attr'=> array('class'=> 'custom-control-label'),
                 ])
