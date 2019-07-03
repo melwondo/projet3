@@ -50,14 +50,17 @@ class ContactSimple
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $entreprise;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $rue;
+
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", length=4)
      */
     private $cp;
+
     /**
      * @ORM\Column(type="string", length=255)
      */

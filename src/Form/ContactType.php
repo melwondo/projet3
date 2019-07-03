@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\ContactSimple;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +25,9 @@ class ContactType extends AbstractType
                 ])
             ->add('entreprise')
             ->add('rue')
-            ->add('cp')
+            ->add('cp', TextType::class, [
+                'constraints' => new Length(['min' => 3, 'max' => 4]),
+            ])
             ->add('ville')
         ;
     }
