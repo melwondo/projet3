@@ -15,6 +15,7 @@ class DetailServiceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $option)
     {
+
         $builder
             ->add('titre')
             ->add('subtitle')
@@ -22,6 +23,7 @@ class DetailServiceType extends AbstractType
             ->add('UrlImg', FileType::class, [
                 'label' => 'Image (jpg png)',
                 'required' => true,
+                'mapped' => true,
                 'data_class' => null,
             ])
             ->add('service', EntityType::class, [
