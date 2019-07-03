@@ -54,25 +54,36 @@ footer p {
     color: $footerColorP;
 }
 
-/*cards partenaire*/
+
 .card {
+
+}
+
+.card:hover {
+
+}
+
+/*cards partenaire*/
+.card-partenaires {
+  height: 18em !important;
   transition: filter .5s ease-in-out;
   -webkit-filter: grayscale(100%);
 }
 
-.card:hover {
+.card-partenaires:hover {
   -webkit-filter: grayscale(0%);
   opacity: 1;
   -webkit-animation: flash 1.5s;
   animation: flash 1.5s;
 }
 
-.card a::after{
+.card-partenaires a::after{
   content: '';
   position: absolute;
   top: 0; left: 0;
   right: 0; bottom: 0;
 }
+
 @-webkit-keyframes flash {
   0% {
     opacity: .4;
@@ -88,10 +99,6 @@ footer p {
   100% {
     opacity: 1;
   }
-}
-
-.card-partenaires {
-  height: 18em !important;
 }
 /* fin cards partenaire*/
 
