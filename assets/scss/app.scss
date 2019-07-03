@@ -57,11 +57,11 @@ footer p {
 /*cards partenaire*/
 .card {
   transition: filter .5s ease-in-out;
-  -webkit-filter: grayscale(0%);
+  -webkit-filter: grayscale(100%);
 }
 
 .card:hover {
-  -webkit-filter: grayscale(100%);
+  -webkit-filter: grayscale(0%);
   opacity: 1;
   -webkit-animation: flash 1.5s;
   animation: flash 1.5s;
