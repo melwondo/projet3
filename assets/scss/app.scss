@@ -61,8 +61,36 @@ footer p {
 }
 
 .card:hover {
-  -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+  -webkit-filter: grayscale(100%);
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
 }
+
+.card a::after{
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* fin cards partenaire*/
 
 .parallax {
 
@@ -72,9 +100,7 @@ footer p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
 
 .logoService {
     display: block;
