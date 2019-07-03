@@ -8,6 +8,7 @@ parameters:
     Service_Images_Directory: '%kernel.project_dir%/public/images/Service'
     Sous_Service_Images_Directory: '%kernel.project_dir%/public/images/Sous-service'
 
+    Partenaire_Images_Directory: '%kernel.project_dir%/public/images/partenaire'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -32,3 +33,4 @@ services:
         arguments:
             $targetDirectorySousService: '%Sous_Service_Images_Directory%'
             $targetDirectoryService: '%Service_Images_Directory%'
+            $targetDirectoryPartenaire : '%Partenaire_Images_Directory%'
