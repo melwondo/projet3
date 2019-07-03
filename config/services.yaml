@@ -7,8 +7,8 @@ parameters:
     locale: 'fr'
     Service_Images_Directory: '%kernel.project_dir%/public/images/Service'
     Sous_Service_Images_Directory: '%kernel.project_dir%/public/images/Sous-service'
-
     Partenaire_Images_Directory: '%kernel.project_dir%/public/images/partenaire'
+    mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
 services:
     # default configuration for services in *this* file
     _defaults:
