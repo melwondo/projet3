@@ -22,11 +22,7 @@ class RenseignementType extends AbstractType
             ->add('pro', null, [
                 'label_attr'=> array('class'=> 'custom-control-label'),
             ])
-            ->add('entreprise', null, [
-                'label_attr' => 'Entreprise',
-                'attr' => array('style' => 'display:none'),
-
-            ])
+            ->add('entreprise')
             ->add('message')
             ->add('dateMessage')
         ;
