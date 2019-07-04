@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center ">
-                <h4 class="modal-title w-100 font-weight-bold">Demande de rensignements</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Demande de renseignements</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,7 +12,7 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     {{ form_row(form.pro) }}
-                    {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Rentrez le nom de votre entreprise'} }) }}
+                    {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Entreprise'} }) }}
                     {{ form_start(form) }}
                     {{ form_row(form.nom) }}
                     {{ form_row(form.prenom) }}
