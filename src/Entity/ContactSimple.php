@@ -59,7 +59,7 @@ class ContactSimple
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min=4, max=4)
+     * @Assert\Length(min=4, max=5)
      */
     private $cp;
 
