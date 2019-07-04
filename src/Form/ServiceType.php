@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ServiceType extends AbstractType
 {
@@ -26,9 +25,6 @@ class ServiceType extends AbstractType
                 'attr' => ['class'=> 'Fichier']
             ])
             ->add('visible')
-            ->add('enregistrer', SubmitType::class, [
-                'attr' => ['class' => 'enregistrer']
-            ])
         ;
     }
 

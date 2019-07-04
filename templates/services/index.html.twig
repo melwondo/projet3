@@ -24,7 +24,8 @@
                     <p class="card-text">{{ service.contenu }}</p>
                 </div>
                 <div class="align-self-end m-2">
-                    <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}"
+                       role="button">En savoir plus</a>
                 </div>
             </div>
         {% endfor %}

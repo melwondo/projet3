@@ -111,9 +111,24 @@ footer p {
         margin-left: 0;
     }
 }
+label{
+  text-transform: uppercase;
+  font-weight: bold;
+}
 .iconBackoffice{
-    width: 3em;
-    /*margin: 0 0 1em 0.5em;*/
+  width: 3em;
+}
+.custom-file-label{
+  background-image: url("../images/search-plus-solid.svg");
+  background-repeat: no-repeat;
+  background-size: 3em;
+  background-position: right 0px;
+}
+.custom-file-label::after{
+  display: none;
+}
+.custom-file-input{
+  cursor: pointer;
 }
 .iconBackofficeAdd{
   width:1.3em;
@@ -121,9 +136,29 @@ footer p {
 .iconBackofficeDelete{
   width: 2.5em;
 }
+.iconBackofficeDeletePosition{
+  position: relative;
+  bottom: 4.5em;
+  left: 8.2em;
+}
+.enregistrer{
+  background-image: url("../images/save-regular.svg");
+  background-repeat: no-repeat;
+  background-size: 3em;
+  width: 3em;
+  height: 3.5em;
+  border: none;
+  box-shadow: none;
+}
 .btn-light {
   border-radius: 100% !important;
   padding: 7px !important;
+}
+.titreBack{
+  text-transform: uppercase;
+}
+.table {
+  margin-bottom: 5em !important;
 }
 .table th, .table td {
   vertical-align: middle;

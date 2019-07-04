@@ -6,16 +6,8 @@
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">Ajouter un service</h1>
-
+            <h1 class="pt-3 pb-3">Ajouter un service</h1>
             {{ include('Backoffice/service/_form.html.twig') }}
-
-            <a href="{{ path('service_index') }}">
-                <img data-toggle="tooltip" data-placement="top" title="Revenir à la liste"
-                     class="iconBackoffice"
-                     src="{{ asset('images/Icons/arrow-left-solid.svg') }}"
-                     alt="Revenir à la liste">
-            </a>
         </div>
     </div>
 {% endblock %}
