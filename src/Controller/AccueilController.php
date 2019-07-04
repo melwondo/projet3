@@ -18,7 +18,7 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(Request $request, ServiceRepository $service, DetailServiceRepository $sousService)
+    public function index(Request $request, ServiceRepository $service, DetailServiceRepository $sousService, \Swift_Mailer $mailer)
     {
         $services = $service->findBy(['visible'=>1]);
         $sousServices = $sousService->findBy(['visible'=>1]);
@@ -31,6 +31,20 @@ class AccueilController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $client->setDateMessage(new DateTime());
+
+            $tete = $client->getNom(). ' ' . $client->getPrenom();
+            $message = (new \Swift_Message($tete))
+            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            ->setTo('hhggaamlk@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'Email/notificationRenseignement.html.twig',
+                    ['client' => $client]
+                ),
+                'text/html'
+            );
+
+            $mailer->send($message);
 
             $this->addFlash(
                 'notice',

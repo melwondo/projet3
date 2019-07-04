@@ -85,7 +85,8 @@ class ServicesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $client->setDateMessage(new DateTime());
             
-            $message = (new \Swift_Message($client->getNom(). ' ' . $client->getPrenom()))
+            $tete = $client->getNom(). ' ' . $client->getPrenom();
+            $message = (new \Swift_Message($tete))
             ->setFrom($this->getParameter('mailer_from', 'sendmail'))
             ->setTo('hhggaamlk@gmail.com')
             ->setBody(
