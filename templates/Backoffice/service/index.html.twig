@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Service index{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Les services{% endblock %}
 
 {% block content %}
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container content">
-            <h1 class="pt-5 pb-5">
-                Service index &nbsp;-&nbsp;
+            <h1 class="pt-3 pb-3">
+                Gestion des Services&nbsp;-&nbsp;
                 <span class="btn-light">
                     <a href="{{ path('service_new') }}">
                         <img data-toggle="tooltip" data-placement="top" title="Ajouter un service"
@@ -17,16 +17,16 @@
                     </a>
                 </span>
             </h1>
-            <table class="table mt-7">
+            <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Id</th>
+                    <tr class="table-primary">
+                        <th>Identifiant</th>
                         <th>Titre</th>
-                        <th>Subtitle</th>
+                        <th>Sous-titre</th>
                         <th>Contenu</th>
-                        <th>Url_img</th>
-                        <th>Visible</th>
-                        <th>actions</th>
+                        <th>Nom de l'image</th>
+                        <th>Visible sur le site ?</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +62,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="7">no records found</td>
+                        <td colspan="7">Pas de service trouvé./td>
                     </tr>
                 {% endfor %}
                 </tbody>

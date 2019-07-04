@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class DetailServiceType extends AbstractType
 {
@@ -18,10 +19,12 @@ class DetailServiceType extends AbstractType
 
         $builder
             ->add('titre')
-            ->add('subtitle')
+            ->add('subtitle', TextType::class, [
+                'label' => 'Sous-titre'
+            ])
             ->add('contenu')
             ->add('UrlImg', FileType::class, [
-                'label' => 'Image (jpg png)',
+                'label' => 'Image (jpg, png)',
                 'required' => true,
                 'mapped' => true,
                 'data_class' => null,
