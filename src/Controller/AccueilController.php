@@ -18,7 +18,7 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(Request $request ,ServiceRepository $service, DetailServiceRepository $sousService)
+    public function index(Request $request, ServiceRepository $service, DetailServiceRepository $sousService)
     {
         $services = $service->findBy(['visible'=>1]);
         $sousServices = $sousService->findBy(['visible'=>1]);
