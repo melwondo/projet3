@@ -24,7 +24,6 @@ class RenseignementType extends AbstractType
             ->add('entreprise', null, [
                 'attr' => array('style' => 'display:none'),
                 'label' => false,
-                
             ])
             ->add('message')
         ;

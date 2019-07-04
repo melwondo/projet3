@@ -7,6 +7,7 @@ use App\Entity\Service;
 use App\Form\ContactType;
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +20,7 @@ class ContactController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function index(Request $request)
+    public function index(Request $request, \Swift_Mailer $mailer)
     {
         $contact = new ContactSimple();
         $form = $this->createForm(ContactType::class, $contact);
@@ -28,6 +29,19 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $eM = $this->getDoctrine()->getManager();
             $contact->setDateMessage(new DateTime());
+            
+            $message = (new \Swift_Message($contact->getNom(). ' ' . $contact->getPrenom()))
+            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            ->setTo('hhggaamlk@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'Email/notificationContact.html.twig',
+                    ['client' => $contact]
+                ),
+                'text/html'
+            );
+            
+            $mailer->send($message);
 
             $this->addFlash(
                 'notice',

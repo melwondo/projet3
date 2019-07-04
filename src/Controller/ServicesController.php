@@ -71,7 +71,7 @@ class ServicesController extends AbstractController
      * @return RedirectResponse|Response
      * @throws Exception
      */
-    public function details(Request $request, Service $service, DetailServiceRepository $detail_service)
+    public function details(Request $request, Service $service, DetailServiceRepository $detail_service, \Swift_Mailer $mailer)
     {
 
         $detail_service = $detail_service ->findBy(['service'=>$service->getId(), 'visible'=> 1]);
@@ -84,11 +84,26 @@ class ServicesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $client->setDateMessage(new DateTime());
+            
+            $message = (new \Swift_Message($client->getNom(). ' ' . $client->getPrenom()))
+            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            ->setTo('hhggaamlk@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'Email/notificationRenseignement.html.twig',
+                    ['client' => $client]
+                ),
+                'text/html'
+            );
+            
+            $mailer->send($message);
+
 
             $this->addFlash(
                 'notice',
                 'Votre message a bien été envoyé !'
             );
+
 
             $entityManager->persist($client);
             $entityManager->flush();
