@@ -20,7 +20,7 @@ class ContactController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function index(Request $request)
+    public function index(Request $request, \Swift_Mailer $mailer)
     {
         $contact = new ContactSimple();
         $form = $this->createForm(ContactType::class, $contact);
@@ -29,6 +29,20 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $eM = $this->getDoctrine()->getManager();
             $contact->setDateMessage(new DateTime());
+            
+            $tete = $contact->getNom(). ' ' . $contact->getPrenom();
+            $message = (new \Swift_Message($tete))
+            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            ->setTo('hhggaamlk@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'Email/notificationContact.html.twig',
+                    ['client' => $contact]
+                ),
+                'text/html'
+            );
+            
+            $mailer->send($message);
 
             $this->addFlash(
                 'notice',

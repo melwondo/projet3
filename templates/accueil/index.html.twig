@@ -5,30 +5,48 @@
 {% block content %}
     {# card #}
     <div class="toto">
-    <img src="{{ asset('/images/imageSousNav.jpg') }}" class="img-fluid" width="100%" alt="Votre partenaire info...">
-    <div class="centered text-center">
-        <h3>Votre partenaire informatique au Luxembourg</h3>
+        <img src="{{ asset('/images/imageSousNav.jpg') }}" class="img-fluid" width="100%" alt="Votre partenaire info...">
+        <div class="centered text-center">
+            <h3>Votre partenaire informatique au Luxembourg</h3>
+        </div>
     </div>
+
+
+{% for message in app.flashes('notice') %}
+<div class="flash-notice alert alert-success text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
 </div>
+{% endfor %}
 
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
             {% for service in services %}
-                <div class="card border-primary mb-3 mr-3" style="max-width: 20rem;">
-                    <div class="card-header text-primary">
-                        <h4>{{ service.titre }}</h4>
-                    </div>
+                <div class="card border-primary m-2" style="max-width: 20rem;">
                     <div class="card-header">
                         <img class="logoService" src="./images/Service/{{ service.UrlImg }}" alt="logo service">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">{{ service.subtitle }}</h4>
+                        <h4 class="card-title">{{ service.titre }}</h4>
                         <p class="card-text">{{ service.contenu }}</p>
                     </div>
                     <div class="align-self-end m-2">
-                        <a class="btn btn-primary btn-sm text-white"
-                           href="{{ path('service_detail', {'id': service.id}) }}"
-                           role="button">En savoir plus</a>
+                        {% set match = 0 %}
+                        {% for sousService in sousServices %}
+                            {% if sousService.service.id == service.id %}
+                                {% set match = match + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if match > 0 %}
+                            <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
+                        {% else %}
+                            <div class="align-self-end m-2">
+                                <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                                   role="button">Nous contacter</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -36,6 +54,9 @@
     </div>
 
     {# fin card #}
+
+    {# include modal #}
+    {% include "contactFormModal.html.twig" %}
 
 
     <div class="parallax"></div>
@@ -61,14 +82,14 @@
 
 
 
-    {# Ils nous font confiance #}
+    {# Ils nous font confiance
     <div class="container pt-5 pb-5">
     <div class="row d-flex justify-content-center">
         <h4>Ils nous font confiance</h4>
     </div>
     <!--Carousel Wrapper-->
     <div id="multi-item-example" class="carousel slide carousel-multi-item  pt-3" data-ride="carousel">
-        {# d-flex justify-content-around #}
+        {# d-flex justify-content-around
         <!--Controls-->
         <div class="controls-top d-flex justify-content-around">
             <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
@@ -146,6 +167,9 @@
             <!--/.Third slide-->
         </div>
     </div>
-</div>
+</div>#}
     {# Fin Ils nous font confiance #}
+{% endblock %}
+{% block jquery %}
+    {% include 'JqueryBlock.html.twig' %}
 {% endblock %}

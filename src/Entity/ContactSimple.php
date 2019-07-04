@@ -40,7 +40,7 @@ class ContactSimple
     /**
      * @ORM\Column(type="text")
      */
-    private $meassage;
+    private $message;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -59,7 +59,7 @@ class ContactSimple
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min=4, max=4)
+     * @Assert\Length(min=4, max=5)
      */
     private $cp;
 
@@ -124,14 +124,14 @@ class ContactSimple
         return $this;
     }
 
-    public function getMeassage(): ?string
+    public function getMessage(): ?string
     {
-        return $this->meassage;
+        return $this->message;
     }
 
-    public function setMeassage(string $meassage): self
+    public function setMessage(string $message): self
     {
-        $this->meassage = $meassage;
+        $this->message = $message;
 
         return $this;
     }
