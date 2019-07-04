@@ -19,6 +19,7 @@ class PartenaireType extends AbstractType
                 'required' => true,
                 'data_class' => null,
             ])
+            ->add('visible')
         ;
     }
 

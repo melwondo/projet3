@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.tel) }}
+        {{ form_row(form.rue) }}
+        {{ form_row(form.cp)}}
+        {{ form_row(form.ville) }}
+        {{ form_row(form.pro) }}
+        {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Nom de l\'entreprise'} }) }}
+        {{ form_row(form.message) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

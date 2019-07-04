@@ -36,6 +36,7 @@ class DetailServiceType extends AbstractType
                 'by_reference' => true,
                 'choice_label' => 'titre'
             ])
+            ->add('visible')
         ;
     }
 
