@@ -15,7 +15,7 @@ class PartenaireType extends AbstractType
         $builder
             ->add('nom')
             ->add('urlLogo', FileType::class, [
-                'label' => 'Image (jpg png)',
+                'label' => 'Image (jpg, png)',
                 'required' => true,
                 'data_class' => null,
             ])

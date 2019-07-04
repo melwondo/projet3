@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AccesInfoService - Backoffice - Modifier un sous service{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Modifier un sous-service{% endblock %}
 
 {% block content %}
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">
-                Modifier le sous service :
+            <h1 class="pt-3 pb-3">
+                Modifier le sous-service :
                 <span class="titreBack">{{ detail_service.titre }}</span>.
             </h1>
             {{ include('Backoffice/detail_service/_form.html.twig', {'button_label': ' '}) }}
@@ -17,4 +17,3 @@
         </div>
     </div>
 {% endblock %}
-

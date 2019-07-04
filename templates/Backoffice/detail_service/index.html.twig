@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AccesInfoService - Backoffice - Les sous services{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Les sous-services{% endblock %}
 
 {% block content %}
     <div class="wrapper">
@@ -10,14 +10,13 @@
                 Gestion des sous-services -
                 <span class="btn-light">
                     <a href="{{ path('detail_service_new') }}">
-                        <img data-toggle="tooltip" data-placement="top" title="Ajouter un service"
+                        <img data-toggle="tooltip" data-placement="top" title="Ajouter un sous-service"
                              class="iconBackofficeAdd"
                              src="{{ asset('images/Icons/plus-square-regular.svg') }}"
-                             alt="Ajouter un service">
+                             alt="Ajouter un sous-service">
                     </a>
                 </span>
             </h1>
-
             <table class="table table-striped">
                 <thead>
                 <tr class="table-primary">
@@ -43,19 +42,19 @@
                             <div class="btn-light">
                                 <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">
                                     <img data-toggle="tooltip" data-placement="top"
-                                         title="Regarder le service"
+                                         title="Regarder le sous-service"
                                          class="iconBackoffice align-middle"
                                          src="{{ asset('images/Icons/search-solid.svg') }}"
-                                         alt="Regarder le service">
+                                         alt="Regarder le sous-service">
                                 </a>
                             </div>
                             <div class="btn-light">
                                 <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">
                                     <img data-toggle="tooltip" data-placement="top"
-                                         title="Modifier le service"
+                                         title="Modifier le sous-service"
                                          class="iconBackoffice"
                                          src="{{ asset('images/Icons/edit-solid.svg') }}"
-                                         alt="Modifier le service">
+                                         alt="Modifier le sous-service">
                                 </a>
                             </div>
                             {{ include('Backoffice/detail_service/_delete_form.html.twig') }}
@@ -63,7 +62,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="6">no records found</td>
+                        <td colspan="6">Il n'y a pas de sous-services.</td>
                     </tr>
                 {% endfor %}
                 </tbody>

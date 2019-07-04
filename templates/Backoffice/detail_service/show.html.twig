@@ -1,15 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AccesInfoService - Backoffice - Les sous services{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Les sous-services{% endblock %}
 
 {% block content %}
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">Gestion du sous-service :
+            <h1 class="pt-3 pb-3">Gestion du sous-service :
                 <span class="titreBack">{{ detail_service.titre }}</span>.
             </h1>
-
             <table class="table table-striped">
                 <tbody>
                 <tr>
@@ -25,7 +24,7 @@
                     <td>{{ detail_service.subtitle }}</td>
                 </tr>
                 <tr>
-                    <th>Lié au service</th>
+                    <th>Lié au SERVICE</th>
                     <td>{{ detail_service.service.titre }}</td>
                 </tr>
                 <tr>
@@ -50,10 +49,10 @@
                             <div class="btn-light">
                                 <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">
                                     <img data-toggle="tooltip" data-placement="top"
-                                         title="Modifier le service"
+                                         title="Modifier le sous-service"
                                          class="iconBackoffice"
                                          src="{{ asset('images/Icons/edit-solid.svg') }}"
-                                         alt="Modifier le service">
+                                         alt="Modifier le sous-service">
                                 </a>
                             </div>
                             <div class="btn-light">
