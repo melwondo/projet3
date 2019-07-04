@@ -3,25 +3,25 @@
 {% block title %}Nos Partenaires{% endblock %}
 
 {% block content %}
-    {# nos partenaires #}
-
+    {# Ils nous ont fait confiance...#}
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
-            <div class="col-5 d-flex justify-content-center">
-                <img src="{{ asset('/images/QSnous.png') }}" class="img-fluid img-qsn" width="50%">
+            <div class="col-md-5 mb-md-0">
+                <img src="{{ asset('/images/QSnous.png') }}" class="rounded mx-auto d-block" width="75%">
             </div>
-            <div class="col-7 align-self-center">
+            <div class="col-md-7 align-self-center mb-md-0">
                 <h1>Ils nous ont fait confiance...</h1>
                 <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
-                    qui
-                    quia architecto
-                    minima quas quae laudantium atque?</p>
+                    qui quia architecto minima quas quae laudantium atque?</p>
             </div>
         </div>
     </div>
+    {# fin ils nous ont fait confiance... #}
+
     <div class="parallax"></div>
 
-    <div class="container">
+    {# image nos partenaires #}
+    <div class="container align-items-center">
         <div class="row align-items-center">
             {% for partenaire in partenaires %}
                 <div class="col">
@@ -35,5 +35,5 @@
             {% endfor %}
         </div>
     </div>
-    {# nos partenaires #}
+    {# fin image nos partenaires #}
 {% endblock %}
