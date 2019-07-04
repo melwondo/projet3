@@ -1,0 +1,88 @@
+ <script>
+        $("#renseignement_nom").blur(function () {
+
+            if ($("#renseignement_nom").val().length < 2) {
+                $("#renseignement_nom").addClass('is-invalid');
+            } else {
+                $("#renseignement_nom").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_prenom").blur(function () {
+
+            if ($("#renseignement_prenom").val().length < 2) {
+                $("#renseignement_prenom").addClass('is-invalid');
+            } else {
+                $("#renseignement_prenom").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_email").blur(function () {
+
+            if ($("#renseignement_email").val().length < 5) {
+                $("#renseignement_email").addClass('is-invalid');
+            } else {
+                $("#renseignement_email").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_tel").blur(function () {
+
+            if ($("#renseignement_tel").val().length < 10) {
+                $("#renseignement_tel").addClass('is-invalid');
+            } else {
+                $("#renseignement_tel").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_rue").blur(function () {
+
+            if ($("#renseignement_rue").val().length < 10) {
+                $("#renseignement_rue").addClass('is-invalid');
+            } else {
+                $("#renseignement_rue").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_cp").blur(function () {
+
+            if ($("#renseignement_cp").val().length < 4) {
+                $("#renseignement_cp").addClass('is-invalid');
+            } else {
+                $("#renseignement_cp").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_ville").blur(function () {
+
+            if ($("#renseignement_ville").val().length < 3) {
+                $("#renseignement_ville").addClass('is-invalid');
+            } else {
+                $("#renseignement_ville").removeClass('is-invalid');
+            }
+
+        });
+
+        $("#renseignement_message").blur(function () {
+
+            if ($("#renseignement_message").val().length < 10) {
+                $("#renseignement_message").addClass('is-invalid');
+            } else {
+                $("#renseignement_message").removeClass('is-invalid');
+            }
+
+        });
+
+        $(document).ready(function () {
+            $('#renseignement_pro').click(function () {
+                $('#renseignement_entreprise').toggle();
+            });
+        });
+    </script>
+
