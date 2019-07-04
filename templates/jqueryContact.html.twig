@@ -1,0 +1,111 @@
+<script>
+$("#contact_nom").blur(function () {
+
+        if ($("#contact_nom").val().length < 2) {
+            $("#contact_nom").addClass('is-invalid');
+        } else {
+            $("#contact_nom").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_prenom").blur(function () {
+
+        if ($("#contact_prenom").val().length < 2) {
+            $("#contact_prenom").addClass('is-invalid');
+        } else {
+            $("#contact_prenom").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_email").blur(function () {
+
+        if ($("#contact_email").val().length < 5) {
+            $("#contact_email").addClass('is-invalid');
+        } else {
+            $("#contact_email").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_tel").blur(function () {
+
+        if ($("#contact_tel").val().length < 10) {
+            $("#contact_tel").addClass('is-invalid');
+        } else {
+            $("#contact_tel").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_rue").blur(function () {
+
+        if ($("#contact_rue").val().length < 10) {
+            $("#contact_rue").addClass('is-invalid');
+        } else {
+            $("#contact_rue").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_cp").blur(function () {
+
+        if ($("#contact_cp").val().length < 4) {
+            $("#contact_cp").addClass('is-invalid');
+        } else {
+            $("#contact_cp").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_ville").blur(function () {
+
+        if ($("#contact_ville").val().length < 3) {
+            $("#contact_ville").addClass('is-invalid');
+        } else {
+            $("#contact_ville").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_sujet").blur(function () {
+
+        if ($("#contact_sujet").val().length < 10) {
+            $("#contact_sujet").addClass('is-invalid');
+        } else {
+            $("#contact_sujet").removeClass('is-invalid');
+        }
+    });
+
+    $("#contact_message").blur(function () {
+
+        if ($("#contact_message").val().length < 10) {
+            $("#contact_message").addClass('is-invalid');
+        } else {
+            $("#contact_message").removeClass('is-invalid');
+        }
+    });
+
+    $(document).ready(function () {
+        if ($('#contact_pro').is(':checked')) {
+            $("#contact_entreprise").css("display", "block");
+            $("label[for='contact_entreprise']").css("display", "block");
+        } else {
+            $("#contact_entreprise").css("display", "none");
+            $("label[for='contact_entreprise']").css("display", "none");
+        }
+        $('#contact_pro').click(function () {
+            if ($(this).is(':checked')) {
+                $("#contact_entreprise").css("display", "block");
+                $("label[for='contact_entreprise']").css("display", "block");
+            } else {
+                $("#contact_entreprise").css("display", "none");
+                $("label[for='contact_entreprise']").css("display", "none");
+            }
+        });
+    });
+
+    $("#contact_entreprise").blur(function () {
+
+        if ($("#contact_entreprise").val().length < 10) {
+            $("#contact_entreprise").addClass('is-invalid');
+        } else {
+            $("#contact_entreprise").removeClass('is-invalid');
+        }
+    });
+
+</script>
