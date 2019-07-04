@@ -18,16 +18,16 @@
                 </span>
             </h1>
 
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                 <tr class="table-primary">
-                    <th>Id</th>
+                    <th>Identifiant</th>
                     <th>Titre</th>
-                    <th>Subtitle</th>
-                    <th>Lié au service :</th>
+                    <th>Sous-titre</th>
+                    <th>Lié au service</th>
                     <th>Contenu</th>
-                    <th>Url_img</th>
-                    <th>actions</th>
+                    <th>Nom de l'image</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,9 +39,26 @@
                         <td>{{ detail_service.service.titre }}</td>
                         <td>{{ detail_service.contenu }}</td>
                         <td>{{ detail_service.urlImg }}</td>
-                        <td>
-                            <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">Voir</a>
-                            <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">Editer</a>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le service"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le service">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le service"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le service">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/detail_service/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% else %}
