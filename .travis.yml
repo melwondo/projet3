@@ -16,9 +16,11 @@ script:
     #- ./vendor/bin/phpunit
 notifications:
     email:
-        - TRAINER@wildcodeschool.fr
-        - STUDENT_MAIL
+        - yavuz@wildcodeschool.fr
+        - manuel.konrath@gmail.com
+        - melanie.giroz2@gmail.com
+        - mtoutouhi@gmail.com
+        - manon.humbert@hotmail.fr
 branches:
     only:
         - master
-        - dev

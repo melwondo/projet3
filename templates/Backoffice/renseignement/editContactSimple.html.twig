@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Editer un message{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Editer un message</h1>
+
+            {{ include('Backoffice/renseignement/_formContact.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="{{ path('renseignement_index') }}">back to list</a>
+
+            {#{{ include('Backoffice/renseignement/_delete_formContact.html.twig')}}#}
+        </div>
+    </div>
+{% endblock %}
+{% block jquery %}
+    <script>
+        $(document).ready(function () {
+            if ($('#renseignement_pro').is(':checked')) {
+                $("#renseignement_entreprise").css("display", "block");
+                $("label[for='renseignement_entreprise']").css("display", "block");
+            } else {
+                $("#renseignement_entreprise").css("display", "none");
+                $("label[for='renseignement_entreprise']").css("display", "none");
+            }
+            $('#renseignement_pro').click(function () {
+                if ($(this).is(':checked')) {
+                    $("#renseignement_entreprise").css("display", "block");
+                    $("label[for='renseignement_entreprise']").css("display", "block");
+                } else {
+                    $("#renseignement_entreprise").css("display", "none");
+                    $("label[for='renseignement_entreprise']").css("display", "none");
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -4,8 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
-
+    locale: 'fr'
+    Service_Images_Directory: '%kernel.project_dir%/public/images/Service'
+    Sous_Service_Images_Directory: '%kernel.project_dir%/public/images/Sous-service'
+    Partenaire_Images_Directory: '%kernel.project_dir%/public/images/partenaire'
+    mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -26,3 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\FileUploader:
+        arguments:
+            $targetDirectorySousService: '%Sous_Service_Images_Directory%'
+            $targetDirectoryService: '%Service_Images_Directory%'
+            $targetDirectoryPartenaire : '%Partenaire_Images_Directory%'

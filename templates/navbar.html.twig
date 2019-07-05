@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarPosition">
+    <a href="{{ path('accueil') }}">
+        <img src="{{ asset('/images/logo-ai.png') }}">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarColor01">
+        <ul class="navbar-nav">
+            <li class="nav-item {% if route == 'accueil' %} active {% endif %}">
+                <a class="nav-link" href="{{path('accueil')}}">Accueil</a>
+            </li>
+
+            <li class="nav-item dropdown  {% if route == 'service_detail' or route == 'services' %} active {% endif %}">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="true" aria-expanded="false">Nos services</a>
+                <div class="dropdown-menu" x-placement="bottom-start"
+                     style="position: absolute; transform: translate3d(0px, 35.5px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="{{ path('services') }}">Tous nos services</a>
+                    <div class="dropdown-divider"></div>
+                    {% for service in services %}
+                        <a class="dropdown-item" href="{{ path('service_detail', {'id': service.id}) }}">
+                            {{ service.titre }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </li>
+
+            <li class="nav-item {% if route == 'partenaires' %} active {% endif %}">
+                <a class="nav-link" href="{{ path('partenaires') }}">Partenaires</a>
+            </li>
+
+            <li class="nav-item {% if route == 'contact' %} active {% endif %}">
+                <a class="nav-link" href="{{ path("contact") }}">Nous contacter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+

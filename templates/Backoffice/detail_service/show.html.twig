@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Les sous-services{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-3 pb-3">Gestion du sous-service :
+                <span class="titreBack">{{ detail_service.titre }}</span>.
+            </h1>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>Identifiant</th>
+                    <td>{{ detail_service.id }}</td>
+                </tr>
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ detail_service.titre }}</td>
+                </tr>
+                <tr>
+                    <th>Sous-titre</th>
+                    <td>{{ detail_service.subtitle }}</td>
+                </tr>
+                <tr>
+                    <th>Lié au SERVICE</th>
+                    <td>{{ detail_service.service.titre }}</td>
+                </tr>
+                <tr>
+                    <th>Contenu</th>
+                    <td>{{ detail_service.contenu }}</td>
+                </tr>
+                <tr>
+                    <th>Nom de l'image</th>
+                    <td>{{ detail_service.urlImg }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>
+                        <img class="logoServiceBackoffice" src="/images/Sous-service/{{ detail_service.UrlImg }}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Actions</th>
+                    <td>
+                        <div class="btn-group">
+                            {{ include('Backoffice/detail_service/_delete_form.html.twig') }}
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le sous-service"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le sous-service">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_index') }}">
+                                    <img data-toggle="tooltip" data-placement="top" title="Revenir à la liste"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/arrow-left-solid.svg') }}"
+                                         alt="Revenir à la liste">
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

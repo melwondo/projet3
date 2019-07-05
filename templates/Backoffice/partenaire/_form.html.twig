@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<div class="btn-group">
+    <span class="btn-light">
+        <a href="{{ path('partenaire_index') }}">
+            <img data-toggle="tooltip" data-placement="top" title="Revenir à la liste"
+                 class="iconBackoffice"
+                 src="{{ asset('images/Icons/arrow-left-solid.svg') }}"
+                 alt="Revenir à la liste">
+        </a>
+    </span>
+    <span class="btn-light">
+        <button class="btn enregistrer" data-toggle="tooltip" data-placement="top" title="Enregistrer">
+            {{ button_label|default(' ') }}
+        </button>
+    </span>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,16 @@
+{% block body_html %}
+    <p><strong>Nom : </strong>{{client.nom}}</p>
+    <p><strong>Prénom : </strong>{{client.prenom}}</p>
+    <p><strong>Email : </strong>{{client.email}}</p>
+    <p><strong>Tel : </strong>{{client.tel}}</p>
+    <p><strong>Rue : </strong>{{client.rue}}</p>
+    <p><strong>CP : </strong>{{client.cp}}</p>
+    <p><strong>Ville : </strong>{{client.ville}}</p>
+    {% if client.entreprise != "" %}
+        <p><strong>Entreprise : </strong>{{client.entreprise}}</p>
+        {% else %}
+            <p><strong>Pro :</strong>Non</p>
+    {% endif %}
+    <p>{{ client.sujet }}</p>
+    <p>{{client.message }}</p>
+{% endblock %}

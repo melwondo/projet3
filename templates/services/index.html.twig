@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Nos Services {% endblock %}
+
+{% block content     %}
+    {# JUMBOTRON  #}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Nos services</h1>
+            <p class="lead">Votre entreprise de services informatiques au Luxembourg</p>
+        </div>
+    </div>
+
+{% for message in app.flashes('notice') %}
+<div class="flash-notice alert alert-success text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+</div>
+{% endfor %}
+
+    {# Présentation des sérvices#}
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+        {% for service in services %}
+            <div class="card border-primary m-2" style="max-width: 20rem;">
+                <div class="card-header">
+                    <img class="logoService" src="./images/Service/{{ service.UrlImg }}" alt="logo service">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ service.titre }}</h4>
+                    <p class="card-text">{{ service.contenu }}</p>
+                </div>
+                <div class="align-self-end m-2">
+                    {% set match = 0 %}
+                    {% for sousService in sousServices %}
+                        {% if sousService.service.id == service.id %}
+                            {% set match = match + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if match > 0 %}
+                        <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
+                    {% else %}
+                        <div class="align-self-end m-2">
+                            <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                               role="button">Nous contacter</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% include "contactFormModal.html.twig" %}
+
+    <div class="parallax"> </div>
+        <div class="container mt-5 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-7">
+                    <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo placeat? Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos reiciendis repellat voluptates!</p>
+                    <div class="align-self-end m-2">
+                        <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
+                           role="button">Nous contacter</a>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <img src="https://via.placeholder.com/250" alt="">
+                </div>
+            </div>
+        </div>
+    <div class="parallax"> </div>
+{% endblock %}
+{% block jquery %}
+{% include 'JqueryBlock.html.twig' %}
+{% endblock %}

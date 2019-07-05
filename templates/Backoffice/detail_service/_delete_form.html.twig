@@ -1,0 +1,11 @@
+<form method="post" action="{{ path('detail_service_delete', {'id': detail_service.id}) }}"
+      onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce sous-service ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ detail_service.id) }}">
+    <button type="submit" class="btn-light">
+        <img data-toggle="tooltip" data-placement="top" title="Supprimer le sous-service"
+             class="iconBackofficeDelete"
+             src="{{ asset('images/Icons/trash-alt-regular.svg') }}"
+             alt="Supprimer le sous-service">
+    </button>
+</form>

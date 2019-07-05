@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Modifier un partenaire{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-3 pb-3">
+                Modifier le partenaire :
+                <span class="titreBack">{{ partenaire.nom }}</span>
+            </h1>
+            {{ include('Backoffice/partenaire/_form.html.twig', {'button_label': ' '}) }}
+            <div class="iconBackofficeDeletePosition">
+            {{ include('Backoffice/partenaire/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

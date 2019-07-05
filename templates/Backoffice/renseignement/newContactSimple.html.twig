@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Ajouter un message{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Ajouter un message</h1>
+
+            {{ include('Backoffice/renseignement/_formContact.html.twig') }}
+
+            <a href="{{ path('renseignement_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}
+{% block jquery %}
+    <script>
+        $(document).ready(function () {
+            if ($('#contact_pro').is(':checked')) {
+                $("#contact_entreprise").css("display", "block");
+                $("label[for='renseignement_entreprise']").css("display", "block");
+            } else {
+                $("#contact_entreprise").css("display", "none");
+                $("label[for='renseignement_entreprise']").css("display", "none");
+            }
+            $('#contact_pro').click(function () {
+                if ($(this).is(':checked')) {
+                    $("#contact_entreprise").css("display", "block");
+                    $("label[for='renseignement_entreprise']").css("display", "block");
+                } else {
+                    $("#contact_entreprise").css("display", "none");
+                    $("label[for='renseignement_entreprise']").css("display", "none");
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Les sous-services{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-3 pb-3">
+                Gestion des sous-services -
+                <span class="btn-light">
+                    <a href="{{ path('detail_service_new') }}">
+                        <img data-toggle="tooltip" data-placement="top" title="Ajouter un sous-service"
+                             class="iconBackofficeAdd"
+                             src="{{ asset('images/Icons/plus-square-regular.svg') }}"
+                             alt="Ajouter un sous-service">
+                    </a>
+                </span>
+            </h1>
+            <table class="table table-striped">
+                <thead>
+                <tr class="table-primary">
+                    <th>Identifiant</th>
+                    <th>Titre</th>
+                    <th>Sous-titre</th>
+                    <th>Lié au service</th>
+                    <th>Contenu</th>
+                    <th>Nom de l'image</th>
+                    <th>Visible</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for detail_service in detail_services %}
+                    <tr>
+                        <td>{{ detail_service.id }}</td>
+                        <td>{{ detail_service.titre }}</td>
+                        <td>{{ detail_service.subtitle }}</td>
+                        <td>{{ detail_service.service.titre }}</td>
+                        <td>{{ detail_service.contenu }}</td>
+                        <td>{{ detail_service.urlImg }}</td>
+                        <td>{{ detail_service.visible ? 'Oui' : 'Non' }}</td>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le sous-service"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le sous-service">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('detail_service_edit', {'id': detail_service.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le sous-service"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le sous-service">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/detail_service/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">Il n'y a pas de sous-services.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
