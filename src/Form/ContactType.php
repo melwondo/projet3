@@ -22,12 +22,9 @@ class ContactType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
+            ->add('tel')
             ->add('sujet')
             ->add('message')
-            ->add('pro', null, [
-                'label_attr'=> array('class'=> 'custom-control-label'),
-                ])
-            ->add('entreprise')
             ->add('rue')
             ->add('cp')
             ->add('ville')
