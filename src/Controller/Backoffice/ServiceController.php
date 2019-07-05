@@ -5,6 +5,7 @@ namespace App\Controller\Backoffice;
 use App\Entity\Service;
 use App\Form\ServiceType;
 use App\Repository\ServiceRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,33 +37,20 @@ class ServiceController extends AbstractController
      * @return Response
      * @see guessExtension()
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader ): Response
     {
         $service = new Service();
         $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $entityManager = $this->getDoctrine()->getManager();
-            // $file stores the uploaded PDF file
-            $file = $form->get('url_img')->getData();
-
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-            // Move the file to the directory where brochures are stored
-            try {
-                $file->move(
-                    $this->getParameter('Service_Images_Directory'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-                // ... handle exception if something happens during file upload
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['url_img']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgService($imageFile);
+                $service->setUrlImg($imageFileName);
             }
-
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $service->setUrlImg($fileName);
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($service);
             $entityManager->flush();
 
@@ -93,12 +81,19 @@ class ServiceController extends AbstractController
      * @param Service $service
      * @return Response
      */
-    public function edit(Request $request, Service $service): Response
+    public function edit(Request $request, Service $service, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(ServiceType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form['url_img']->getData();
+            if (!empty($imageFile)) {
+                $imageFileName = $fileUploader->uploadImgService($imageFile);
+                $service->setUrlImg($imageFileName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('service_index', [
