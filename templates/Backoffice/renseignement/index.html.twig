@@ -94,10 +94,10 @@
                         <td>{{ contactSimple.pro ? 'Oui' : 'Non' }}</td>
                         <td>{{ contactSimple.entreprise }}</td>
                         <td>{{ contactSimple.message }}</td>
-                        <td>{{ contactSimple.dateMessage ? renseignement.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
                         <td>
-                           {# <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">show</a>
-                            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>#}
+                            <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">show</a>
+                            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>
                         </td>
                     </tr>
                 {% else %}
@@ -108,7 +108,7 @@
                 </tbody>
             </table>
 
-            <a href="{{ path('renseignement_new') }}">Create new</a>
+            <a href="{{ path('contactSimple_new') }}">Create new</a>
         </div>
     </div>
 {% endblock %}
