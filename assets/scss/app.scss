@@ -96,6 +96,7 @@
 }
 /*fin NavBar*/
 
+/* Footer */
 footer a:hover {
     color: white;
     text-decoration: none;
@@ -112,18 +113,24 @@ footer li {
 footer p {
     color: $footerColorP;
 }
+/*fin Footer */
 
+
+/* Cards Service - sous service */
 .card {
   transition: transform .2s;
+  max-height:300px;
+  overflow: auto;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
 
+/* fin Cards Service - sous service */
 
-/*cards partenaire*/
 
+/* image(cards) partenaire*/
 .card-partenaires {
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 18em !important;
@@ -161,9 +168,10 @@ footer p {
     opacity: 1;
   }
 }
-/* fin cards partenaire*/
+/* fin images(cards) partenaire*/
 
 
+/* image fond du site */
 .parallax {
 
     background-image: url("../images/paraIndex.jpg");
@@ -173,6 +181,10 @@ footer p {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* fin image fond du site */
+
+
 
 .logoService {
     display: block;
