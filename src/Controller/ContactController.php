@@ -31,8 +31,9 @@ class ContactController extends AbstractController
             $contact->setDateMessage(new DateTime());
             
             $tete = $contact->getNom(). ' ' . $contact->getPrenom();
-            $message = (new \Swift_Message($tete))
-            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            $message = (new \Swift_Message())
+            ->setSubject($tete)
+            ->setFrom($this->getParameter('mailer_from'))
             ->setTo('hhggaamlk@gmail.com')
             ->setBody(
                 $this->renderView(
