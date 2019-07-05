@@ -32,7 +32,7 @@
                     <h4 class="card-title">{{ service.titre }}</h4>
                     <p class="card-text">{{ service.contenu }}</p>
                 </div>
-                <div class="align-self-end m-2">
+                <div class="align-self-center mb-2">
                     {% set match = 0 %}
                     {% for sousService in sousServices %}
                         {% if sousService.service.id == service.id %}
@@ -42,7 +42,7 @@
                     {% if match > 0 %}
                         <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
                     {% else %}
-                        <div class="align-self-end m-2">
+                        <div class="align-self-center">
                             <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
                                role="button">Nous contacter</a>
                         </div>
