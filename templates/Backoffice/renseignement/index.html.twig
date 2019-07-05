@@ -57,4 +57,58 @@
             <a href="{{ path('renseignement_new') }}">Create new</a>
         </div>
     </div>
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Vos demandes de renseignements </h1>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Tel</th>
+                    <th>Rue</th>
+                    <th>Cp</th>
+                    <th>Ville</th>
+                    <th>Pro</th>
+                    <th>Entreprise</th>
+                    <th>Message</th>
+                    <th>DateMessage</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contactSimple in contactsSimples %}
+                    <tr>
+                        <td>{{ contactSimple.id }}</td>
+                        <td>{{ contactSimple.nom }}</td>
+                        <td>{{ contactSimple.prenom }}</td>
+                        <td>{{ contactSimple.email }}</td>
+                        <td>{{ contactSimple.tel }}</td>
+                        <td>{{ contactSimple.rue }}</td>
+                        <td>{{ contactSimple.cp }}</td>
+                        <td>{{ contactSimple.ville }}</td>
+                        <td>{{ contactSimple.pro ? 'Oui' : 'Non' }}</td>
+                        <td>{{ contactSimple.entreprise }}</td>
+                        <td>{{ contactSimple.message }}</td>
+                        <td>{{ contactSimple.dateMessage ? renseignement.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>
+                           {# <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">show</a>
+                            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>#}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="13">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('renseignement_new') }}">Create new</a>
+        </div>
+    </div>
 {% endblock %}

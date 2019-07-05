@@ -3,7 +3,9 @@
 namespace App\Controller\Backoffice;
 
 use App\Entity\Renseignement;
+use App\Entity\ContactSimple;
 use App\Form\RenseignementType;
+use App\Repository\ContactSimpleRepository;
 use App\Repository\RenseignementRepository;
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +21,11 @@ class RenseignementController extends AbstractController
     /**
      * @Route("/", name="renseignement_index", methods={"GET"})
      */
-    public function index(RenseignementRepository $renseignementRepository): Response
+    public function index(RenseignementRepository $renseignementRepository, ContactSimpleRepository $contactSimpleRepository): Response
     {
         return $this->render('Backoffice/renseignement/index.html.twig', [
             'renseignements' => $renseignementRepository->findAll(),
+            'contactsSimples' => $contactSimpleRepository->findAll(),
         ]);
     }
 

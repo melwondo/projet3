@@ -26,6 +26,7 @@
                     <th>Lié au service</th>
                     <th>Contenu</th>
                     <th>Nom de l'image</th>
+                    <th>Visible</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -38,6 +39,7 @@
                         <td>{{ detail_service.service.titre }}</td>
                         <td>{{ detail_service.contenu }}</td>
                         <td>{{ detail_service.urlImg }}</td>
+                        <td>{{ detail_service.visible ? 'Oui' : 'Non' }}</td>
                         <td class="btn-group">
                             <div class="btn-light">
                                 <a href="{{ path('detail_service_show', {'id': detail_service.id}) }}">

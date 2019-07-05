@@ -70,6 +70,11 @@ class ContactSimple
 
     private $dateMessage;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tel;
+
 
     public function getId(): ?int
     {
@@ -201,6 +206,18 @@ class ContactSimple
     public function setDateMessage(\DateTimeInterface $dateMessage): self
     {
         $this->dateMessage = $dateMessage;
+
+        return $this;
+    }
+
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    public function setTel(string $tel): self
+    {
+        $this->tel = $tel;
 
         return $this;
     }
