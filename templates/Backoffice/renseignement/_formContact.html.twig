@@ -10,5 +10,19 @@
         {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Nom de l\'entreprise'} }) }}
         {{ form_row(form.sujet) }}
         {{ form_row(form.message) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="btn-group">
+    <span class="btn-light">
+        <a href="{{ path('renseignement_index') }}">
+            <img data-toggle="tooltip" data-placement="top" title="Revenir à la liste"
+                 class="iconBackoffice"
+                 src="{{ asset('images/Icons/arrow-left-solid.svg') }}"
+                 alt="Revenir à la liste">
+        </a>
+    </span>
+        <span class="btn-light">
+        <button class="btn enregistrer" data-toggle="tooltip" data-placement="top" title="Enregistrer">
+            {{ button_label|default(' ') }}
+        </button>
+    </span>
+</div>
 {{ form_end(form) }}

@@ -1,5 +1,10 @@
 <form method="post" action="{{ path('renseignement_delete', {'id': renseignement.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette demande de renseignement ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ renseignement.id) }}">
-    <button type="submit" class="btn">Delete</button>
+    <button type="submit" class="btn-light">
+        <img data-toggle="tooltip" data-placement="top" title="Supprimer le message via services"
+             class="iconBackofficeDelete"
+             src="{{ asset('images/Icons/trash-alt-regular.svg') }}"
+             alt="Supprimer le message via services">
+    </button>
 </form>
