@@ -37,7 +37,7 @@ class ServiceController extends AbstractController
      * @return Response
      * @see guessExtension()
      */
-    public function new(Request $request, FileUploader $fileUploader ): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $service = new Service();
         $form = $this->createForm(ServiceType::class, $service);
