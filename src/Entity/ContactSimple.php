@@ -68,6 +68,10 @@ class ContactSimple
      */
     private $ville;
 
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
     private $dateMessage;
 
     /**
