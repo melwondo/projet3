@@ -26,10 +26,10 @@
 {% endfor %}
 
 {# Présentation des DETAILS du sérvice#}
-<div class="container mt-5 mb-5">
+<div class="container align-items-center mt-5 mb-5">
     <div class="row justify-content-center">
         {% for detail in details %}
-        <div class="card border-primary m-2" style="max-width: 20rem;">
+        <div class="card border-primary m-2" style="max-width: 20rem;  min-width: 20rem;">
             <div class="card-header">
                 <img class="logoService" src="../images/Sous-service/{{ detail.UrlImg }}" alt="logo-service">
             </div>
@@ -37,7 +37,7 @@
                 <h4 class="card-title">{{ detail.titre }}</h4>
                 <p class="card-text">{{ detail.contenu }}</p>
             </div>
-            <div class="align-self-end m-2">
+            <div class="align-self-center mb-2">
                 <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
                     role="button">Nous contacter</a>
             </div>

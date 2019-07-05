@@ -2,16 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Service;
+use Nette\Utils\DateTime;
 use App\Entity\Renseignement;
 use App\Form\RenseignementType;
-use Nette\Utils\DateTime;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ServiceRepository;
+use App\Repository\PartenaireRepository;
+use App\Repository\DetailServiceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\ServiceRepository;
-use App\Repository\DetailServiceRepository;
-use PHPStan\Symfony\Service;
-use App\Repository\PartenaireRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccueilController extends AbstractController
 {
@@ -23,7 +23,11 @@ class AccueilController extends AbstractController
                           DetailServiceRepository $sousService,
                           \Swift_Mailer $mailer)
     {
-        $services = $service->findBy(['visible'=>1]);
+        $services = $this->getDoctrine()
+            ->getRepository(Service::class)
+            ->findBy(['visible'=>1]);
+
+        // $services = $service->findBy(['visible'=>1]);
         $sousServices = $sousService->findBy(['visible'=>1]);
 
         $client = new Renseignement();
@@ -36,8 +40,9 @@ class AccueilController extends AbstractController
             $client->setDateMessage(new DateTime());
 
             $tete = $client->getNom(). ' ' . $client->getPrenom();
-            $message = (new \Swift_Message($tete))
-            ->setFrom($this->getParameter('mailer_from', 'sendmail'))
+            $message = (new \Swift_Message())
+            ->setSubject($tete)
+            ->setFrom($this->getParameter('mailer_from'))
             ->setTo('hhggaamlk@gmail.com')
             ->setBody(
                 $this->renderView(
