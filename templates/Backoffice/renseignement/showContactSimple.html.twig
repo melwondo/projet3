@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - Afficher un message{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Afficher le message de {{ contactSimple.prenom ~' '~ contactSimple.nom}}</h1>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ contactSimple.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ contactSimple.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Prenom</th>
+                    <td>{{ contactSimple.prenom }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ contactSimple.email }}</td>
+                </tr>
+                <tr>
+                    <th>Tel</th>
+                    <td>{{ contactSimple.tel }}</td>
+                </tr>
+                <tr>
+                    <th>Rue</th>
+                    <td>{{ contactSimple.rue }}</td>
+                </tr>
+                <tr>
+                    <th>Cp</th>
+                    <td>{{ contactSimple.cp }}</td>
+                </tr>
+                <tr>
+                    <th>Ville</th>
+                    <td>{{ contactSimple.ville }}</td>
+                </tr>
+                <tr>
+                    <th>Pro</th>
+                    <td>{{ contactSimple.pro ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr>
+                    <th>Entreprise</th>
+                    <td>{{ contactSimple.entreprise }}</td>
+                </tr>
+                <tr>
+                    <th>Sujet</th>
+                    <td>{{ contactSimple.sujet }}</td>
+                </tr>
+                <tr>
+                    <th>Message</th>
+                    <td>{{ contactSimple.message }}</td>
+                </tr>
+                <tr>
+                    <th>DateMessage</th>
+                    <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('renseignement_index') }}">back to list</a>
+
+            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>
+
+            {{ include('Backoffice/renseignement/_delete_formContact.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

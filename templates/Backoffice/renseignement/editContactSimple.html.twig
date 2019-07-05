@@ -8,11 +8,11 @@
         <div class="container">
             <h1 class="pt-5 pb-5">Editer un message</h1>
 
-            {{ include('Backoffice/renseignement/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('Backoffice/renseignement/_formContact.html.twig', {'button_label': 'Update'}) }}
 
             <a href="{{ path('renseignement_index') }}">back to list</a>
 
-            {{ include('Backoffice/renseignement/_delete_form.html.twig')}}
+            {#{{ include('Backoffice/renseignement/_delete_formContact.html.twig')}}#}
         </div>
     </div>
 {% endblock %}

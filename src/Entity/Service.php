@@ -44,7 +44,7 @@ class Service
     private $visible;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\DetailService", mappedBy="service")
+     * @ORM\OneToMany(targetEntity="App\Entity\DetailService", mappedBy="service", orphanRemoval=true)
      */
     private $detailServices;
 
