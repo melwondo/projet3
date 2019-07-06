@@ -3,12 +3,12 @@
 
 namespace App\Controller;
 
-
-use App\Repository\ContactSimpleRepository;
-use App\Repository\RenseignementRepository;
+use App\Repository\ContactSimpleRepository as CSRepo;
+use App\Repository\RenseignementRepository as RRepo;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class XlsController extends AbstractController
@@ -16,7 +16,7 @@ class XlsController extends AbstractController
     /**
      * @Route("/exportXlsRenseignement", name="xls_export_renseignement")
      */
-    public function exportRenseignementXLS(RenseignementRepository $renseignementRepository)
+    public function exportRenseignementXLS(RRepo $renseignementRepository)
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -31,28 +31,35 @@ class XlsController extends AbstractController
         $sheet->setCellValue('I1', 'CP');
         $sheet->setCellValue('J1', 'Ville');
 
-       $renseignements = $renseignementRepository->findAll();
+        $renseignements = $renseignementRepository->findAll();
 
-       $i = 2;
-       foreach ($renseignements as $renseignement) {
-           $sheet->setCellValue('A'.$i, $renseignement->getid());
-           $sheet->setCellValue('B'.$i, $renseignement->getPro() ? 'Pro' : 'Particulier' );
-           $sheet->setCellValue('C'.$i, $renseignement->getEntreprise());
-           $sheet->setCellValue('D'.$i, $renseignement->getNom());
-           $sheet->setCellValue('E'.$i, $renseignement->getPrenom());
-           $sheet->setCellValue('F'.$i, $renseignement->getEmail());
-           $sheet->setCellValue('G'.$i, $renseignement->getTel());
-           $sheet->setCellValue('H'.$i, $renseignement->getRue());
-           $sheet->setCellValue('I'.$i, $renseignement->getCp());
-           $sheet->setCellValue('J'.$i, $renseignement->getVille());
+        $i = 2;
+        foreach ($renseignements as $renseignement) {
+            $sheet->setCellValue('A'.$i, $renseignement->getid());
+            $sheet->setCellValue('B'.$i, $renseignement->getPro() ? 'Pro' : 'Particulier');
+            $sheet->setCellValue('C'.$i, $renseignement->getEntreprise());
+            $sheet->setCellValue('D'.$i, $renseignement->getNom());
+            $sheet->setCellValue('E'.$i, $renseignement->getPrenom());
+            $sheet->setCellValue('F'.$i, $renseignement->getEmail());
+            $sheet->setCellValue('G'.$i, $renseignement->getTel());
+            $sheet->setCellValue('H'.$i, $renseignement->getRue());
+            $sheet->setCellValue('I'.$i, $renseignement->getCp());
+            $sheet->setCellValue('J'.$i, $renseignement->getVille());
 
-           $i++;
-       }
+            $i++;
+        }
 
+        $fichier = 'contactRenseignement.xlsx';
         $writer = new Xlsx($spreadsheet);
-        $writer->save('contactRenseignement.xlsx');
-        return $this->redirectToRoute('renseignement_index');
+        $writer->save($fichier);
 
+
+        $chemin = "./" ;
+        $response = new Response();
+        $response->setContent(file_get_contents($chemin.$fichier));
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-disposition', 'filename='. $fichier);
+        return $response;
     }
 
 
@@ -61,7 +68,7 @@ class XlsController extends AbstractController
     /**
      * @Route("/exportXlsContactSimple", name="xls_export_contactSimple")
      */
-    public function exportContactSimpleXLS(ContactSimpleRepository $contactSimpleRepository)
+    public function exportContactSimpleXLS(CSRepo $contactSimpleRepository)
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -81,7 +88,7 @@ class XlsController extends AbstractController
         $i = 2;
         foreach ($contactsSimples as $contactSimple) {
             $sheet->setCellValue('A'.$i, $contactSimple->getid());
-            $sheet->setCellValue('B'.$i, $contactSimple->getPro() ? 'Pro' : 'Particulier' );
+            $sheet->setCellValue('B'.$i, $contactSimple->getPro() ? 'Pro' : 'Particulier');
             $sheet->setCellValue('C'.$i, $contactSimple->getEntreprise());
             $sheet->setCellValue('D'.$i, $contactSimple->getNom());
             $sheet->setCellValue('E'.$i, $contactSimple->getPrenom());
@@ -94,15 +101,24 @@ class XlsController extends AbstractController
             $i++;
         }
 
+        $fichier = 'contactMessage.xlsx';
         $writer = new Xlsx($spreadsheet);
-        $writer->save('contactMessage.xlsx');
-        return $this->redirectToRoute('renseignement_index');
+        $writer->save($fichier);
+
+        $chemin = "./" ;
+        $response = new Response();
+        $response->setContent(file_get_contents($chemin.$fichier));
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-disposition', 'filename='. $fichier);
+        return $response;
+
+
     }
 
     /**
      * @Route("/exportXlsAll", name="xls_export_all")
      */
-    public function exportAllContactXLS(RenseignementRepository $renseignementRepository ,ContactSimpleRepository $contactSimpleRepository)
+    public function exportAllContactXLS(RRepo $renseignementRepository, CSRepo $contactSimpleRepository)
     {
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -124,7 +140,7 @@ class XlsController extends AbstractController
         $i = 2;
         foreach ($renseignements as $renseignement) {
             $sheet->setCellValue('A'.$i, $renseignement->getid());
-            $sheet->setCellValue('B'.$i, $renseignement->getPro() ? 'Pro' : 'Particulier' );
+            $sheet->setCellValue('B'.$i, $renseignement->getPro() ? 'Pro' : 'Particulier');
             $sheet->setCellValue('C'.$i, $renseignement->getEntreprise());
             $sheet->setCellValue('D'.$i, $renseignement->getNom());
             $sheet->setCellValue('E'.$i, $renseignement->getPrenom());
@@ -139,7 +155,7 @@ class XlsController extends AbstractController
 
         foreach ($contactsSimples as $contactSimple) {
             $sheet->setCellValue('A'.$i, $contactSimple->getid());
-            $sheet->setCellValue('B'.$i, $contactSimple->getPro() ? 'Pro' : 'Particulier' );
+            $sheet->setCellValue('B'.$i, $contactSimple->getPro() ? 'Pro' : 'Particulier');
             $sheet->setCellValue('C'.$i, $contactSimple->getEntreprise());
             $sheet->setCellValue('D'.$i, $contactSimple->getNom());
             $sheet->setCellValue('E'.$i, $contactSimple->getPrenom());
@@ -152,9 +168,15 @@ class XlsController extends AbstractController
             $i++;
         }
 
+        $fichier = 'AllContact.xlsx';
         $writer = new Xlsx($spreadsheet);
-        $writer->save('AllContact.xlsx');
-        return $this->redirectToRoute('renseignement_index');
-    }
+        $writer->save($fichier);
 
+        $chemin = "./" ;
+        $response = new Response();
+        $response->setContent(file_get_contents($chemin.$fichier));
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-disposition', 'filename='. $fichier);
+        return $response;
+    }
 }
