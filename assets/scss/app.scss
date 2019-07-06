@@ -266,16 +266,16 @@ div.card-body.img {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 30px;
+    font-size: 3em;
     -webkit-text-stroke-color: rgb(5, 5, 5);
   text-shadow: black 0.1em 0.1em 0.2em;
     transform: translate(-50%, -50%);
     color: rgb(250, 250, 250);
-    animation-name: z;
+
     animation-duration: 1s;
 }
 
-@keyframes z {
+/*@keyframes z {
     from {
         top: 50%;
         left: 50%;
@@ -284,8 +284,7 @@ div.card-body.img {
       font-size: 300%;
       width: 180%;
     }
-  }
-
+  }*/
 .is-invalid{
   border: 1px solid red;
 }
