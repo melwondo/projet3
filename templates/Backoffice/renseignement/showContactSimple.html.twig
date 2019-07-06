@@ -6,11 +6,13 @@
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">Afficher le message de {{ contactSimple.prenom ~' '~ contactSimple.nom}}</h1>
-            <table class="table">
+            <h1 class="pt-3 pb-3">Message de&nbsp;:&nbsp;
+                <span class="titreBack">{{ contactSimple.prenom ~' '~ contactSimple.nom}}</span>.
+            </h1>
+            <table class="table table-striped">
                 <tbody>
                 <tr>
-                    <th>Id</th>
+                    <th>Identifiant</th>
                     <td>{{ contactSimple.id }}</td>
                 </tr>
                 <tr>
@@ -18,7 +20,7 @@
                     <td>{{ contactSimple.nom }}</td>
                 </tr>
                 <tr>
-                    <th>Prenom</th>
+                    <th>Prénom</th>
                     <td>{{ contactSimple.prenom }}</td>
                 </tr>
                 <tr>
@@ -43,7 +45,7 @@
                 </tr>
                 <tr>
                     <th>Pro</th>
-                    <td>{{ contactSimple.pro ? 'Yes' : 'No' }}</td>
+                    <td>{{ contactSimple.pro ? 'Oui' : 'Non' }}</td>
                 </tr>
                 <tr>
                     <th>Entreprise</th>
@@ -61,14 +63,33 @@
                     <th>DateMessage</th>
                     <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
+                <tr>
+                    <th>Actions</th>
+                    <td>
+                        <div class="btn-group">
+                            {{ include('Backoffice/renseignement/_delete_formContact.html.twig') }}
+                            <div class="btn-light">
+                                <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le message"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le message">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('renseignement_index') }}">
+                                    <img data-toggle="tooltip" data-placement="top" title="Revenir à la liste"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/arrow-left-solid.svg') }}"
+                                         alt="Revenir à la liste">
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
                 </tbody>
             </table>
-
-            <a href="{{ path('renseignement_index') }}">back to list</a>
-
-            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>
-
-            {{ include('Backoffice/renseignement/_delete_formContact.html.twig') }}
         </div>
     </div>
 {% endblock %}

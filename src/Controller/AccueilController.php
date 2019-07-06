@@ -18,7 +18,10 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(Request $request, DetailServiceRepository $sousService, \Swift_Mailer $mailer)
+    public function index(Request $request,
+                          ServiceRepository $service,
+                          DetailServiceRepository $sousService,
+                          \Swift_Mailer $mailer)
     {
         $services = $this->getDoctrine()
             ->getRepository(Service::class)

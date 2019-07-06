@@ -6,14 +6,24 @@
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">Vos messages</h1>
-
-            <table class="table">
+            <h1 class="pt-3 pb-3">
+                Vos demandes de renseignements via les services  -
+                <span class="btn-light">
+                    <a href="{{ path('renseignement_new') }}">
+                        <img data-toggle="tooltip" data-placement="top"
+                             title="Ajouter une nouvelle demande de renseignements via services"
+                             class="iconBackofficeAdd"
+                             src="{{ asset('images/Icons/plus-square-regular.svg') }}"
+                             alt="Ajouter une nouvelle demande de renseignements via services">
+                    </a>
+                </span>
+            </h1>
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Identifiant</th>
                         <th>Nom</th>
-                        <th>Prenom</th>
+                        <th>Prénom</th>
                         <th>Email</th>
                         <th>Tel</th>
                         <th>Rue</th>
@@ -22,8 +32,8 @@
                         <th>Pro</th>
                         <th>Entreprise</th>
                         <th>Message</th>
-                        <th>DateMessage</th>
-                        <th>actions</th>
+                        <th>Date du Message</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,14 +51,31 @@
                         <td>{{ renseignement.entreprise }}</td>
                         <td>{{ renseignement.message }}</td>
                         <td>{{ renseignement.dateMessage ? renseignement.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>
-                            <a href="{{ path('renseignement_show', {'id': renseignement.id}) }}">show</a>
-                            <a href="{{ path('renseignement_edit', {'id': renseignement.id}) }}">edit</a>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('renseignement_show', {'id': renseignement.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le message via services"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le message via services">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('renseignement_edit', {'id': renseignement.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le message via services"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le message via services">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/renseignement/_delete_form.html.twig')}}
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="13">no records found</td>
+                        <td colspan="13">Pas de demandes de renseignements via les services trouvées</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -60,16 +87,26 @@
         </div>
     </div>
     <div class="wrapper">
-        {% include('menuBackoffice.html.twig') %}
+        <div class="elleEstVide"></div>
         <div class="container">
-            <h1 class="pt-5 pb-5">Vos demandes de renseignements </h1>
-
-            <table class="table">
+            <h1 class="pt-3 pb-3">
+                Vos Messages  -
+                <span class="btn-light">
+                    <a href="{{ path('contactSimple_new') }}">
+                        <img data-toggle="tooltip" data-placement="top"
+                             title="Ajouter un nouveau message"
+                             class="iconBackofficeAdd"
+                             src="{{ asset('images/Icons/plus-square-regular.svg') }}"
+                             alt="Ajouter un nouveau message">
+                    </a>
+                </span>
+            </h1>
+            <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Identifiant</th>
                     <th>Nom</th>
-                    <th>Prenom</th>
+                    <th>Prénom</th>
                     <th>Email</th>
                     <th>Tel</th>
                     <th>Rue</th>
@@ -79,7 +116,7 @@
                     <th>Entreprise</th>
                     <th>Message</th>
                     <th>DateMessage</th>
-                    <th>actions</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -97,22 +134,39 @@
                         <td>{{ contactSimple.entreprise }}</td>
                         <td>{{ contactSimple.message }}</td>
                         <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>
-                            <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">show</a>
-                            <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">edit</a>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le message"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le message">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le message"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le message">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/renseignement/_delete_formContact.html.twig')}}
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="13">no records found</td>
+                        <td colspan="13">Pas de messages trouvés/td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-
             <a href="{{ path('contactSimple_new') }}">Create new</a>
             <a href="{{ path('xls_export_contactSimple') }}">Exporter les contacts au format excel</a>
             <a href="{{ path('xls_export_all') }}">Exporter tous les contacts</a>
+
         </div>
     </div>
 {% endblock %}
