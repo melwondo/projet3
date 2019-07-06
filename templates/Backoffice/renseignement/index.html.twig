@@ -55,6 +55,8 @@
             </table>
 
             <a href="{{ path('renseignement_new') }}">Create new</a>
+            <a href="{{ path('xls_export_renseignement') }}">Exporter les contacts au format excel</a>
+
         </div>
     </div>
     <div class="wrapper">
@@ -109,6 +111,8 @@
             </table>
 
             <a href="{{ path('contactSimple_new') }}">Create new</a>
+            <a href="{{ path('xls_export_contactSimple') }}">Exporter les contacts au format excel</a>
+            <a href="{{ path('xls_export_all') }}">Exporter tous les contacts</a>
         </div>
     </div>
 {% endblock %}
