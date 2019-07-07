@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c295336a66c1e342080d49d9e013f7cc",
+    "content-hash": "6615f05ddbf83eee5927b7fe98dc5d5f",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -7225,6 +7225,83 @@
                 "validate"
             ],
             "time": "2018-12-25T11:19:39+00:00"
+        },
+        {
+            "name": "yectep/phpspreadsheet-bundle",
+            "version": "v0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yectep/phpspreadsheet-bundle.git",
+                "reference": "d2cdc11ebfe0289a0688ef768fb7d2941366cb0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yectep/phpspreadsheet-bundle/zipball/d2cdc11ebfe0289a0688ef768fb7d2941366cb0a",
+                "reference": "d2cdc11ebfe0289a0688ef768fb7d2941366cb0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "phpoffice/phpspreadsheet": "~1.1",
+                "symfony/framework-bundle": "~2.7|~3.0|~4.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Yectep\\PhpSpreadsheetBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chester Li",
+                    "email": "yectep@gmail.com"
+                }
+            ],
+            "description": "A Symfony bundle to integrate with PHPOffice's PhpSpreadsheet library",
+            "time": "2019-05-20T06:13:24+00:00"
+        },
+        {
+            "name": "yidas/phpspreadsheet-helper",
+            "version": "1.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yidas/phpspreadsheet-helper.git",
+                "reference": "25a1f439a8d0ce9d79674c3f76d3f09c37088604"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yidas/phpspreadsheet-helper/zipball/25a1f439a8d0ce9d79674c3f76d3f09c37088604",
+                "reference": "25a1f439a8d0ce9d79674c3f76d3f09c37088604",
+                "shasum": ""
+            },
+            "require": {
+                "phpoffice/phpspreadsheet": "^1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/phpSpreadsheet"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Excel Helper - Write and read Spreadsheet with easy way based on PhpSpreadsheet",
+            "homepage": "https://github.com/yidas/phpspreadsheet-helper",
+            "keywords": [
+                "PHPExcel",
+                "PhpSpreadsheet helper",
+                "excel",
+                "php",
+                "phpspreadsheet",
+                "sheet"
+            ],
+            "time": "2019-06-03T10:50:39+00:00"
         },
         {
             "name": "zendframework/zend-code",
