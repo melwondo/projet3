@@ -63,10 +63,7 @@
         </div>
         <div class="col-2 ml-3">
             <li>
-                <a href="#">Mentions légales</a>
-            </li>
-            <li>
-                <a href="#">Plan du site</a>
+                <a href="{{ path('mentions_legales') }}">Mentions légales</a>
             </li>
             <li>
                 {% if is_granted('ROLE_USER') %}
