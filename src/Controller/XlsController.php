@@ -111,8 +111,6 @@ class XlsController extends AbstractController
         $response->headers->set('Content-Type', 'application/force-download');
         $response->headers->set('Content-disposition', 'filename='. $fichier);
         return $response;
-
-
     }
 
     /**

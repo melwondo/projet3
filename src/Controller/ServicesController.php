@@ -28,11 +28,12 @@ class ServicesController extends AbstractController
      * @Route("/services", name="services")
      * @return Response
      */
-    public function index(Request $request,
-                          ServiceRepository $service,
-                          DetailServiceRepository $sousService,
-                          \Swift_Mailer $mailer)
-    {
+    public function index(
+        Request $request,
+        ServiceRepository $service,
+        details $sousService,
+        \Swift_Mailer $mailer
+    ) {
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
             ->findBy(['visible'=>1]);
@@ -90,11 +91,12 @@ class ServicesController extends AbstractController
      * @return RedirectResponse|Response
      * @throws Exception
      */
-    public function details(Request $request,
-                            Service $service,
-                            DetailServiceRepository $detail_service,
-                            \Swift_Mailer $mailer)
-    {
+    public function details(
+        Request $request,
+        Service $service,
+        details $detail_service,
+        \Swift_Mailer $mailer
+    ) {
        
         $detail_service = $detail_service ->findBy(['service'=>$service->getId(), 'visible'=> 1]);
        
