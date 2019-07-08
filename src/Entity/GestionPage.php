@@ -36,6 +36,11 @@ class GestionPage
      */
     private $PageAssociee;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Visible;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class GestionPage
     public function setPageAssociee(string $PageAssociee): self
     {
         $this->PageAssociee = $PageAssociee;
+
+        return $this;
+    }
+
+    public function getVisible(): ?bool
+    {
+        return $this->Visible;
+    }
+
+    public function setVisible(bool $Visible): self
+    {
+        $this->Visible = $Visible;
 
         return $this;
     }

@@ -26,7 +26,7 @@ class ContactController extends AbstractController
 
         $blocsPage = $this->getDoctrine()
             ->getRepository(GestionPage::class)
-            ->findBy(['PageAssociee'=>'Contact']);
+            ->findBy(['PageAssociee'=>'Contact', 'Visible'=>1]);
 
 
         $contact = new ContactSimple();

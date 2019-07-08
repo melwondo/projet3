@@ -27,9 +27,11 @@ class GestionPageType extends AbstractType
                     'Accueil' => 'Accueil',
                     'Services' => 'Services',
                     'Partenaires' => 'Partenaires',
-                    'Contact' => 'Contact'
-                ],
-            ])
+                    'Contact' => 'Contact',
+                    'Sous Services'=> 'SousService'
+                    ],
+                ])
+            ->add('Visible')
         ;
     }
 

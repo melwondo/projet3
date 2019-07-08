@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\GestionPage;
 use App\Entity\Service;
+use App\Repository\GestionPageRepository;
 use Exception;
 use Nette\Utils\DateTime;
 use App\Entity\DetailService;
@@ -37,7 +38,7 @@ class ServicesController extends AbstractController
     ) {
         $blocsPage = $this->getDoctrine()
             ->getRepository(GestionPage::class)
-            ->findBy(['PageAssociee'=>'Services']);
+            ->findBy(['PageAssociee'=>'Services', 'Visible'=> 1]);
 
 
         $services = $this->getDoctrine()
@@ -102,11 +103,14 @@ class ServicesController extends AbstractController
         Request $request,
         Service $service,
         details $detail_service,
-        \Swift_Mailer $mailer
+        \Swift_Mailer $mailer,
+        GestionPageRepository $page
     ) {
        
         $detail_service = $detail_service ->findBy(['service'=>$service->getId(), 'visible'=> 1]);
-       
+
+        $blocPage = $page->findBy(['PageAssociee'=>'SousService', 'Visible'=> 1]);
+
         $client = new Renseignement();
         $form = $this->createForm(RenseignementType::class, $client);
         $form->handleRequest($request);
@@ -148,6 +152,7 @@ class ServicesController extends AbstractController
             'details' => $detail_service,
             'service' => $service,
             'form' => $form->createView(),
+            'blocs'=> $blocPage,
         ]);
     }
 }
