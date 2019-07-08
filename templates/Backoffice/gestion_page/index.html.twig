@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - gestion des pages{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Gestion des blocs pages</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>Image</th>
+                        <th>Contenu</th>
+                        <th>PageAssociee</th>
+                        <th>Visible</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for gestion_page in gestion_pages %}
+                    <tr>
+                        <td>{{ gestion_page.id }}</td>
+                        <td>{{ gestion_page.Titre }}</td>
+                        <td>{{ gestion_page.Image }}</td>
+                        <td>{{ gestion_page.Contenu }}</td>
+                        <td>{{ gestion_page.PageAssociee }}</td>
+                        <td>{{ gestion_page .visible ? 'Oui' : 'Non' }}</td>
+                        <td>
+                            <a href="{{ path('gestion_page_show', {'id': gestion_page.id}) }}">show</a>
+                            <a href="{{ path('gestion_page_edit', {'id': gestion_page.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('gestion_page_new') }}">Create new</a>
+        </div>
+    </div>
+{% endblock %}

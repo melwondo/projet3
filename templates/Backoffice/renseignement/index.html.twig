@@ -22,7 +22,7 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Identifiant</th>
+                        <th>Id</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Email</th>
@@ -32,7 +32,6 @@
                         <th>Ville</th>
                         <th>Pro</th>
                         <th>Entreprise</th>
-                        <th>Message</th>
                         <th>Date du Message</th>
                         <th>Actions</th>
                     </tr>
@@ -91,7 +90,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="contactDiv">
                 <h1 class="pt-3 pb-3">
                     Vos Messages -
@@ -104,9 +102,61 @@
                              alt="Ajouter un nouveau message">
                     </a>
                 </span>
-                </h1>
-                <table class="table table-striped">
-                    <thead>
+            </h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Tel</th>
+                    <th>Rue</th>
+                    <th>Cp</th>
+                    <th>Ville</th>
+                    <th>Pro</th>
+                    <th>Entreprise</th>
+                    <th>Date du message</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contactSimple in contactsSimples %}
+                    <tr>
+                        <td>{{ contactSimple.id }}</td>
+                        <td>{{ contactSimple.nom }}</td>
+                        <td>{{ contactSimple.prenom }}</td>
+                        <td>{{ contactSimple.email }}</td>
+                        <td>{{ contactSimple.tel }}</td>
+                        <td>{{ contactSimple.rue }}</td>
+                        <td>{{ contactSimple.cp }}</td>
+                        <td>{{ contactSimple.ville }}</td>
+                        <td>{{ contactSimple.pro ? 'Oui' : 'Non' }}</td>
+                        <td>{{ contactSimple.entreprise }}</td>
+                        <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('contactSimple_show', {'id': contactSimple.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le message"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le message">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('contactSimple_edit', {'id': contactSimple.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le message"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le message">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/renseignement/_delete_formContact.html.twig')}}
+                        </td>
+                    </tr>
+                {% else %}
                     <tr>
                         <th>Identifiant</th>
                         <th>Nom</th>
