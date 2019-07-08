@@ -87,6 +87,7 @@ footer p {
     color: $footerColorP;
 }
 /*fin Footer */
+
 /* Cards Service - sous service */
 .card {
   max-width: 10rem !important;
@@ -97,9 +98,6 @@ footer p {
 .card:hover {
   transform: scale(1.05);
 }
-/* fin Cards Service - sous service */
-<<<<<<< planSite
-=======
 
 
 /* images Jumbotron*/
@@ -110,10 +108,6 @@ footer p {
 /* fin images Jumbotron*/
 
 
->>>>>>> dev
-/* containter */
-
-/* fin container */
 /* image(cards) partenaire*/
 .card-partenaires {
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -229,7 +223,7 @@ label{
 }
 .img-qsn {
     height: 100% !important;
-    width: 25em;
+    width: 30em;
     margin: 0 0 1em 0;
 }
 
