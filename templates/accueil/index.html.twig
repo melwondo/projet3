@@ -62,22 +62,20 @@
     <div class="parallax"></div>
     {# qui somme nous #}
 
-
+    {% for bloc in blocs %}
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-5 d-flex justify-content-center">
-                <img src="{{ asset('/images/QSnous.png') }}" class="img-fluid img-qsn" width="50%">
+                <img src="./images/pages/{{ bloc.image }}" alt="{{ bloc.titre}}" class="img-fluid img-qsn" width="50%">
             </div>
             <div class="col-7 align-self-center">
-                <h1>Qui sommes nous ?</h1>
-                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
-                    qui
-                    quia architecto
-                    minima quas quae laudantium atque?</p>
+                <h1>{{ bloc.titre }}</h1>
+                <p> {{ bloc.contenu }}</p>
             </div>
         </div>
     </div>
     <div class="parallax"></div>
+    {% endfor %}
 {% endblock %}
 {% block jquery %}
     {% include 'JqueryBlock.html.twig' %}

@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('gestion_page_delete', {'id': gestion_page.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer ce bloc ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ gestion_page.id) }}">
+    <button class="btn">Delete</button>
+</form>

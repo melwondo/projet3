@@ -5,7 +5,7 @@
 {% block content %}
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
-        <div class="container">
+        <div class="container overflow-auto">
             <h1 class="pt-3 pb-3">
                 Vos demandes de renseignements via les services  -
                 <span class="btn-light">
@@ -21,7 +21,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Identifiant</th>
+                        <th>Id</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Email</th>
@@ -31,7 +31,6 @@
                         <th>Ville</th>
                         <th>Pro</th>
                         <th>Entreprise</th>
-                        <th>Message</th>
                         <th>Date du Message</th>
                         <th>Actions</th>
                     </tr>
@@ -49,7 +48,6 @@
                         <td>{{ renseignement.ville }}</td>
                         <td>{{ renseignement.pro ? 'Oui' : 'Non' }}</td>
                         <td>{{ renseignement.entreprise }}</td>
-                        <td>{{ renseignement.message }}</td>
                         <td>{{ renseignement.dateMessage ? renseignement.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
                         <td class="btn-group">
                             <div class="btn-light">
@@ -81,7 +79,6 @@
                 </tbody>
             </table>
 
-            <a href="{{ path('renseignement_new') }}">Create new</a>
             <a href="{{ path('xls_export_renseignement') }}">Exporter les contacts au format excel</a>
 
 
@@ -101,7 +98,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Identifiant</th>
+                    <th>Id</th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Email</th>
@@ -111,8 +108,7 @@
                     <th>Ville</th>
                     <th>Pro</th>
                     <th>Entreprise</th>
-                    <th>Message</th>
-                    <th>DateMessage</th>
+                    <th>Date du message</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -129,7 +125,6 @@
                         <td>{{ contactSimple.ville }}</td>
                         <td>{{ contactSimple.pro ? 'Oui' : 'Non' }}</td>
                         <td>{{ contactSimple.entreprise }}</td>
-                        <td>{{ contactSimple.message }}</td>
                         <td>{{ contactSimple.dateMessage ? contactSimple.dateMessage|date('Y-m-d H:i:s') : '' }}</td>
                         <td class="btn-group">
                             <div class="btn-light">
@@ -160,7 +155,6 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <a href="{{ path('contactSimple_new') }}">Create new</a>
             <a href="{{ path('xls_export_contactSimple') }}">Exporter les contacts au format excel</a>
             <a href="{{ path('xls_export_all') }}">Exporter tous les contacts</a>
 
