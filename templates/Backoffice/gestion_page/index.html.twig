@@ -16,6 +16,7 @@
                         <th>Image</th>
                         <th>Contenu</th>
                         <th>PageAssociee</th>
+                        <th>Visible</th>
                         <th>actions</th>
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@
                         <td>{{ gestion_page.Image }}</td>
                         <td>{{ gestion_page.Contenu }}</td>
                         <td>{{ gestion_page.PageAssociee }}</td>
+                        <td>{{ gestion_page .visible ? 'Oui' : 'Non' }}</td>
                         <td>
                             <a href="{{ path('gestion_page_show', {'id': gestion_page.id}) }}">show</a>
                             <a href="{{ path('gestion_page_edit', {'id': gestion_page.id}) }}">edit</a>

@@ -34,7 +34,7 @@ class AccueilController extends AbstractController
 
         $blocsPage = $this->getDoctrine()
             ->getRepository(GestionPage::class)
-            ->findBy(['PageAssociee'=> 'Accueil']);
+            ->findBy(['PageAssociee'=> 'Accueil', 'Visible'=> 1]);
 
         $client = new Renseignement();
         $form = $this->createForm(RenseignementType::class, $client);

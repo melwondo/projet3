@@ -12,8 +12,12 @@ class FileUploader
     private $targetDirectoryPartenaire;
     private $targetDirectoryPage;
 
-    public function __construct($targetDirectorySousService, $targetDirectoryService, $targetDirectoryPartenaire, $targetDirectoryPage)
-    {
+    public function __construct(
+        $targetDirectorySousService,
+        $targetDirectoryService,
+        $targetDirectoryPartenaire,
+        $targetDirectoryPage
+    ) {
         $this->targetDirectorySousService = $targetDirectorySousService;
         $this->targetDirectoryService = $targetDirectoryService;
         $this->targetDirectoryPartenaire = $targetDirectoryPartenaire;
