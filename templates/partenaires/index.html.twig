@@ -4,22 +4,22 @@
 
 {% block content %}
     {# Ils nous ont fait confiance...#}
+   {% for bloc in blocs %}
     <div class="container pt-5 pb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-5 mb-md-0">
-                <img src="{{ asset('/images/QSnous.png') }}" class="rounded mx-auto d-block" width="75%">
+                <img src="./images/pages/{{ bloc.image}}" class="rounded mx-auto d-block" width="75%">
             </div>
             <div class="col-md-7 align-self-center mb-md-0">
-                <h1>Ils nous ont fait confiance...</h1>
-                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus harum eveniet distinctio
-                    qui quia architecto minima quas quae laudantium atque?</p>
+                <h1>{{ bloc.titre }}</h1>
+                <p class="">{{ bloc.contenu }}</p>
             </div>
         </div>
     </div>
     {# fin ils nous ont fait confiance... #}
 
     <div class="parallax"></div>
-
+    {% endfor %}
     {# image nos partenaires #}
     <div class="container align-items-center">
         <div class="row align-items-center">

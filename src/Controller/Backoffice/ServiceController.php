@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @Route("/service")
@@ -37,7 +38,7 @@ class ServiceController extends AbstractController
      * @return Response
      * @see guessExtension()
      */
-    public function new(Request $request, FileUploader $fileUploader): Response
+    public function new(Request $request, FileUploader $fileUploader, ValidatorInterface $validator): Response
     {
         $service = new Service();
         $form = $this->createForm(ServiceType::class, $service);

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AccesInfoService - Backoffice - afficher un bloc{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        {% include('menuBackoffice.html.twig') %}
+        <div class="container">
+            <h1 class="pt-5 pb-5">Bloc de la page {{ gestion_page.PageAssociee }}, titre : {{ gestion_page.Titre  }}</h1>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ gestion_page.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ gestion_page.Titre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>{{ gestion_page.Image }}</td>
+                    </tr>
+                    <tr>
+                        <th>Contenu</th>
+                        <td>{{ gestion_page.Contenu }}</td>
+                    </tr>
+                    <tr>
+                        <th>PageAssociee</th>
+                        <td>{{ gestion_page.PageAssociee }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('gestion_page_index') }}">back to list</a>
+
+            <a href="{{ path('gestion_page_edit', {'id': gestion_page.id}) }}">edit</a>
+
+            {{ include('Backoffice/gestion_page/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

@@ -8,6 +8,7 @@ parameters:
     Service_Images_Directory: '%kernel.project_dir%/public/images/Service'
     Sous_Service_Images_Directory: '%kernel.project_dir%/public/images/Sous-service'
     Partenaire_Images_Directory: '%kernel.project_dir%/public/images/partenaire'
+    Page_Images_Directory: '%kernel.project_dir%/public/images/pages'
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
 services:
     # default configuration for services in *this* file
@@ -34,3 +35,4 @@ services:
             $targetDirectorySousService: '%Sous_Service_Images_Directory%'
             $targetDirectoryService: '%Service_Images_Directory%'
             $targetDirectoryPartenaire : '%Partenaire_Images_Directory%'
+            $targetDirectoryPage: '%Page_Images_Directory%'
