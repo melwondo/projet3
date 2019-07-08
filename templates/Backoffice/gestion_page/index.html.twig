@@ -1,23 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AccesInfoService - Backoffice - gestion des pages{% endblock %}
+{% block title %}AccesInfoService - Backoffice - Gestion des pages{% endblock %}
 
 {% block content %}
     <div class="wrapper">
         {% include('menuBackoffice.html.twig') %}
         <div class="container">
-            <h1 class="pt-5 pb-5">Gestion des blocs pages</h1>
-
-            <table class="table">
+            <h1 class="pt-3 pb-3">
+                Gestion des blocs pages -
+                <span class="btn-light">
+                    <a href="{{ path('gestion_page_new') }}">
+                        <img data-toggle="tooltip" data-placement="top" title="Ajouter un bloc page"
+                             class="iconBackofficeAdd"
+                             src="{{ asset('images/Icons/plus-square-regular.svg') }}"
+                             alt="Ajouter un bloc page">
+                    </a>
+                </span>
+            </h1>
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Identifiant</th>
                         <th>Titre</th>
                         <th>Image</th>
                         <th>Contenu</th>
                         <th>PageAssociee</th>
                         <th>Visible</th>
-                        <th>actions</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,20 +38,35 @@
                         <td>{{ gestion_page.Contenu }}</td>
                         <td>{{ gestion_page.PageAssociee }}</td>
                         <td>{{ gestion_page .visible ? 'Oui' : 'Non' }}</td>
-                        <td>
-                            <a href="{{ path('gestion_page_show', {'id': gestion_page.id}) }}">show</a>
-                            <a href="{{ path('gestion_page_edit', {'id': gestion_page.id}) }}">edit</a>
+                        <td class="btn-group">
+                            <div class="btn-light">
+                                <a href="{{ path('gestion_page_show', {'id': gestion_page.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Regarder le bloc page"
+                                         class="iconBackoffice align-middle"
+                                         src="{{ asset('images/Icons/search-solid.svg') }}"
+                                         alt="Regarder le bloc page">
+                                </a>
+                            </div>
+                            <div class="btn-light">
+                                <a href="{{ path('gestion_page_edit', {'id': gestion_page.id}) }}">
+                                    <img data-toggle="tooltip" data-placement="top"
+                                         title="Modifier le bloc page"
+                                         class="iconBackoffice"
+                                         src="{{ asset('images/Icons/edit-solid.svg') }}"
+                                         alt="Modifier le bloc page">
+                                </a>
+                            </div>
+                            {{ include('Backoffice/gestion_page/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="6">no records found</td>
+                        <td colspan="6">Pas de bloc page trouvé</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-
-            <a href="{{ path('gestion_page_new') }}">Create new</a>
         </div>
     </div>
 {% endblock %}

@@ -114,9 +114,13 @@ footer p {
   transform: scale(1.05);
 }
 
-/* fin Cards Service - sous service */
-/* containter */
-/* fin container */
+/* images Jumbotron*/
+.jumbotron {
+  background-image: url("../images/serviceJumb.png");
+  background-size: cover;
+}
+
+/* fin images Jumbotron*/
 /* image(cards) partenaire*/
 .card-partenaires {
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -254,12 +258,8 @@ label {
 
 .img-qsn {
   height: 100% !important;
-  width: 12em;
+  width: 30em;
   margin: 0 0 1em 0;
-}
-
-.elleEstVide {
-  width: 100px;
 }
 
 div.card-body.img {
