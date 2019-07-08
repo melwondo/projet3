@@ -30,7 +30,7 @@ class ServicesController extends AbstractController
      */
     public function index(Request $request,
                           ServiceRepository $service,
-                          DetailServiceRepository $sousService,
+                          details $sousService,
                           \Swift_Mailer $mailer)
     {
         $services = $this->getDoctrine()
@@ -92,7 +92,7 @@ class ServicesController extends AbstractController
      */
     public function details(Request $request,
                             Service $service,
-                            DetailServiceRepository $detail_service,
+                            details $detail_service,
                             \Swift_Mailer $mailer)
     {
        
