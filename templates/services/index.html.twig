@@ -24,7 +24,7 @@
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
         {% for service in services %}
-            <div class="card border-primary m-2" style="max-width: 20rem;">
+            <div class="card border-primary m-2" style="max-width: 20rem;  min-width: 20rem;">
                 <div class="card-header">
                     <img class="logoService" src="./images/Service/{{ service.UrlImg }}" alt="logo service">
                 </div>
@@ -32,7 +32,7 @@
                     <h4 class="card-title">{{ service.titre }}</h4>
                     <p class="card-text">{{ service.contenu }}</p>
                 </div>
-                <div class="align-self-end m-2">
+                <div class="align-self-center mb-2">
                     {% set match = 0 %}
                     {% for sousService in sousServices %}
                         {% if sousService.service.id == service.id %}
@@ -42,7 +42,7 @@
                     {% if match > 0 %}
                         <a class="btn btn-primary btn-sm" href="{{ path('service_detail', {'id': service.id}) }}" role="button">En savoir plus</a>
                     {% else %}
-                        <div class="align-self-end m-2">
+                        <div class="align-self-center">
                             <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
                                role="button">Nous contacter</a>
                         </div>
@@ -56,22 +56,26 @@
 {% include "contactFormModal.html.twig" %}
 
     <div class="parallax"> </div>
+    {% for bloc in blocs %}
         <div class="container mt-5 mb-5">
             <div class="row justify-content-center">
                 <div class="col-7">
-                    <h2>Répondre au mieux à l'ensemble de vos besoins informatiques</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur deserunt fugit iure nemo placeat? Alias aspernatur beatae, delectus dolorum, facilis itaque, laborum magnam minima modi quos reiciendis repellat voluptates!</p>
+                    <h2>{{ bloc.titre }}</h2>
+                    <p>{{ bloc.contenu }}</p>
                     <div class="align-self-end m-2">
                         <a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalRegisterForm"
                            role="button">Nous contacter</a>
                     </div>
                 </div>
                 <div class="col-3">
-                    <img src="https://via.placeholder.com/250" alt="">
+
+                    <img src="./images/pages/{{ bloc.image }}" alt="{{ bloc.titre }}" class="img-fluid img-qsn">
+
                 </div>
             </div>
         </div>
     <div class="parallax"> </div>
+    {% endfor %}
 {% endblock %}
 {% block jquery %}
 {% include 'JqueryBlock.html.twig' %}

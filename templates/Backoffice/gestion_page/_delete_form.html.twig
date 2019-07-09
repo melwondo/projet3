@@ -1,0 +1,10 @@
+<form method="post" action="{{ path('gestion_page_delete', {'id': gestion_page.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer ce bloc ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ gestion_page.id) }}">
+    <button type="submit" class="btn-light">
+        <img data-toggle="tooltip" data-placement="top" title="Supprimer le bloc page"
+             class="iconBackofficeDelete"
+             src="{{ asset('images/Icons/trash-alt-regular.svg') }}"
+             alt="Supprimer le bloc page">
+    </button>
+</form>

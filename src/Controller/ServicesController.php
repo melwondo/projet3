@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\GestionPage;
 use App\Entity\Service;
+use App\Repository\GestionPageRepository;
 use Exception;
 use Nette\Utils\DateTime;
 use App\Entity\DetailService;
@@ -28,8 +30,17 @@ class ServicesController extends AbstractController
      * @Route("/services", name="services")
      * @return Response
      */
-    public function index(Request $request, details $sousService, \Swift_Mailer $mailer)
-    {
+    public function index(
+        Request $request,
+        ServiceRepository $service,
+        details $sousService,
+        \Swift_Mailer $mailer
+    ) {
+        $blocsPage = $this->getDoctrine()
+            ->getRepository(GestionPage::class)
+            ->findBy(['PageAssociee'=>'Services', 'Visible'=> 1]);
+
+
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
             ->findBy(['visible'=>1]);
@@ -75,6 +86,7 @@ class ServicesController extends AbstractController
             'services' => $services,
             'sousServices' => $sousServices,
             'form' => $form->createView(),
+            'blocs'=> $blocsPage,
         ]);
     }
 
@@ -87,11 +99,18 @@ class ServicesController extends AbstractController
      * @return RedirectResponse|Response
      * @throws Exception
      */
-    public function details(Request $request, Service $service, details $detail_service, \Swift_Mailer $mailer)
-    {
+    public function details(
+        Request $request,
+        Service $service,
+        details $detail_service,
+        \Swift_Mailer $mailer,
+        GestionPageRepository $page
+    ) {
        
         $detail_service = $detail_service ->findBy(['service'=>$service->getId(), 'visible'=> 1]);
-       
+
+        $blocPage = $page->findBy(['PageAssociee'=>'SousService', 'Visible'=> 1]);
+
         $client = new Renseignement();
         $form = $this->createForm(RenseignementType::class, $client);
         $form->handleRequest($request);
@@ -133,6 +152,7 @@ class ServicesController extends AbstractController
             'details' => $detail_service,
             'service' => $service,
             'form' => $form->createView(),
+            'blocs'=> $blocPage,
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ContactSimple;
+use App\Entity\GestionPage;
 use App\Entity\Service;
 use App\Form\ContactType;
 use Nette\Utils\DateTime;
@@ -22,6 +23,12 @@ class ContactController extends AbstractController
      */
     public function index(Request $request, \Swift_Mailer $mailer)
     {
+
+        $blocsPage = $this->getDoctrine()
+            ->getRepository(GestionPage::class)
+            ->findBy(['PageAssociee'=>'Contact', 'Visible'=>1]);
+
+
         $contact = new ContactSimple();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
@@ -59,6 +66,7 @@ class ContactController extends AbstractController
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',
             'form' => $form -> createView(),
+            'blocs'=> $blocsPage,
         ]);
     }
 }

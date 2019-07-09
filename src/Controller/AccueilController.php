@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\GestionPage;
 use App\Entity\Service;
 use Nette\Utils\DateTime;
 use App\Entity\Renseignement;
@@ -18,14 +19,22 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(Request $request, DetailServiceRepository $sousService, \Swift_Mailer $mailer)
-    {
+    public function index(
+        Request $request,
+        DetailServiceRepository $sousService,
+        \Swift_Mailer $mailer
+    ) {
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
             ->findBy(['visible'=>1]);
 
-        // $services = $service->findBy(['visible'=>1]);
+
         $sousServices = $sousService->findBy(['visible'=>1]);
+
+
+        $blocsPage = $this->getDoctrine()
+            ->getRepository(GestionPage::class)
+            ->findBy(['PageAssociee'=> 'Accueil', 'Visible'=> 1]);
 
         $client = new Renseignement();
         $form = $this->createForm(RenseignementType::class, $client);
@@ -67,6 +76,7 @@ class AccueilController extends AbstractController
             'services' => $services,
             'sousServices' => $sousServices,
             'form' => $form->createView(),
+            'blocs' => $blocsPage,
         ]);
     }
 
