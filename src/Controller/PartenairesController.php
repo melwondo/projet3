@@ -15,7 +15,7 @@ class PartenairesController extends AbstractController
     public function index(PartenaireRepository $partenaires, Page $pageRepository)
     {
         $blocsPage = $pageRepository->findBy(['PageAssociee'=>'Partenaires', 'Visible'=>1]);
-        $partenaires = $partenaires->findBy(['visible'=>1]);
+        $partenaires = $partenaires->findAllOrderByAlpha();
         return $this->render('partenaires/index.html.twig', [
             'partenaires' => $partenaires,
             'blocs' => $blocsPage,
