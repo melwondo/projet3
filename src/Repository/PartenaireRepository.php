@@ -19,22 +19,20 @@ class PartenaireRepository extends ServiceEntityRepository
         parent::__construct($registry, Partenaire::class);
     }
 
-    // /**
-    //  * @return Partenaire[] Returns an array of Partenaire objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Partenaire[] Returns an array of Partenaire objects
+     */
+
+    public function findAllOrderByAlpha()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('p.visible = 1')
+            ->orderBy('p.OrdreAffichage', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Partenaire

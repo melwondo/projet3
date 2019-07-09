@@ -23,6 +23,7 @@
                     <th>Identifiant</th>
                     <th>Nom</th>
                     <th>Nom de l'image</th>
+                    <th>Ordre d'affichage</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     <td>{{ partenaire.id }}</td>
                     <td>{{ partenaire.nom }}</td>
                     <td>{{ partenaire.urlLogo }}</td>
+                    <td>{{ partenaire.OrdreAffichage }}</td>
                     <td class="btn-group">
                         <div class="btn-light">
                             <a href="{{ path('partenaire_show', {'id': partenaire.id}) }}">

@@ -20,6 +20,7 @@ class PartenaireType extends AbstractType
                 'data_class' => null,
             ])
             ->add('visible')
+            ->add('OrdreAffichage')
         ;
     }
 
