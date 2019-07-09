@@ -95,6 +95,7 @@ footer a {
 
 footer li {
   list-style: none;
+  text-transform: uppercase;
 }
 
 footer p {
@@ -279,28 +280,28 @@ div.card-body.img {
   margin-bottom: 9em;
 }
 
-.centered h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 3em;
-  -webkit-text-stroke-color: #050505;
-  text-shadow: black 0.1em 0.1em 0.2em;
-  transform: translate(-50%, -50%);
-  color: #fafafa;
-  animation-duration: 1s;
+.headerImg {
+  background-image: url("../images/imageSousNav.jpg");
+  background-repeat: no-repeat;
+  height: 34em;
 }
 
-/*@keyframes z {
-    from {
-        top: 50%;
-        left: 50%;
-    }
-    50% {
-      font-size: 300%;
-      width: 180%;
-    }
-  }*/
+.headerImg h1 {
+  font-size: 3em;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  color: #fafafa;
+  position: relative;
+  top: 30%;
+}
+
+/*.centered h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 3em;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    color: rgb(250, 250, 250);
+}*/
 .is-invalid {
   border: 1px solid red;
 }
