@@ -4,6 +4,7 @@ namespace App\Controller\Backoffice;
 
 use App\Entity\Service;
 use App\Form\ServiceType;
+use App\Form\ServiceEditType;
 use App\Repository\ServiceRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -88,7 +89,7 @@ class ServiceController extends AbstractController
      */
     public function edit(Request $request, Service $service, FileUploader $fileUploader): Response
     {
-        $form = $this->createForm(ServiceType::class, $service);
+        $form = $this->createForm(ServiceEditType::class, $service);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
