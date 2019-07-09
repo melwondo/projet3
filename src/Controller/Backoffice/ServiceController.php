@@ -13,8 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
+ * Require ROLE_ADMIN for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_ADMIN")
+ *
  * @Route("/service")
  */
 class ServiceController extends AbstractController

@@ -12,8 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\File;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
+ * Require ROLE_ADMIN for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_ADMIN")
+ *
  * @Route("/partenaire")
  */
 class PartenaireController extends AbstractController
