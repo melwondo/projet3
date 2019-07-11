@@ -5,6 +5,7 @@ namespace App\Controller\Backoffice;
 use App\Entity\DetailService;
 use App\Entity\Service;
 use App\Form\DetailServiceType;
+use App\Form\DetailServiceEditType;
 use App\Repository\DetailServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -77,7 +78,7 @@ class DetailServiceController extends AbstractController
      */
     public function edit(Request $request, DetailService $detailService, FileUploader $fileUploader): Response
     {
-        $form = $this->createForm(DetailServiceType::class, $detailService);
+        $form = $this->createForm(DetailServiceEditType::class, $detailService);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

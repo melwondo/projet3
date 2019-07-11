@@ -31,6 +31,11 @@ class Partenaire
      */
     private $visible;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $OrdreAffichage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Partenaire
     public function setVisible(bool $visible): self
     {
         $this->visible = $visible;
+
+        return $this;
+    }
+
+    public function getOrdreAffichage(): ?int
+    {
+        return $this->OrdreAffichage;
+    }
+
+    public function setOrdreAffichage(int $OrdreAffichage): self
+    {
+        $this->OrdreAffichage = $OrdreAffichage;
 
         return $this;
     }

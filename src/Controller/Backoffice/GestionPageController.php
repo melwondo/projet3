@@ -4,6 +4,7 @@ namespace App\Controller\Backoffice;
 
 use App\Entity\GestionPage;
 use App\Form\GestionPageType;
+use App\Form\GestionPageEditType;
 use App\Repository\GestionPageRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -76,7 +77,7 @@ class GestionPageController extends AbstractController
      */
     public function edit(Request $request, GestionPage $gestionPage, FileUploader $fileUploader): Response
     {
-        $form = $this->createForm(GestionPageType::class, $gestionPage);
+        $form = $this->createForm(GestionPageEditType::class, $gestionPage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

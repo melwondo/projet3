@@ -4,6 +4,7 @@ namespace App\Controller\Backoffice;
 
 use App\Entity\Partenaire;
 use App\Form\PartenaireType;
+use App\Form\PartenaireEditType;
 use App\Service\FileUploader;
 use App\Repository\PartenaireRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -78,7 +79,7 @@ class PartenaireController extends AbstractController
      */
     public function edit(Request $request, Partenaire $partenaire, FileUploader $fileUploader): Response
     {
-        $form = $this->createForm(PartenaireType::class, $partenaire);
+        $form = $this->createForm(PartenaireEditType::class, $partenaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

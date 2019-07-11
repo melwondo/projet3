@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class DetailServiceType extends AbstractType
+class DetailServiceEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $option)
     {
@@ -26,8 +26,8 @@ class DetailServiceType extends AbstractType
             ->add('contenu')
             ->add('UrlImg', FileType::class, [
                 'label' => 'Image (jpg, png)',
-                'required' => true,
-                'mapped' => true,
+                'required' => false,
+                'mapped' => false,
                 'data_class' => null,
             ])
             ->add('service', EntityType::class, [

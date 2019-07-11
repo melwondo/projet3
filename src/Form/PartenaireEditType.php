@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class PartenaireType extends AbstractType
+class PartenaireEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,7 +16,8 @@ class PartenaireType extends AbstractType
             ->add('nom')
             ->add('urlLogo', FileType::class, [
                 'label' => 'Image (jpg, png)',
-                'required' => true,
+                'mapped'=> false,
+                'required' => false,
                 'data_class' => null,
             ])
             ->add('visible')
