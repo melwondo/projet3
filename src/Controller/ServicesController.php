@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\ContactSimple;
 use App\Entity\GestionPage;
 use App\Entity\Service;
+use App\Form\ContactType;
 use App\Repository\GestionPageRepository;
 use Exception;
 use Nette\Utils\DateTime;
@@ -47,8 +49,8 @@ class ServicesController extends AbstractController
 
         $sousServices = $sousService->findBy(['visible'=>1]);
 
-        $client = new Renseignement();
-        $form = $this->createForm(RenseignementType::class, $client);
+        $client = new ContactSimple();
+        $form = $this->createForm(ContactType::class, $client);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -111,8 +113,8 @@ class ServicesController extends AbstractController
 
         $blocPage = $page->findBy(['PageAssociee'=>'SousService', 'Visible'=> 1]);
 
-        $client = new Renseignement();
-        $form = $this->createForm(RenseignementType::class, $client);
+        $client = new ContactSimple();
+        $form = $this->createForm(ContactType::class, $client);
         $form->handleRequest($request);
 
 
