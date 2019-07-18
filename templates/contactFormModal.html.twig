@@ -1,7 +1,7 @@
 {# Modal de contact#}
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header text-center ">
                 <h4 class="modal-title w-100 font-weight-bold">Demande de renseignements</h4>
@@ -10,25 +10,169 @@
                 </button>
             </div>
             <div class="modal-body mx-3">
-                <div class="md-form mb-5">
-                    {{ form_start(form) }}
-                     {{ form_row(form.pro) }}
-                    {{ form_row(form.entreprise, { 'attr': {'placeholder': 'Entreprise'} }) }}
-                    {{ form_row(form.nom) }}
-                    {{ form_row(form.prenom) }}
-                    {{ form_row(form.email) }}
-                    {{ form_row(form.tel) }}
-                    {{ form_row(form.rue) }}
-                    {{ form_row(form.cp)}}
-                    {{ form_row(form.ville) }}
-                    {{ form_row(form.message) }}
+                <div class="container pt-3 pb-5">
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4 pb-4">Contactez nous</h2>
+                    <!--Section description-->
+                    <div class="col-md-12">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            <!--Grid column1-->
+                            <div class="col-md-4 mb-md-0 mb-5 ">
+                                <i class='fas fa-user-alt d-flex justify-content-center' style='font-size:36px'></i>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form  mt-3 pt-5">
+                                            {{ form_widget(form.nom) }}
+                                            {{ form_label(form.nom) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.prenom) }}
+                                            {{ form_label(form.prenom) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.email) }}
+                                            {{ form_label(form.email) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.tel) }}
+                                            {{ form_label(form.tel) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+
+                                <!--Grid row-->
+                            </div>
+                            <!--Grid column1-->
+                            <!--Grid column2-->
+                            <div class="col-md-4 mb-md-0 mb-5">
+                                <i class='fas fa-home d-flex justify-content-center' style='font-size:36px'></i>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12 mt-4">
+                                        <div class="md-form mt-3 mb-0 text-center">
+                                            <div class="custom-control custom-switch">
+                                                {{ form_widget(form.pro, {
+                                                    'attr':{'class': 'custom-control-input'}
+                                                }) }}
+                                                {{ form_label(form.pro, {
+                                                    'attr':{'class': 'custom-control-label'}
+                                                }) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Grid column-->
+                                            <div class="col-md-12">
+                                                <div class="md-form">
+                                                    {{ form_widget(form.entreprise) }}
+                                                    {{ form_label(form.entreprise) }}
+                                                </div>
+                                            </div>
+                                            <!--Grid column-->
+                                        </div>
+                                    </div>
+
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.rue) }}
+                                            {{ form_label(form.rue) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.cp) }}
+                                            {{ form_label(form.cp) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(form.ville) }}
+                                            {{ form_label(form.ville) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                            </div>
+                            <!--Grid column2-->
+                            <!--Grid column3-->
+                            <div class="col-md-4 mb-md-0 mb-5">
+                                <i class='fas fa-envelope d-flex justify-content-center' style='font-size:36px'></i>
+                                <!--Grid row-->
+                                <div class="row">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mt-3 pt-5">
+                                            {{ form_widget(form.sujet) }}
+                                            {{ form_label(form.sujet) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                                <!--Grid row-->
+                                <div class="row ">
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0" style="box-shadow: inset 0 -1px 2px #ddd">
+                                            {{ form_widget(form.message) }}
+                                        </div>
+                                        <div class="md-form mb-0">
+                                            {{ form_label(form.message) }}
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                            </div>
+                            <!--Grid column3-->
+                            <div class="text-center mx-auto">
+                                <button type="submit" class="btn-lg btn-primary">
+                                    ENVOYER
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">
-                        Envoyer
-                    </button>
-                </div>
-                {{ form_end(form) }}
             </div>
         </div>
     </div>
