@@ -24,6 +24,7 @@ class AccueilController extends AbstractController
         DetailServiceRepository $sousService,
         \Swift_Mailer $mailer
     ) {
+        $captcha= null;
         $services = $this->getDoctrine()
             ->getRepository(Service::class)
             ->findBy(['visible'=>1]);
@@ -42,36 +43,62 @@ class AccueilController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $client->setDateMessage(new DateTime());
+            //recaptcha
+            if (isset($_POST['g-recaptcha-response'])) {
+                $captcha = $_POST['g-recaptcha-response'];
+            }
+            if (!$captcha) {
+                $this->addFlash(
+                    'danger',
+                    'Veuillez verifier le formulaire captcha'
+                );
+                return $this->redirect($request->getUri());
+            }
+            $secretKey = "6Lfm2KwUAAAAABOwiaCycthCaEIt68JdbJYNZc8R";
+            $ip = $_SERVER['REMOTE_ADDR'];
+            // post request to server
+            $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' .
+                urlencode($secretKey) . '&response=' . urlencode($captcha);
 
-            $tete = $client->getNom(). ' ' . $client->getPrenom();
-            $message = (new \Swift_Message())
-            ->setSubject($tete)
-            ->setFrom($this->getParameter('mailer_from'))
-            ->setTo('hhggaamlk@gmail.com')
-            ->setBody(
-                $this->renderView(
-                    'Email/notificationRenseignement.html.twig',
-                    ['client' => $client]
-                ),
-                'text/html'
-            );
+            $response = file_get_contents($url);
+            $responseKeys = json_decode($response, true);
+            // should return JSON with success as true
+            if ($responseKeys["success"]) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $client->setDateMessage(new DateTime());
 
-            $mailer->send($message);
+                $tete = $client->getNom() . ' ' . $client->getPrenom();
+                $message = (new \Swift_Message())
+                    ->setSubject($tete)
+                    ->setFrom($this->getParameter('mailer_from'))
+                    ->setTo('hhggaamlk@gmail.com')
+                    ->setBody(
+                        $this->renderView(
+                            'Email/notificationRenseignement.html.twig',
+                            ['client' => $client]
+                        ),
+                        'text/html'
+                    );
 
-            $this->addFlash(
-                'notice',
-                'Votre message a bien été envoyé !'
-            );
+                $mailer->send($message);
 
-            $entityManager->persist($client);
-            $entityManager->flush();
+                $this->addFlash(
+                    'notice',
+                    'Votre message a bien été envoyé !'
+                );
 
-            return $this->redirect($request->getUri());
+                $entityManager->persist($client);
+                $entityManager->flush();
+
+                return $this->redirect($request->getUri());
+            } else {
+                $this->addFlash(
+                    'danger',
+                    'Veuillez verifier le formulaire captcha'
+                );
+                return $this->redirect($request->getUri());
+            }
         }
-
-
         return $this->render('accueil/index.html.twig', [
             'services' => $services,
             'sousServices' => $sousServices,
