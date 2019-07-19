@@ -19,6 +19,14 @@
     <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
 </div>
 {% endfor %}
+{% for message in app.flashes('danger') %}
+    <div class="flash-notice alert alert-danger text-center" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h2><i class="fas fa-times-circle"></i>{{ message }}</h2>
+    </div>
+{% endfor %}
 
     {# Présentation des sérvices#}
     <div class="container mt-5 mb-5">

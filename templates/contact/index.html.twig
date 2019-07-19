@@ -19,6 +19,14 @@
             <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
         </div>
     {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="flash-notice alert alert-danger text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2><i class="fas fa-times-circle"></i>{{ message }}</h2>
+        </div>
+    {% endfor %}
 
     {# qui sommes nous #}
     {% for bloc in blocs %}
@@ -194,6 +202,7 @@
                 </div>
                 <!--Grid column3-->
                 <div class="text-center mx-auto">
+                    <div class="g-recaptcha" data-sitekey="6Lfm2KwUAAAAAI2IcrpqOTi732txCCgW52RcmUbe"></div>
                     <button type="submit" class="btn-lg btn-primary">
                         ENVOYER
                     </button>
