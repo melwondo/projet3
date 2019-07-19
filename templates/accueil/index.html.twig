@@ -7,27 +7,28 @@
     <div class="headerImg text-center">
         <h1 class="slogan">Votre partenaire informatique au Luxembourg</h1>
         <a href="#nos_services">
-            <img class="imgArrow" src="{{ asset('/images/arrow.gif') }}">
+            <div class="arrow bounce">
+            </div>
         </a>
     </div>
 
 
-{% for message in app.flashes('notice') %}
-<div class="flash-notice alert alert-success text-center" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
-</div>
-{% endfor %}
-{% for message in app.flashes('danger') %}
-    <div class="flash-notice alert alert-danger text-center" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <h2><i class="fas fa-times-circle"></i>{{ message }}</h2>
-    </div>
-{% endfor %}
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice alert alert-success text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2><i class="fas fa-check-circle mr-2"></i>{{ message }}</h2>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="flash-notice alert alert-danger text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h2><i class="fas fa-times-circle"></i>{{ message }}</h2>
+        </div>
+    {% endfor %}
     <div class="container pt-5 pb-5">
         <div class="pb-5">
             <h1 id="nos_services">Nos services</h1>
