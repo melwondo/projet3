@@ -170,6 +170,7 @@ footer p {
 }
 
 /* fin images(cards) partenaire*/
+
 /* image fond du site */
 .parallax {
   background-image: url("../images/paraIndex.jpg");
@@ -287,11 +288,34 @@ div.card-body.img {
   margin-bottom: 9em;
 }
 
+/*image header*/
+$base-header-height: 100%;
+$base-spacing-unit: 1em;
+$base-font-family: 'Open Sans', sans-serif;
+
 .headerImg {
   background-image: url("../images/imageSousNav.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 34em;
+  position: relative; // 2.
+  height: 100%;
+  overflow: auto; // 1.
+  -webkit-overflow-scrolling: touch; // 5.
+
+  @at-root .headerImg {
+    height: $base-header-height;
+
+    background-position: center center; // 3.
+    background-repeat: no-repeat; // 3.
+    background-size: cover; // 3.
+  }
+
+  @at-root .headerImg {
+    color: #fff;
+    position: relative; // 2.
+    bottom: $base-spacing-unit; // 2.
+    left: 0;
+    width: 100%; // 4.
+    height: 80vh;
+  }
 }
 
 .headerImg h1 {
@@ -309,11 +333,10 @@ div.card-body.img {
 }
 
 
-
 .is-invalid {
   border: 1px solid red;
 }
 
-.modal-content{
+.modal-content {
   width: 200em !important;
 }
