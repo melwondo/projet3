@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\ContactSimple;
 use App\Entity\GestionPage;
 use App\Entity\Service;
+use App\Form\ContactType;
 use Nette\Utils\DateTime;
-use App\Entity\Renseignement;
-use App\Form\RenseignementType;
 use App\Repository\ServiceRepository;
 use App\Repository\PartenaireRepository;
 use App\Repository\DetailServiceRepository;
@@ -36,8 +36,8 @@ class AccueilController extends AbstractController
             ->getRepository(GestionPage::class)
             ->findBy(['PageAssociee'=> 'Accueil', 'Visible'=> 1]);
 
-        $client = new Renseignement();
-        $form = $this->createForm(RenseignementType::class, $client);
+        $client = new ContactSimple();
+        $form = $this->createForm(ContactType::class, $client);
         $form->handleRequest($request);
 
 
